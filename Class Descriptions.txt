@@ -1,0 +1,46 @@
+Main Class:
+ - Put everything together
+ - Has an initialize method that reads from the database and creates objects as needed
+ - Read each scholarships from the database and create an arraylist of type scholarship
+ - For each scholarship of the list, it should contain an arraylist of Applicants
+ - Read the list of applicants and sort the list in terms of best to worst
+
+Scholarship:
+ - Name
+ - Donor
+ - Applicant Type (undergrad, international, etc)
+ - Value
+ - Term based or annual
+ - Minimum requirements
+ - Deadlines
+ - Other restrictions (faculty and department)
+ - Total number of awards
+ - List of current applicants of type applicant
+
+User:
+ - Name
+ - Administration Level
+ - Login ID (username and password)
+
+Applicants:
+ - Extends User
+ - Administration Level: 0
+ - Various flags
+    - Undergrad stuff
+    - International
+    - Welfare
+    - Nominated by Professor
+ - GPA
+
+Professor:
+ - Extends User
+ - Administration Level: 1
+ - Nominates students for awards
+ - Submits Reference Letters
+
+Administrator:
+ - Extends User
+ - Administration Level: 2
+ - Can view list of scholarships
+ - Can edit scholarships
+ - Can add or delete scholarships
