@@ -1,6 +1,4 @@
-
-
-public class Applicant extends User{
+public class Applicant {
 	
 	public String firstName;
 	public String lastName;
@@ -9,9 +7,12 @@ public class Applicant extends User{
 	public String department;
 	public Float GPA;
 	public Integer level;
-	float GPA;
+	public String userName;
+	public String password;
 	
-	public Applicant(String firstname, String lastname, String studenttype, String fac, String dep, Float gpa) {
+
+	public Applicant(String firstname, String lastname, String studenttype, String fac, String dep, Float gpa, String username) {
+		// TODO Auto-generated constructor stub
 		this.firstName = firstname;
 		this.lastName = lastname;
 		this.studentType = studenttype;
@@ -19,10 +20,11 @@ public class Applicant extends User{
 		this.department = dep;
 		this.GPA = gpa;
 		this.level = 0;
-		//Default is administration level 0
+		this.userName = username;
+		
 	}
-	
-	//getters and setters
+
+
 	public void setFirstName(String firstname) {
 		this.firstName = firstname;
 	}
@@ -77,5 +79,14 @@ public class Applicant extends User{
 	
 	public Integer getLevel() {
 		return level;
-	}	
+	}
+	
+	public void setUserName(String username) {
+		this.userName = username;
+	}
+	
+	public String getUserName() {
+		return userName;
+	}
+	
 }
