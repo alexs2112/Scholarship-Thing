@@ -1,0 +1,8 @@
+admin adminPW admin
+teststudent studentPW student
+sc scpassword sc
+123 password sc
+124 password student
+125 password admin
+126 password prof
+127 password1 prof

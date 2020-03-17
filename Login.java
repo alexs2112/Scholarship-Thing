@@ -1,10 +1,10 @@
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
 
@@ -53,34 +53,47 @@ public class Login {
 		frmLogin.getContentPane().add(textField);
 		textField.setColumns(10);
 
+		passwordField = new JPasswordField();
+		passwordField.setBounds(204, 121, 130, 26);
+		frmLogin.getContentPane().add(passwordField);
+
 		JButton btnNewButton = new JButton("Login");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
+			try{
+				LoginCheck loginCheck = new LoginCheck();
 				String userLogin = textField.getText();
+				char[] c = passwordField.getPassword();
+				String userPassword = new String(c);
+				String cond = loginCheck.login(userLogin, userPassword);
+				System.out.println(cond);
 
-				if (userLogin.equals("1")) {
+				if (cond.equals("sc")) {
 				frmLogin.dispose();
 				ScholarCoordLogin schoCoor = new ScholarCoordLogin();
 				schoCoor.setVisible(true);
 
-			}	else if (userLogin.equals("2")) {
+			}	else if (cond.equals("prof")) {
 				frmLogin.dispose();
 				ProfessorLogin profLog = new ProfessorLogin();
 				profLog.setVisible(true);
 
-			}	else if (userLogin.equals("3")) {
+			}	else if (cond.equals("admin")) {
 				frmLogin.dispose();
 				AdminLogin adminLog = new AdminLogin();
 				adminLog.setVisible(true);
 
-			} else {
+			} else if (cond.equals("student")){
 				frmLogin.dispose();
 				ApplicantLogin appLog = new ApplicantLogin();
 				appLog.setVisible(true);
 			}
+		} catch (IOException g) {
+			g.printStackTrace();
 			}
-		});
+		}
+	});
 
 		btnNewButton.setBounds(97, 182, 117, 29);
 		frmLogin.getContentPane().add(btnNewButton);
@@ -92,10 +105,6 @@ public class Login {
 		JLabel lblNewLabel_1 = new JLabel("Password");
 		lblNewLabel_1.setBounds(99, 126, 61, 16);
 		frmLogin.getContentPane().add(lblNewLabel_1);
-
-		passwordField = new JPasswordField();
-		passwordField.setBounds(204, 121, 130, 26);
-		frmLogin.getContentPane().add(passwordField);
 
 		JButton btnNewButton_1 = new JButton("Register");
 		btnNewButton_1.addActionListener(new ActionListener() {
