@@ -12,6 +12,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 import java.awt.event.ActionEvent;
 
 public class Register extends JFrame {
@@ -170,9 +171,17 @@ public class Register extends JFrame {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				char[] pass = passwordField.getPassword();
+				char[] pass1 = passwordField_1.getPassword();
+				
 				if (textField.getText().contentEquals("") || textField_1.getText().equals("") || textField_2.getText().equals("") || textField_3.getText().equals("")){
 					JOptionPane.showMessageDialog(null, "Please ensure all fields are complete");
 				
+					
+				} else if (!Arrays.equals(pass, pass1)) {
+					JOptionPane.showMessageDialog(null, "Passwords do not match!");
+							
+					
 				} else {
 					String studentFirstName = textField.getText();
 					String studentLastName = textField_1.getText();
@@ -197,3 +206,6 @@ public class Register extends JFrame {
 		btnNewButton_1.setBounds(523, 292, 117, 29);
 		contentPane.add(btnNewButton_1);
 		}}
+		
+	
+
