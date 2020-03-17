@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.*;
+import javax.swing.JOptionPane;
 
 public class LoginCheck {
 
@@ -32,17 +33,17 @@ public class LoginCheck {
                 int index = uNList.indexOf(username);
 
                 if (uNList.contains(username) & password == pWList.get(index)){
-                System.out.println("You have sucessfully logged in!");
+                JOptionPane.showMessageDialog(null, "You have sucessfully logged in!");
                 }
             }
             else{
-                System.out.println("Please register instead.");
+                JOptionPane.showMessageDialog(null, "Please register instead.");
             }
 
             read.close();
 
         } catch (FileNotFoundException e) {
-            System.out.println("Account file not found.");
+            JOptionPane.showMessageDialog(null, "Account file not found.");
         }
         
         if (uNList.contains(username) == false || pWList.contains(password) == false) {
