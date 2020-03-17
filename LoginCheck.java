@@ -29,12 +29,9 @@ public class LoginCheck {
                 }
                 line = read.readLine();
             }
-            if (username.length() != 0 && password.length() != 0) {
-                int index = uNList.indexOf(username);
-
-                if (uNList.contains(username) & password == pWList.get(index)){
+			int index = uNList.indexOf(username);
+            if (username.length() != 0 && password.length() != 0 && uNList.contains(username) && password == pWList.get(index)) {
                 JOptionPane.showMessageDialog(null, "You have sucessfully logged in!");
-                }
             }
             else{
                 JOptionPane.showMessageDialog(null, "Please register instead.");
