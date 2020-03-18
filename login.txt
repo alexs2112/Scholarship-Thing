@@ -1,0 +1,3 @@
+admin admin admin
+teststudent studentPW student
+sc scpassword sc
