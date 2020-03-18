@@ -45,4 +45,15 @@ public class LoginCheck {
             return userType;
         }
     }
+
+    public void addToFile(String username, String password) throws IOException{
+        try {
+            BufferedWriter write = new BufferedWriter(new FileWriter("Resources/login.txt", true));
+            write.append(username+" "+password+" student\n");
+            write.close();
+        }
+        catch (FileNotFoundException e){
+            JOptionPane.showMessageDialog(null, "Account file not found.");
+        }
+    }
 }

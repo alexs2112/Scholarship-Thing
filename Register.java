@@ -12,6 +12,8 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.text.NumberFormat;
 import java.util.Arrays;
 import java.awt.event.ActionEvent;
 
@@ -43,6 +45,19 @@ public class Register extends JFrame {
 			}
 		});
 	}
+
+	/**
+	 * Checks is a string is numerical
+	 */
+	public boolean isNum(String string){
+        try {
+            Float.parseFloat(string);
+            return true;
+        }
+        catch(NumberFormatException nfe){
+            return false;
+        }
+    }
 
 	/**
 	 * Create the frame.
@@ -173,6 +188,10 @@ public class Register extends JFrame {
 				
 				char[] pass = passwordField.getPassword();
 				char[] pass1 = passwordField_1.getPassword();
+				String password = String.valueOf(pass);
+				String gpa = textField_4.getText();
+
+				LoginCheck register = new LoginCheck();
 				
 				if (textField.getText().contentEquals("") || textField_1.getText().equals("") || textField_2.getText().equals("") || textField_3.getText().equals("")){
 					JOptionPane.showMessageDialog(null, "Please ensure all fields are complete");
@@ -180,18 +199,25 @@ public class Register extends JFrame {
 					
 				} else if (!Arrays.equals(pass, pass1)) {
 					JOptionPane.showMessageDialog(null, "Passwords do not match!");
-							
-					
+
+				} else if(isNum(gpa) == false) {
+					JOptionPane.showMessageDialog(null, "Please enter an integer value for GPA.");
+
 				} else {
 					String studentFirstName = textField.getText();
 					String studentLastName = textField_1.getText();
 					String studentType = comboBox.getSelectedItem().toString();
 					String studentFaculty = comboBox_1.getSelectedItem().toString();
 					String studentDepartment = textField_2.getText();
-					Float studentGpa = Float.parseFloat(textField_4.getText());
+					Float studentGpa = Float.parseFloat(gpa);
 					Integer studentLevel = 0;
 					String username = textField_6.getText();
-					
+					try{
+						register.addToFile(username, password);
+					}
+					catch (IOException e1){
+						e1.printStackTrace();
+					}
 					Applicant newStudent = new Applicant(studentFirstName, studentLastName, studentType, studentFaculty, studentDepartment, studentGpa, username);
 					newStudent.setLevel(0);
 					// System.out.println(newStudent.getFirstName() + " " + newStudent.getLastName());
