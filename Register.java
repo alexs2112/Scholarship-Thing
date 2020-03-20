@@ -14,8 +14,11 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.awt.event.ActionEvent;
+import java.io.*;
+import java.util.*;
 
 public class Register extends JFrame {
 
@@ -185,11 +188,28 @@ public class Register extends JFrame {
 		JButton btnNewButton_1 = new JButton("Submit");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				char[] pass = passwordField.getPassword();
 				char[] pass1 = passwordField_1.getPassword();
 				String password = String.valueOf(pass);
 				String gpa = textField_4.getText();
+				ArrayList<String> uNList = new ArrayList<String>();
+				try{
+					BufferedReader read = new BufferedReader(new FileReader("Resources/login.txt"));
+					String line = read.readLine();
+						while (line != null){
+							String cLine[] = line.split(" ");
+							uNList.add(cLine[0]);
+							line = read.readLine();
+						}
+					read.close();
+				}
+				catch(FileNotFoundException fnfe){
+					JOptionPane.showMessageDialog(null, "Account file not found.");
+				}
+				catch(IOException e3){
+					e3.printStackTrace();
+				}
 
 				LoginCheck register = new LoginCheck();
 				
@@ -202,6 +222,9 @@ public class Register extends JFrame {
 
 				} else if(isNum(gpa) == false) {
 					JOptionPane.showMessageDialog(null, "Please enter an integer value for GPA.");
+
+				} else if(uNList.contains(textField_6.getText()) == true){
+					JOptionPane.showMessageDialog(null, "Username already exists.");
 
 				} else {
 					String studentFirstName = textField.getText();
