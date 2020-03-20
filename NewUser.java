@@ -23,13 +23,6 @@ public class NewUser extends JFrame {
 	private JTextField textField_2;
 	private JLabel label;
 	private JComboBox comboBox;
-	/*
-	private JLabel label_1;
-	private JLabel label_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JLabel label_3;
-	*/
 	private JButton btnNewButton;
 
 	/**
@@ -63,13 +56,17 @@ public class NewUser extends JFrame {
 		contentPane.add(textField);
 		textField.setColumns(10);
 
-		JLabel lblNewLabel = new JLabel("Username");
+		JLabel lblNewLabel = new JLabel("Name");
 		lblNewLabel.setBounds(29, 26, 115, 16);
 		contentPane.add(lblNewLabel);
 
-		lblNewLabel_1 = new JLabel("Password");
+		lblNewLabel_1 = new JLabel("Username");
 		lblNewLabel_1.setBounds(29, 54, 115, 16);
 		contentPane.add(lblNewLabel_1);
+		
+		label = new JLabel("Password");
+		label.setBounds(29, 82, 115, 16);
+		contentPane.add(label);
 
 		textField_1 = new JTextField();
 		textField_1.setBounds(156, 49, 130, 26);
