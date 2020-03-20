@@ -30,7 +30,6 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
 import java.awt.Scrollbar;
-//import com.jgoodies.forms.factories.DefaultComponentFactory;
 import java.awt.Checkbox;
 import java.awt.Button;
 import javax.swing.JCheckBox;
@@ -75,9 +74,9 @@ public class ApplicantLogin extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Apply a scholarship");
+		JLabel lblNewLabel = new JLabel("Apply for a scholarship");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblNewLabel.setBounds(28, 29, 215, 69);
+		lblNewLabel.setBounds(28, 16, 403, 69);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("1. Basic info. Please check the correctness. if not correct , edit and update");
@@ -88,48 +87,48 @@ public class ApplicantLogin extends JFrame {
 		txtConnor = new JTextField();
 		txtConnor.setText("Connor");
 		txtConnor.setToolTipText("");
-		txtConnor.setBounds(95, 139, 116, 22);
+		txtConnor.setBounds(110, 139, 116, 22);
 		contentPane.add(txtConnor);
 		txtConnor.setColumns(10);
 		
-		JLabel lblNewLabel_2 = new JLabel("first name");
+		JLabel lblNewLabel_2 = new JLabel("First Name");
 		lblNewLabel_2.setBounds(25, 142, 77, 16);
 		contentPane.add(lblNewLabel_2);
 		
-		JLabel lblStudentId = new JLabel("student ID");
-		lblStudentId.setBounds(459, 142, 82, 16);
+		JLabel lblStudentId = new JLabel("Student ID");
+		lblStudentId.setBounds(539, 141, 82, 16);
 		contentPane.add(lblStudentId);
 		
-		JLabel lblDepartment = new JLabel("department");
+		JLabel lblDepartment = new JLabel("Department");
 		lblDepartment.setBounds(544, 177, 77, 16);
 		contentPane.add(lblDepartment);
 		
-		JLabel lblLastname = new JLabel("lastname");
-		lblLastname.setBounds(253, 142, 56, 16);
+		JLabel lblLastname = new JLabel("Last Name");
+		lblLastname.setBounds(266, 142, 77, 16);
 		contentPane.add(lblLastname);
 		
-		JLabel lblFaculty = new JLabel("faculty");
-		lblFaculty.setBounds(290, 177, 56, 16);
+		JLabel lblFaculty = new JLabel("Faculty");
+		lblFaculty.setBounds(266, 177, 56, 16);
 		contentPane.add(lblFaculty);
 		
-		JLabel lblStudentType = new JLabel("student type");
-		lblStudentType.setBounds(25, 171, 77, 16);
+		JLabel lblStudentType = new JLabel("Student Type");
+		lblStudentType.setBounds(25, 171, 106, 16);
 		contentPane.add(lblStudentType);
 		
 		textField = new JTextField();
-		textField.setBounds(321, 139, 116, 22);
+		textField.setBounds(371, 141, 116, 22);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"undergraduate", "graduate", "post-graduate"}));
-		comboBox.setBounds(105, 174, 125, 22);
+		comboBox.setBounds(110, 173, 144, 22);
 		contentPane.add(comboBox);
 		
 		JComboBox comboBox_1 = new JComboBox();
 		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Arts", "Law", "Nursing", "Kinesiology", "Science", "Social Work", "Veterinary Medicine", "Medicine", "Business", "Engineering", "Education"}));
 		comboBox_1.setSelectedIndex(0);
-		comboBox_1.setBounds(343, 174, 156, 22);
+		comboBox_1.setBounds(371, 169, 133, 22);
 		contentPane.add(comboBox_1);
 		
 		textField_1 = new JTextField();
@@ -139,12 +138,12 @@ public class ApplicantLogin extends JFrame {
 		
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
-		textField_2.setBounds(536, 139, 116, 22);
+		textField_2.setBounds(633, 139, 116, 22);
 		contentPane.add(textField_2);
 		
 		textField_3 = new JTextField();
 		textField_3.setColumns(10);
-		textField_3.setBounds(91, 200, 116, 22);
+		textField_3.setBounds(110, 200, 116, 22);
 		contentPane.add(textField_3);
 		
 		textField_4 = new JTextField();
@@ -156,11 +155,11 @@ public class ApplicantLogin extends JFrame {
 		lblNewLabel_3.setBounds(28, 203, 56, 16);
 		contentPane.add(lblNewLabel_3);
 		
-		JLabel lblEmailAddress = new JLabel("email address");
-		lblEmailAddress.setBounds(266, 203, 93, 16);
+		JLabel lblEmailAddress = new JLabel("E-mail Address");
+		lblEmailAddress.setBounds(266, 205, 93, 16);
 		contentPane.add(lblEmailAddress);
 		
-		JLabel lblNewLabel_4 = new JLabel("2. Choose scholarship");
+		JLabel lblNewLabel_4 = new JLabel("2. Choose a Scholarship");
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel_4.setBounds(28, 278, 168, 16);
 		contentPane.add(lblNewLabel_4);
@@ -199,15 +198,15 @@ public class ApplicantLogin extends JFrame {
 				
 			}
 		});
-		btnNewButton.setBounds(821, 186, 133, 22);
+		btnNewButton.setBounds(820, 153, 133, 22);
 		contentPane.add(btnNewButton);
 		
-		JLabel lblNewLabel_5 = new JLabel("3. upload file(s)");
+		JLabel lblNewLabel_5 = new JLabel("3. Epload File(s)");
 		lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel_5.setBounds(28, 457, 150, 22);
 		contentPane.add(lblNewLabel_5);
 		
-		JButton btnNewButton_1 = new JButton("Add(...)");
+		JButton btnNewButton_1 = new JButton("Add");
 		btnNewButton_1.setBounds(38, 492, 97, 25);
 		contentPane.add(btnNewButton_1);
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -216,7 +215,7 @@ public class ApplicantLogin extends JFrame {
 			}
 		});
 		
-		JLabel lblNewLabel_6 = new JLabel("4. submit");
+		JLabel lblNewLabel_6 = new JLabel("4. Submit");
 		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel_6.setBounds(28, 543, 103, 24);
 		contentPane.add(lblNewLabel_6);
