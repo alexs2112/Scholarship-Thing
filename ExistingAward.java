@@ -48,7 +48,7 @@ public class ExistingAward extends JFrame {
 		ArrayList<String> scholarships = new ArrayList<String>();
 
 		try {
-			Scanner sc = new Scanner (new File("C:\\Users\\user\\Desktop\\scholarshipDatabase.txt")).useDelimiter(",");
+			Scanner sc = new Scanner (new File("Resources\\scholarshipDatabase.txt")).useDelimiter(",");
 
 				while (sc.hasNextLine()) {
 					scholarships.add(sc.next());
