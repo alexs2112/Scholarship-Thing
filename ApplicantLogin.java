@@ -201,7 +201,7 @@ public class ApplicantLogin extends JFrame {
 		btnNewButton.setBounds(820, 153, 133, 22);
 		contentPane.add(btnNewButton);
 		
-		JLabel lblNewLabel_5 = new JLabel("3. Epload File(s)");
+		JLabel lblNewLabel_5 = new JLabel("3. Upload File(s)");
 		lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel_5.setBounds(28, 457, 150, 22);
 		contentPane.add(lblNewLabel_5);
@@ -220,7 +220,7 @@ public class ApplicantLogin extends JFrame {
 		lblNewLabel_6.setBounds(28, 543, 103, 24);
 		contentPane.add(lblNewLabel_6);
 		
-		JCheckBox chckbxNewCheckBox = new JCheckBox("I agree terms and condition and all infomation provided are correct and concise. I will take the responsibility of any type of information error and misunderstanding");
+		JCheckBox chckbxNewCheckBox = new JCheckBox("I agree to terms and conditions and all infomation provided is correct and concise. I will take the responsibility of any type of information error and misunderstanding");
 		chckbxNewCheckBox.setBounds(28, 569, 1031, 35);
 		contentPane.add(chckbxNewCheckBox);
 		
