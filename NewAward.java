@@ -140,7 +140,7 @@ public class NewAward extends JFrame {
 
 					try {
 						//create file
-						FileWriter fstream = new FileWriter("C:\\Users\\user\\Desktop\\scholarshipDatabase.txt", true);
+						FileWriter fstream = new FileWriter("Resources\\scholarshipDatabase.txt", true);
 							BufferedWriter out = new BufferedWriter(fstream);
 							out.write(newSchol.getScholName() + ", " + newSchol.getDonorName() + " " + newSchol.getScholValue() + " " + newSchol.getAnnual() + " " + newSchol.getReq() + " " + newSchol.getTotalAmount() + " " + newSchol.getApplicants() + "\n");
 							//close the output stream
