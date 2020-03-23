@@ -61,7 +61,7 @@ public class AdminLogin extends JFrame {
 		getContentPane().add(btnNewButton_1);
 		
 		
-		JButton btnNewButton_2 = new JButton("Add Scholarship Coordinator");
+		JButton btnNewButton_2 = new JButton("Add Another User");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				NewUser newUser = new NewUser();
