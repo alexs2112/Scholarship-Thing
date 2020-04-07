@@ -49,15 +49,15 @@ public class ApplicantLogin extends JFrame {
 		Applicant student = (Applicant)applicant;
 		setTitle("Applicant");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1358, 754);
+		setBounds(100, 100, 800, 754);
 		JPanel contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Apply for a Scholarship");
+		JLabel lblNewLabel = new JLabel("Scholarship Application");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblNewLabel.setBounds(28, 29, 1000, 69);
+		lblNewLabel.setBounds(28, 29, 600, 69);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("1. Your Information");
