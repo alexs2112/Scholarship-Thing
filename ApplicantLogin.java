@@ -1,47 +1,23 @@
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import java.text.DecimalFormat;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
-import javax.swing.JTable;
-import javax.swing.JList;
 import java.awt.Font;
-import javax.swing.JSpinner;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
-import javax.swing.ListSelectionModel;
-import javax.swing.border.LineBorder;
-import java.awt.Color;
-import javax.swing.JRadioButton;
-import java.awt.SystemColor;
-import javax.swing.UIManager;
-import javax.swing.AbstractListModel;
-import javax.swing.JEditorPane;
-import javax.swing.DropMode;
-import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-
-import java.awt.Scrollbar;
-//import com.jgoodies.forms.factories.DefaultComponentFactory;
-import java.awt.Checkbox;
-import java.awt.Button;
-import javax.swing.JCheckBox;
-import javax.swing.JToolBar;
 
 public class ApplicantLogin extends JFrame {
 	private static final long serialVersionUID = 1060623638149583738L;
-	private JTable table;
-
+	
 	/**
 	 * Create the frame.
 	 */
@@ -107,8 +83,8 @@ public class ApplicantLogin extends JFrame {
 		JLabel lblStudentType = new JLabel("Student Type:");
 		lblStudentType.setBounds(column1Start, row2Start, 80, 20);
 		contentPane.add(lblStudentType);
-		JComboBox typeBox = new JComboBox();
-		typeBox.setModel(new DefaultComboBoxModel(new String[] {"Undergraduate", "Graduate", "Post-Graduate"}));
+		JComboBox<String> typeBox = new JComboBox<String>();
+		typeBox.setModel(new DefaultComboBoxModel<String>(new String[] {"Undergraduate", "Graduate", "Post-Graduate"}));
 		typeBox.setSelectedItem(student.getStudentType());
 		typeBox.setBounds(column2Start, row2Start-2, 130, 24);
 		contentPane.add(typeBox);
@@ -117,8 +93,8 @@ public class ApplicantLogin extends JFrame {
 		JLabel lblFaculty = new JLabel("Faculty:");
 		lblFaculty.setBounds(column3Start, row2Start, 80, 20);
 		contentPane.add(lblFaculty);
-		JComboBox facultyBox = new JComboBox();
-		facultyBox.setModel(new DefaultComboBoxModel(new String[] {"Arts", "Law", "Nursing", "Kinesiology", "Science", "Social Work", "Veterinary Medicine", "Medicine", "Business", "Engineering", "Education"}));
+		JComboBox<String> facultyBox = new JComboBox<String>();
+		facultyBox.setModel(new DefaultComboBoxModel<String>(new String[] {"Arts", "Law", "Nursing", "Kinesiology", "Science", "Social Work", "Veterinary Medicine", "Medicine", "Business", "Engineering", "Education"}));
 		facultyBox.setSelectedItem(student.getFaculty());
 		facultyBox.setBounds(column4Start, row2Start-2, 130, 24);
 		contentPane.add(facultyBox);
@@ -179,8 +155,8 @@ public class ApplicantLogin extends JFrame {
 		for (int i = 0; i < awards.size(); i++) {
 			names[i] = awards.get(i).getScholName();
 		}
-		JComboBox awardBox = new JComboBox();
-		awardBox.setModel(new DefaultComboBoxModel(names));
+		JComboBox<String> awardBox = new JComboBox<String>();
+		awardBox.setModel(new DefaultComboBoxModel<String>(names));
 		awardBox.setBounds(column1Start + 10, 300, 220, 24);
 		awardBox.setSelectedIndex(index);
 		contentPane.add(awardBox);
