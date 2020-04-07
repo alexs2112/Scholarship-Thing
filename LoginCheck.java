@@ -34,10 +34,14 @@ public class LoginCheck implements Serializable {
 		}
 		
 		//If the type has changed, that means it is equal to a users role, so tell them they logged in
-		if (user != null)
+		if (user != null) {
 			JOptionPane.showMessageDialog(null, "You have sucessfully logged in!");
-		else
+			return user;
+		}
+		else {
 			JOptionPane.showMessageDialog(null, "Incorrect username or password.");
-		return user;
+			return null;
+		}
+		
 	}
 }

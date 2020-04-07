@@ -124,10 +124,10 @@ public class NewAward extends JFrame {
 					//Creates a new scholarship and adds it to data's award arrayList
 					Scholarship newSchol = new Scholarship(scholName, donName, valueOfAward, fullTerm, minGPA, awardsAvail);
 					data.addAward(newSchol);
-
-				dispose();
-			}
+					data.saveData();
+					dispose();
 				}
+			}
 		});
 		btnNewButton.setBounds(166, 219, 117, 29);
 		contentPane.add(btnNewButton);

@@ -1,7 +1,9 @@
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
+import java.util.ArrayList;
 import javax.swing.JFrame;
+import java.text.DecimalFormat;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
@@ -38,157 +40,168 @@ import javax.swing.JToolBar;
 
 public class ApplicantLogin extends JFrame {
 	private static final long serialVersionUID = 1060623638149583738L;
-	private JPanel contentPane;
-	private JTextField txtName;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
 	private JTable table;
 
 	/**
 	 * Create the frame.
 	 */
-	public ApplicantLogin(Data data, Applicant student) {
+	public ApplicantLogin(Data data, User applicant, int index) {
+		Applicant student = (Applicant)applicant;
 		setTitle("Applicant");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1358, 754);
-		contentPane = new JPanel();
+		JPanel contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Apply a scholarship");
+		JLabel lblNewLabel = new JLabel("Apply for a Scholarship");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblNewLabel.setBounds(28, 29, 215, 69);
+		lblNewLabel.setBounds(28, 29, 1000, 69);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("1.Your information, if it is not correct, please update it");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		JLabel lblNewLabel_1 = new JLabel("1. Your Information");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblNewLabel_1.setBounds(28, 94, 547, 35);
 		contentPane.add(lblNewLabel_1);
 		
-		txtName = new JTextField();
-		txtName.setText("");
-		txtName.setToolTipText("");
-		txtName.setBounds(95, 139, 116, 22);
-		contentPane.add(txtName);
-		txtName.setColumns(10);
+		int column1Start = 25;		//Name
+		int column2Start = 110;		//Info
+		int column3Start = 280;
+		int column4Start = 355;
+		int column5Start = 535;
+		int column6Start = 610;
 		
-		JLabel lblNewLabel_2 = new JLabel("first name");
-		lblNewLabel_2.setBounds(25, 142, 77, 16);
-		contentPane.add(lblNewLabel_2);
+		int row1Start = 140;
+		int row2Start = 180;
+		int row3Start = 220;
 		
-		JLabel lblStudentId = new JLabel("student ID");
-		lblStudentId.setBounds(459, 142, 82, 16);
+		//Set up a label and autopopulate the text field for the first name
+		JLabel lblFirstName = new JLabel("First Name:");
+		lblFirstName.setBounds(column1Start, row1Start, 80, 20);
+		JTextField txtFirstName = new JTextField();
+		txtFirstName.setText(student.firstName());
+		txtFirstName.setBounds(column2Start, row1Start - 1, 130, 22);
+		contentPane.add(lblFirstName);
+		contentPane.add(txtFirstName);
+
+		//Set up a label and autopopulate the text field for the last name
+		JLabel lblLastName = new JLabel("Last Name:");
+		lblLastName.setBounds(column3Start, row1Start, 80, 20);
+		JTextField txtLastName = new JTextField();
+		txtLastName.setText(student.lastName());
+		txtLastName.setBounds(column4Start,row1Start-1, 130, 22);
+		contentPane.add(lblLastName);
+		contentPane.add(txtLastName);
+		
+		//Do the same for the students ID
+		JLabel lblStudentId = new JLabel("Student ID:");
+		lblStudentId.setBounds(column5Start, row1Start, 80, 20);
+		JTextField txtStudentId = new JTextField();
+		txtStudentId.setText(student.id());
+		txtStudentId.setBounds(column6Start,row1Start-1, 130, 22);
 		contentPane.add(lblStudentId);
+		contentPane.add(txtStudentId);
 		
-		JLabel lblDepartment = new JLabel("department");
-		lblDepartment.setBounds(544, 177, 77, 16);
-		contentPane.add(lblDepartment);
-		
-		JLabel lblLastname = new JLabel("lastname");
-		lblLastname.setBounds(253, 142, 56, 16);
-		contentPane.add(lblLastname);
-		
-		JLabel lblFaculty = new JLabel("faculty");
-		lblFaculty.setBounds(290, 177, 56, 16);
-		contentPane.add(lblFaculty);
-		
-		JLabel lblStudentType = new JLabel("student type");
-		lblStudentType.setBounds(25, 171, 77, 16);
+		//Student Type
+		JLabel lblStudentType = new JLabel("Student Type:");
+		lblStudentType.setBounds(column1Start, row2Start, 80, 20);
 		contentPane.add(lblStudentType);
+		JComboBox typeBox = new JComboBox();
+		typeBox.setModel(new DefaultComboBoxModel(new String[] {"Undergraduate", "Graduate", "Post-Graduate"}));
+		typeBox.setSelectedItem(student.getStudentType());
+		typeBox.setBounds(column2Start, row2Start-2, 130, 24);
+		contentPane.add(typeBox);
 		
-		textField = new JTextField();
-		textField.setBounds(321, 139, 116, 22);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		//Faculty
+		JLabel lblFaculty = new JLabel("Faculty:");
+		lblFaculty.setBounds(column3Start, row2Start, 80, 20);
+		contentPane.add(lblFaculty);
+		JComboBox facultyBox = new JComboBox();
+		facultyBox.setModel(new DefaultComboBoxModel(new String[] {"Arts", "Law", "Nursing", "Kinesiology", "Science", "Social Work", "Veterinary Medicine", "Medicine", "Business", "Engineering", "Education"}));
+		facultyBox.setSelectedItem(student.getFaculty());
+		facultyBox.setBounds(column4Start, row2Start-2, 130, 24);
+		contentPane.add(facultyBox);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"undergraduate", "graduate", "post-graduate"}));
-		comboBox.setBounds(105, 174, 125, 22);
-		contentPane.add(comboBox);
+		//Department
+		JLabel lblDepartment = new JLabel("Department:");
+		lblDepartment.setBounds(column5Start, row2Start, 80, 20);
+		JTextField txtDepartment = new JTextField();
+		txtDepartment.setText(student.getDepartment());
+		txtDepartment.setBounds(column6Start,row2Start-1, 130, 22);
+		contentPane.add(lblDepartment);
+		contentPane.add(txtDepartment);	
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Arts", "Law", "Nursing", "Kinesiology", "Science", "Social Work", "Veterinary Medicine", "Medicine", "Business", "Engineering", "Education"}));
-		comboBox_1.setSelectedIndex(0);
-		comboBox_1.setBounds(343, 174, 156, 22);
-		contentPane.add(comboBox_1);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(633, 174, 116, 22);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		JLabel lblGPA = new JLabel("GPA:");
+		lblGPA.setBounds(column1Start, row3Start, 80, 20);
+		JTextField txtGPA = new JTextField();
+		txtGPA.setText(String.valueOf(student.getGPA()));
+		txtGPA.setBounds(column2Start,row3Start-1, 130, 22);
+		contentPane.add(lblGPA);
+		contentPane.add(txtGPA);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(536, 139, 116, 22);
-		contentPane.add(textField_2);
-		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(91, 200, 116, 22);
-		contentPane.add(textField_3);
-		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(371, 200, 116, 22);
-		contentPane.add(textField_4);
-		
-		JLabel lblNewLabel_3 = new JLabel("GPA");
-		lblNewLabel_3.setBounds(28, 203, 56, 16);
-		contentPane.add(lblNewLabel_3);
-		
-		JLabel lblEmailAddress = new JLabel("email address");
-		lblEmailAddress.setBounds(266, 203, 93, 16);
+		JLabel lblEmailAddress = new JLabel("Email:");
+		lblEmailAddress.setBounds(column3Start, row3Start, 80, 20);
+		JTextField txtEmailAddress = new JTextField();
+		txtEmailAddress.setText(student.getEmail());
+		txtEmailAddress.setBounds(column4Start,row3Start-1, 130, 22);
 		contentPane.add(lblEmailAddress);
+		contentPane.add(txtEmailAddress);
 		
-		JLabel lblNewLabel_4 = new JLabel("2. Choose scholarship");
-		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_4.setBounds(28, 278, 168, 16);
-		contentPane.add(lblNewLabel_4);
-		
-		JCheckBox chckbxNewCheckBox_1 = new JCheckBox("");
-		chckbxNewCheckBox_1.setBounds(95, 356, 36, 25);
-		contentPane.add(chckbxNewCheckBox_1);
-		
-		
-		table = new JTable();
-		table.setCellSelectionEnabled(true);
-		table.setBorder(new LineBorder(new Color(0, 0, 0)));
-		table.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{"checkbox", "index", "scholar name", "donor", "value", "annualbool", "requrement", "totalamount", "applicants"},
-				{null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null},
-			},
-			new String[] {
-				"checkbox", "index", "scholar name", "donor", "value", "annualbool", "requirement", "totalamount", "applicants"
-			}
-		));
-			
-		
-		table.setBounds(139, 320, 781, 120);
-		table.setRowHeight(30);
-		
-		contentPane.add(table);
-		
-		JButton btnNewButton = new JButton("update");
+		JButton btnNewButton = new JButton("Update Info");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "personal info update successful");
-				
+				JOptionPane.showMessageDialog(null, "Updated Information Successful");
+				//Update student info
+				student.update(txtFirstName.getText(), txtLastName.getText(), txtStudentId.getText(),
+						typeBox.getSelectedItem().toString(), facultyBox.getSelectedItem().toString(), 
+						txtDepartment.getText(), Double.valueOf(txtGPA.getText()), txtEmailAddress.getText());
+				//Reset the screen
+				dispose();
+				ApplicantLogin appLog = new ApplicantLogin(data, student, index);
+				appLog.setVisible(true);
+				data.saveData();
 			}
 		});
-		btnNewButton.setBounds(821, 186, 133, 22);
+		btnNewButton.setBounds(column5Start, row3Start-1, 130, 22);
 		contentPane.add(btnNewButton);
 		
-		JLabel lblNewLabel_5 = new JLabel("3. upload file(s)");
-		lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_5.setBounds(28, 457, 150, 22);
+		JLabel lblNewLabel_4 = new JLabel("2. Choose Scholarship:");
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblNewLabel_4.setBounds(28, 278, 300, 16);
+		contentPane.add(lblNewLabel_4);
+		
+		//Get a list of all available awards
+		ArrayList<Scholarship> awards = data.awards();
+		
+		String[] names = new String[awards.size()];
+		for (int i = 0; i < awards.size(); i++) {
+			names[i] = awards.get(i).getScholName();
+		}
+		JComboBox awardBox = new JComboBox();
+		awardBox.setModel(new DefaultComboBoxModel(names));
+		awardBox.setBounds(column1Start + 10, 300, 220, 24);
+		awardBox.setSelectedIndex(index);
+		contentPane.add(awardBox);
+		updateFields(awards.get(awardBox.getSelectedIndex()), contentPane, student);
+		
+		//Update the displayed information for the selected award
+		JButton btnUpdate = new JButton("Update Scholarship");
+		btnUpdate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				updateFields(awards.get(awardBox.getSelectedIndex()), contentPane, student);
+				dispose();
+				ApplicantLogin appLog = new ApplicantLogin(data, student, awardBox.getSelectedIndex());
+				appLog.setVisible(true);
+			}
+		});
+		btnUpdate.setBounds(column1Start + 20, 380, 130, 22);
+		contentPane.add(btnUpdate);
+		
+		JLabel lblNewLabel_5 = new JLabel("3. Upload Transcript(s)");
+		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblNewLabel_5.setBounds(28, 457, 250, 22);
 		contentPane.add(lblNewLabel_5);
 		
 		JButton btnNewButton_1 = new JButton("Add(...)");
@@ -200,34 +213,83 @@ public class ApplicantLogin extends JFrame {
 			}
 		});
 		
-		JLabel lblNewLabel_6 = new JLabel("4. submit");
-		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_6.setBounds(28, 543, 103, 24);
+		JLabel lblNewLabel_6 = new JLabel("4. Submit");
+		lblNewLabel_6.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblNewLabel_6.setBounds(28, 543, 250, 24);
 		contentPane.add(lblNewLabel_6);
 		
-		JCheckBox chckbxNewCheckBox = new JCheckBox("I agree terms and condition and all infomation provided are correct and concise. I will take the responsibility of any type of information error and misunderstanding");
-		chckbxNewCheckBox.setBounds(28, 569, 1031, 35);
-		contentPane.add(chckbxNewCheckBox);
+		JCheckBox checkBox = new JCheckBox("I agree to the terms and condition and declare that all infomation provided is correct");
+		checkBox.setBounds(28, 569, 1031, 35);
+		contentPane.add(checkBox);
 		
 		JButton btnNewButton_2 = new JButton("Submit");
 		btnNewButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {//update scholarship info and link applicant to scholarship
-				JOptionPane.showMessageDialog(null, "submit successful");
-				
+			public void actionPerformed(ActionEvent e) {
+				if (checkBox.isSelected()) {
+					//Add the submission to the students applications
+					//Add the student to the scholarships applicants
+					//Reload the page
+					JOptionPane.showMessageDialog(null, "Submission Successful");
+					awards.get(awardBox.getSelectedIndex()).addApplicant(student);
+					student.addApplication(awards.get(awardBox.getSelectedIndex()));
+					data.saveData();
+					dispose();
+					ApplicantLogin appLog = new ApplicantLogin(data, student, awardBox.getSelectedIndex());
+					appLog.setVisible(true);
+				} else {
+					JOptionPane.showMessageDialog(null, "Please Check the Terms and Conditions");
+				}
 			}
 		});
 		btnNewButton_2.setBounds(28, 613, 97, 25);
 		contentPane.add(btnNewButton_2);
+	}
+	
+	public void updateFields(Scholarship award, JPanel contentPane, Applicant student) {
+		int column1 = 280;
+		int row1 = 320;
+		int row2 = 340;
+		int row3 = 360;
+		int row4 = 380;
+		int row5 = 400;
+		int row6 = 420;
+		final DecimalFormat df2= new DecimalFormat("#.##");
+		String name = award.getScholName();
+		String donor = "Donor: " + award.getDonorName();
+		String value = "Value: $" + Integer.toString(award.getScholValue());
+		String req = "GPA Requirement: " + (df2.format(award.getReq()));
+		String amount = "Amount of Awards: " + Integer.toString(award.getTotalAmount());
+		String applied = "You have already applied for this award";
+		JLabel lblName = new JLabel(name);
+		lblName.setBounds(column1, row1, 300, 20);
+		lblName.setFont(new Font("Tahoma", Font.BOLD, 14));
+		contentPane.add(lblName);
 		
-		JCheckBox checkBox = new JCheckBox("");
-		checkBox.setBounds(95, 386, 36, 25);
-		contentPane.add(checkBox);
+		JLabel lblDonor = new JLabel(donor);
+		lblDonor.setBounds(column1, row2, 300, 20);
+		lblDonor.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		contentPane.add(lblDonor);
 		
-		JCheckBox checkBox_1 = new JCheckBox("");
-		checkBox_1.setBounds(95, 416, 36, 25);
-		contentPane.add(checkBox_1);
+		JLabel lblValue = new JLabel(value);
+		lblValue.setBounds(column1, row3, 300, 20);
+		lblValue.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		contentPane.add(lblValue);
 		
-
-
+		JLabel lblReq = new JLabel(req);
+		lblReq.setBounds(column1, row4, 300, 20);
+		lblReq.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		contentPane.add(lblReq);
+		
+		JLabel lblAmount = new JLabel(amount);
+		lblAmount.setBounds(column1, row5, 300, 20);
+		lblAmount.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		contentPane.add(lblAmount);
+		
+		if (award.getApplicants().contains(student)) {
+			JLabel lblApplied = new JLabel(applied);
+			lblApplied.setBounds(column1, row6, 300, 20);
+			lblApplied.setFont(new Font("Tahoma", Font.BOLD, 14));
+			contentPane.add(lblApplied);
+		}
 	}
 }

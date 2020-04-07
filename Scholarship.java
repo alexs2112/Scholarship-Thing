@@ -6,11 +6,11 @@ public class Scholarship implements java.io.Serializable {
 	private String donor; //Name of the donor
 	private Integer value; //Dollar value of the scholarship
 	private Boolean annual; //boolean value that evaluates to true if  the scholarship is for the full academic year
-	private Float requirement; //minimum GPA required to be eligible for the scholarship
+	private double requirement; //minimum GPA required to be eligible for the scholarship
 	private Integer totalAmount; //Number of awards that will be given out
 	private ArrayList<Applicant> applicants; //the current list of students who have applied for the award
 
-	public Scholarship(String scholName, String donorName, Integer dolVal, Boolean ann, Float req, Integer totAmount) {
+	public Scholarship(String scholName, String donorName, Integer dolVal, Boolean ann, double req, Integer totAmount) {
 		this.name = scholName;
 		this.donor = donorName;
 		this.value = dolVal;
@@ -57,7 +57,7 @@ public class Scholarship implements java.io.Serializable {
 		this.requirement = req;
 	}
 
-	public Float getReq() {
+	public double getReq() {
 		return requirement;
 	}
 
@@ -76,6 +76,7 @@ public class Scholarship implements java.io.Serializable {
 	public ArrayList getApplicants() {
 		return applicants;
 	}
+	public void addApplicant(Applicant applicant) { applicants.add(applicant); }
 
 	public Integer getNumberApplicants() {
 		return (this.applicants).size();

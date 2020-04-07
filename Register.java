@@ -219,18 +219,18 @@ public class Register extends JFrame {
 					String studentDepartment = textField_2.getText();
 					Float studentGpa = Float.parseFloat(gpa);
 					String username = textField_6.getText();
+					String studentID = textField_3.getText();
 					
 					String name = studentFirstName + " " + studentLastName;
-					Applicant newStudent = new Applicant(name, studentType, studentFaculty, studentDepartment, studentGpa, username, password, "student");
-					
+					Applicant newStudent = new Applicant(name, studentID, studentType, studentFaculty, studentDepartment, studentGpa, username, password, "student");
+					newStudent.setEmail(textField_5.getText());
 					//Creates the student, adds it to Data user arraylist
 					data.addUser(newStudent);
 					data.saveData();
 					
 					//Clear the Screen
 					dispose();
-					
-					ApplicantLogin appLog = new ApplicantLogin(data, newStudent);
+					ApplicantLogin appLog = new ApplicantLogin(data, newStudent, 0);
 					appLog.setVisible(true);
 				
 				

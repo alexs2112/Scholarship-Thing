@@ -57,29 +57,32 @@ public class Login implements java.io.Serializable {
 			
 			//Applies the login check to see if this user exists, returns the user
 			User user = loginCheck.login(userLogin, userPassword);
+			if (user == null)
+				initialize();
 			
-			System.out.println(user.name());
-
-			//Uses the users type to call the next screen
-			if (user.role().equals("sc")) {
-			frmLogin.dispose();
-			ScholarCoordLogin schoCoor = new ScholarCoordLogin(data, (Coordinator)user);
-			schoCoor.setVisible(true);
-
-			} else if (user.role().equals("prof")) {
-			frmLogin.dispose();
-			ProfessorLogin profLog = new ProfessorLogin(data, (Professor)user);
-			profLog.setVisible(true);
-
-			} else if (user.role().equals("admin")) {
-			frmLogin.dispose();
-			AdminLogin adminLog = new AdminLogin(data, (Administrator)user);
-			adminLog.setVisible(true);
-
-			} else if (user.role().equals("student")) {
-			frmLogin.dispose();
-			ApplicantLogin appLog = new ApplicantLogin(data, (Applicant)user);
-			appLog.setVisible(true);
+			if (user != null) {
+				System.out.println(user.name());
+				//Uses the users type to call the next screen
+				if (user.role().equals("sc")) {
+				frmLogin.dispose();
+				ScholarCoordLogin schoCoor = new ScholarCoordLogin(data, user);
+				schoCoor.setVisible(true);
+	
+				} else if (user.role().equals("prof")) {
+				frmLogin.dispose();
+				ProfessorLogin profLog = new ProfessorLogin(data, user);
+				profLog.setVisible(true);
+	
+				} else if (user.role().equals("admin")) {
+				frmLogin.dispose();
+				AdminLogin adminLog = new AdminLogin(data, user);
+				adminLog.setVisible(true);
+	
+				} else if (user.role().equals("student")) {
+				frmLogin.dispose();
+				ApplicantLogin appLog = new ApplicantLogin(data, user, 0);
+				appLog.setVisible(true);
+				}
 			}
 		}
 	});

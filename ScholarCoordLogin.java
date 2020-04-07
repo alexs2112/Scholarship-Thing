@@ -17,7 +17,7 @@ public class ScholarCoordLogin extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ScholarCoordLogin(Data data, Coordinator user) {
+	public ScholarCoordLogin(Data data, User user) {
 		setTitle("Scholarship Coordinator");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 300, 200);

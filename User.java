@@ -7,6 +7,7 @@ public class User implements java.io.Serializable {
 	protected String role;
 	protected String username;
 	protected String password;
+	protected String email;
 	
 	public User(String name, String role, String username, String password) {
 		this.name = name;
@@ -19,4 +20,17 @@ public class User implements java.io.Serializable {
 	public String role() { return role; }
 	public String username() { return username; }
 	public String password() { return password; }
+	public String email() { return email; }
+	public void setEmail(String email) { this.email = email; }
+	
+	public String firstName() {
+		return (name.split(" "))[0];
+	}
+	public String lastName() {
+		String[] last = name.split(" ");
+		if (last.length > 1)
+			return last[1];
+		else
+			return " ";
+	}
 }

@@ -17,10 +17,13 @@ public class Data implements Serializable {
 		this.awards = new ArrayList<Scholarship>();
 		
 		//A test list of users to login as
-		users.add(new User("StudentTest", "student", "student", "student"));
-		users.add(new User("ProfTest", "prof", "professor", "professor"));
-		users.add(new User("SCTest", "sc", "coordinator", "coordinator"));
-		users.add(new User("AdminTest", "admin", "administrator", "administrator"));
+		users.add(new Applicant("StudentTest", "000", "studentType", "Art", "Art", 3.0, "student", "student", "student"));
+		users.add(new Professor("ProfTest", "professor", "professor"));
+		users.add(new Coordinator("SCTest", "coordinator", "coordinator"));
+		users.add(new Administrator("AdminTest", "administrator", "administrator"));
+		awards.add(new Scholarship("TestScholarship1", "Donor One", 600, true, 3.4, 400));
+		awards.add(new Scholarship("TestScholarship2", "Donor Two", 800, true, 3.6, 300));
+		awards.add(new Scholarship("TestScholarship3", "Donor Three", 1000, true, 3.8, 200));
 	}
 
 	public void addUser(User user) {
