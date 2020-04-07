@@ -39,20 +39,18 @@ import javax.swing.JToolBar;
 public class ApplicantLogin extends JFrame {
 	private static final long serialVersionUID = 1060623638149583738L;
 	private JPanel contentPane;
-	private JTextField txtConnor;
+	private JTextField txtName;
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTable table;
-	private Data data;
 
 	/**
 	 * Create the frame.
 	 */
-	public ApplicantLogin(Data data) {
-		this.data = data;
+	public ApplicantLogin(Data data, Applicant student) {
 		setTitle("Applicant");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1358, 754);
@@ -66,17 +64,17 @@ public class ApplicantLogin extends JFrame {
 		lblNewLabel.setBounds(28, 29, 215, 69);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("1. Basic info. Please check the correctness. if not correct , edit and update");
+		JLabel lblNewLabel_1 = new JLabel("1.Your information, if it is not correct, please update it");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel_1.setBounds(28, 94, 547, 35);
 		contentPane.add(lblNewLabel_1);
 		
-		txtConnor = new JTextField();
-		txtConnor.setText("Connor");
-		txtConnor.setToolTipText("");
-		txtConnor.setBounds(95, 139, 116, 22);
-		contentPane.add(txtConnor);
-		txtConnor.setColumns(10);
+		txtName = new JTextField();
+		txtName.setText("");
+		txtName.setToolTipText("");
+		txtName.setBounds(95, 139, 116, 22);
+		contentPane.add(txtName);
+		txtName.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("first name");
 		lblNewLabel_2.setBounds(25, 142, 77, 16);

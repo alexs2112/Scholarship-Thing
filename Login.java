@@ -54,29 +54,31 @@ public class Login implements java.io.Serializable {
 			String userLogin = textField.getText();
 			char[] c = passwordField.getPassword();
 			String userPassword = new String(c);
-			//Applies the login check to see if this user exists, returns the users type
-			String cond = loginCheck.login(userLogin, userPassword);
-			System.out.println(cond);
+			
+			//Applies the login check to see if this user exists, returns the user
+			User user = loginCheck.login(userLogin, userPassword);
+			
+			System.out.println(user.name());
 
 			//Uses the users type to call the next screen
-			if (cond.equals("sc")) {
+			if (user.role().equals("sc")) {
 			frmLogin.dispose();
-			ScholarCoordLogin schoCoor = new ScholarCoordLogin(data);
+			ScholarCoordLogin schoCoor = new ScholarCoordLogin(data, (Coordinator)user);
 			schoCoor.setVisible(true);
 
-			} else if (cond.equals("prof")) {
+			} else if (user.role().equals("prof")) {
 			frmLogin.dispose();
-			ProfessorLogin profLog = new ProfessorLogin(data);
+			ProfessorLogin profLog = new ProfessorLogin(data, (Professor)user);
 			profLog.setVisible(true);
 
-			} else if (cond.equals("admin")) {
+			} else if (user.role().equals("admin")) {
 			frmLogin.dispose();
-			AdminLogin adminLog = new AdminLogin(data);
+			AdminLogin adminLog = new AdminLogin(data, (Administrator)user);
 			adminLog.setVisible(true);
 
-			} else if (cond.equals("student")) {
+			} else if (user.role().equals("student")) {
 			frmLogin.dispose();
-			ApplicantLogin appLog = new ApplicantLogin(data);
+			ApplicantLogin appLog = new ApplicantLogin(data, (Applicant)user);
 			appLog.setVisible(true);
 			}
 		}

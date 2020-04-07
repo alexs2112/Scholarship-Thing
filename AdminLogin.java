@@ -14,13 +14,11 @@ import javax.swing.JToolBar;
 public class AdminLogin extends JFrame {
 	private static final long serialVersionUID = 1060623638149583738L;
 	private JPanel contentPane;
-	private Data data;
 
 	/**
 	 * Create the frame.
 	 */
-	public AdminLogin(Data data) {
-		this.data = data;
+	public AdminLogin(Data data, Administrator admin) {
 		setTitle("Administrator");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 400, 200);

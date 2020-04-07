@@ -10,8 +10,8 @@ public class LoginCheck implements Serializable {
 		this.data = data;
 	}
 	
-	public String login(String username, String password) {
-		String type = "";
+	public User login(String username, String password) {
+		User user = null;
 		
 		//First search the array for the same username, store those users in a new array and then check the
 		//passwords
@@ -29,15 +29,15 @@ public class LoginCheck implements Serializable {
 			//Now do the same with the password, searching the subset sameUsername
 			if (sameUsername.get(x).password().equals(password)) {
 				//Set the type as the users role
-				type = sameUsername.get(x).role();
+				user = sameUsername.get(x);	//Return the user with the same username and password
 			}
 		}
 		
 		//If the type has changed, that means it is equal to a users role, so tell them they logged in
-		if (type != "")
+		if (user != null)
 			JOptionPane.showMessageDialog(null, "You have sucessfully logged in!");
 		else
 			JOptionPane.showMessageDialog(null, "Incorrect username or password.");
-		return type;
+		return user;
 	}
 }

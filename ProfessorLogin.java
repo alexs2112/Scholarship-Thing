@@ -14,7 +14,7 @@ public class ProfessorLogin extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ProfessorLogin(Data data) {
+	public ProfessorLogin(Data data, Professor prof) {
 		this.data = data;
 		setTitle("Professor");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

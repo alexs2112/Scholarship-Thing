@@ -230,7 +230,7 @@ public class Register extends JFrame {
 					//Clear the Screen
 					dispose();
 					
-					ApplicantLogin appLog = new ApplicantLogin(data);
+					ApplicantLogin appLog = new ApplicantLogin(data, newStudent);
 					appLog.setVisible(true);
 				
 				

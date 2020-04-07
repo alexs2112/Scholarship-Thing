@@ -13,13 +13,11 @@ import javax.swing.JToolBar;
 
 public class ScholarCoordLogin extends JFrame {
 	private static final long serialVersionUID = 1060623638149583738L;
-	Data data;
 
 	/**
 	 * Create the frame.
 	 */
-	public ScholarCoordLogin(Data data) {
-		this.data = data;
+	public ScholarCoordLogin(Data data, Coordinator user) {
 		setTitle("Scholarship Coordinator");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 300, 200);
