@@ -12,27 +12,14 @@ import javax.swing.JTextArea;
 import javax.swing.JToolBar;
 
 public class ScholarCoordLogin extends JFrame {
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ScholarCoordLogin frame = new ScholarCoordLogin();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private static final long serialVersionUID = 1060623638149583738L;
+	Data data;
 
 	/**
 	 * Create the frame.
 	 */
-	public ScholarCoordLogin() {
+	public ScholarCoordLogin(Data data) {
+		this.data = data;
 		setTitle("Scholarship Coordinator");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 300, 200);
@@ -41,7 +28,7 @@ public class ScholarCoordLogin extends JFrame {
 		JButton btnNewButton = new JButton("Create New Award");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				NewAward addAward = new NewAward();
+				NewAward addAward = new NewAward(data);
 				addAward.setVisible(true);
 			}
 		});
@@ -51,7 +38,7 @@ public class ScholarCoordLogin extends JFrame {
 		JButton btnNewButton_1 = new JButton("Edit/Delete Existing Award");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ExistingAward editAward = new ExistingAward();
+				ExistingAward editAward = new ExistingAward(data);
 				editAward.setVisible(true);
 			}
 		});

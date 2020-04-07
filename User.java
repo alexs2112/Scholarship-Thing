@@ -1,11 +1,12 @@
 
 
 
-public class User {
-	private String name;
-	private String role;
-	private String username;
-	private String password;
+public class User implements java.io.Serializable {
+	private static final long serialVersionUID = 1060623638149583738L;
+	protected String name;
+	protected String role;
+	protected String username;
+	protected String password;
 	
 	public User(String name, String role, String username, String password) {
 		this.name = name;

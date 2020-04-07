@@ -37,7 +37,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JToolBar;
 
 public class ApplicantLogin extends JFrame {
-
+	private static final long serialVersionUID = 1060623638149583738L;
 	private JPanel contentPane;
 	private JTextField txtConnor;
 	private JTextField textField;
@@ -46,27 +46,13 @@ public class ApplicantLogin extends JFrame {
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTable table;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ApplicantLogin frame = new ApplicantLogin();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private Data data;
 
 	/**
 	 * Create the frame.
 	 */
-	public ApplicantLogin() {
+	public ApplicantLogin(Data data) {
+		this.data = data;
 		setTitle("Applicant");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1358, 754);

@@ -1,44 +1,20 @@
-public class Applicant {
-	
-	public String firstName;
-	public String lastName;
-	public String studentType;
-	public String faculty;
-	public String department;
-	public Float GPA;
-	public Integer level;
-	public String userName;
-	public String password;
-	
+import java.util.ArrayList;
 
-	public Applicant(String firstname, String lastname, String studenttype, String fac, String dep, Float gpa, String username) {
-		// TODO Auto-generated constructor stub
-		this.firstName = firstname;
-		this.lastName = lastname;
+public class Applicant extends User{
+	private static final long serialVersionUID = 1060623638149583738L;
+	private String studentType;
+	private String faculty;
+	private String department;
+	private Float GPA;
+	private Integer level;
+	//private ArrayList<Professor> recommendations;
+
+	public Applicant(String name, String studenttype, String fac, String dep, Float gpa, String username, String password, String role) {
+		super(name, role, username, password);
 		this.studentType = studenttype;
 		this.faculty = fac;
 		this.department = dep;
 		this.GPA = gpa;
-		this.level = 0;
-		this.userName = username;
-		
-	}
-
-
-	public void setFirstName(String firstname) {
-		this.firstName = firstname;
-	}
-	
-	public String getFirstName() {
-		return firstName;
-	}
-	
-	public void setLastName(String lastname) {
-		this.lastName = lastname;
-	}
-	
-	public String getLastName() {
-		return lastName;
 	}
 	
 	public void setStudentType(String studenttype) {
@@ -80,13 +56,6 @@ public class Applicant {
 	public Integer getLevel() {
 		return level;
 	}
-	
-	public void setUserName(String username) {
-		this.userName = username;
-	}
-	
-	public String getUserName() {
-		return userName;
-	}
+
 	
 }

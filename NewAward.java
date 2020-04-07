@@ -15,7 +15,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class NewAward extends JFrame {
-
+	private static final long serialVersionUID = 1060623638149583738L;
 	private JPanel contentPane;
 	private JTextField textField;
 	private JLabel lblNewLabel_1;
@@ -30,30 +30,17 @@ public class NewAward extends JFrame {
 	private JLabel label_3;
 	private JButton btnNewButton;
 	private ArrayList<Scholarship> allScholarships = new ArrayList<Scholarship>();
+	private Data data;
 
 	public ArrayList<Scholarship> getAllSchol() {
 		return allScholarships;
-	}
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					NewAward frame = new NewAward();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
 	}
 
 	/**
 	 * Create the frame.
 	 */
-	public NewAward() {
+	public NewAward(Data data) {
+		this.data = data;
 		setBounds(100, 100, 400, 400);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -133,21 +120,11 @@ public class NewAward extends JFrame {
 					String avail = textField_4.getText();
 					int awardsAvail = Integer.parseInt(avail);
 					boolean fullTerm = term.equals("Annual");
-					ArrayList<Applicant> applicantList = new ArrayList();
 
-					Scholarship newSchol = new Scholarship(scholName, donName, valueOfAward, fullTerm, minGPA, awardsAvail, applicantList);
-					allScholarships.add(newSchol);
+					//Creates a new scholarship and adds it to data's award arrayList
+					Scholarship newSchol = new Scholarship(scholName, donName, valueOfAward, fullTerm, minGPA, awardsAvail);
+					data.addAward(newSchol);
 
-					try {
-						//create file
-						FileWriter fstream = new FileWriter("Resources\\scholarshipDatabase.txt", true);
-							BufferedWriter out = new BufferedWriter(fstream);
-							out.write(newSchol.getScholName() + ", " + newSchol.getDonorName() + " " + newSchol.getScholValue() + " " + newSchol.getAnnual() + " " + newSchol.getReq() + " " + newSchol.getTotalAmount() + " " + newSchol.getApplicants() + "\n");
-							//close the output stream
-							out.close();
-					} catch (Exception ex) {
-						System.err.println("Error: " + ex.getMessage());
-					}
 				dispose();
 			}
 				}

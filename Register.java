@@ -12,7 +12,6 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,7 +20,7 @@ import java.io.*;
 import java.util.*;
 
 public class Register extends JFrame {
-
+	private static final long serialVersionUID = 1060623638149583738L;
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
@@ -32,23 +31,9 @@ public class Register extends JFrame {
 	private JPasswordField passwordField;
 	private JPasswordField passwordField_1;
 	private JTextField textField_6;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Register frame = new Register();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+	private Data data;
+	public Data data() { return data; }
+	
 	/**
 	 * Checks is a string is numerical
 	 */
@@ -65,7 +50,9 @@ public class Register extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Register() {
+	public Register(Data data) {
+		this.data = data;
+		
 		setTitle("New Student Registration");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 400);
@@ -211,8 +198,6 @@ public class Register extends JFrame {
 					e3.printStackTrace();
 				}
 
-				LoginCheck register = new LoginCheck();
-				
 				if (textField.getText().contentEquals("") || textField_1.getText().equals("") || textField_2.getText().equals("") || textField_3.getText().equals("")){
 					JOptionPane.showMessageDialog(null, "Please ensure all fields are complete");
 				
@@ -233,20 +218,19 @@ public class Register extends JFrame {
 					String studentFaculty = comboBox_1.getSelectedItem().toString();
 					String studentDepartment = textField_2.getText();
 					Float studentGpa = Float.parseFloat(gpa);
-					Integer studentLevel = 0;
 					String username = textField_6.getText();
-					try{
-						register.addToFile(username, password);
-					}
-					catch (IOException e1){
-						e1.printStackTrace();
-					}
-					Applicant newStudent = new Applicant(studentFirstName, studentLastName, studentType, studentFaculty, studentDepartment, studentGpa, username);
-					newStudent.setLevel(0);
-					// System.out.println(newStudent.getFirstName() + " " + newStudent.getLastName());
-					//for testing
+					
+					String name = studentFirstName + " " + studentLastName;
+					Applicant newStudent = new Applicant(name, studentType, studentFaculty, studentDepartment, studentGpa, username, password, "student");
+					
+					//Creates the student, adds it to Data user arraylist
+					data.addUser(newStudent);
+					data.saveData();
+					
+					//Clear the Screen
 					dispose();
-					ApplicantLogin appLog = new ApplicantLogin();
+					
+					ApplicantLogin appLog = new ApplicantLogin(data);
 					appLog.setVisible(true);
 				
 				
@@ -254,7 +238,10 @@ public class Register extends JFrame {
 		);
 		btnNewButton_1.setBounds(523, 292, 117, 29);
 		contentPane.add(btnNewButton_1);
-		}}
+		}
+	
+	
+}
 		
 	
 

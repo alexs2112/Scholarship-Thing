@@ -15,7 +15,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class NewUser extends JFrame {
-
+	private static final long serialVersionUID = 1060623638149583738L;
 	private JPanel contentPane;
 	private JTextField textField;
 	private JLabel lblNewLabel_1;
@@ -24,27 +24,13 @@ public class NewUser extends JFrame {
 	private JLabel label;
 	private JComboBox comboBox;
 	private JButton btnNewButton;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					NewAward frame = new NewAward();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	//private Data data;
 
 	/**
 	 * Create the frame.
 	 */
-	public NewUser() {
+	public NewUser(Data data) {
+		//this.data = data;
 		setBounds(100, 100, 400, 400);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -104,17 +90,8 @@ public class NewUser extends JFrame {
 						convertedRole = "ERROR";
 					
 					User newUser = new User(name, convertedRole, username, password);
-					
-					try {
-						//create file
-						FileWriter fstream = new FileWriter("Resources\\login.txt", true);
-							BufferedWriter out = new BufferedWriter(fstream);
-							out.write(newUser.username() + " " + newUser.password() + " " + newUser.role() + "\n");
-							//close the output stream
-							out.close();
-					} catch (Exception ex) {
-						System.err.println("Error: " + ex.getMessage());
-					}
+					data.addUser(newUser);
+					data.saveData();
 				dispose();
 			}
 				}

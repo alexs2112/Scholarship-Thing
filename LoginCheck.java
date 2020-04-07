@@ -2,58 +2,42 @@ import java.io.*;
 import java.util.*;
 import javax.swing.JOptionPane;
 
-public class LoginCheck {
-
-    public String login(String username, String password) throws IOException {
-        ArrayList<String> uNList = new ArrayList<String>();
-        ArrayList<String> pWList = new ArrayList<String>();
-        ArrayList<String> type = new ArrayList<String>();
-
-        try {
-            BufferedReader read = new BufferedReader(new FileReader("Resources/login.txt"));
-            String line = read.readLine();
-            while (line != null){
-                String cLine[] = line.split(" ");
-                uNList.add(cLine[0]);
-                pWList.add(cLine[1]);
-                type.add(cLine[2]);
-                line = read.readLine();
-            }
-            read.close();
-
-        } catch (FileNotFoundException e) {
-            JOptionPane.showMessageDialog(null, "Account file not found.");
-        }
+public class LoginCheck implements Serializable {
+	private static final long serialVersionUID = 1060623638149583738L;
+	private Data data;
+	
+	public LoginCheck(Data data) {
+		this.data = data;
+	}
+	
+	public String login(String username, String password) {
+		String type = "";
 		
-		if (uNList.contains(username)) {
-			int index = uNList.indexOf(username);
-			if (password.equals(pWList.get(index))) {
-				JOptionPane.showMessageDialog(null, "You have sucessfully logged in!");
+		//First search the array for the same username, store those users in a new array and then check the
+		//passwords
+		ArrayList<User> users = data.users();
+		ArrayList<User> sameUsername = new ArrayList<User>();
+		
+		for (int i = 0; i < users.size(); i++) {
+			//For every user in users, if the username is the same as the input username, add the user to sameUsername
+			if (users.get(i).username().equals(username)) {
+				sameUsername.add(users.get(i));
 			}
-			else
-				JOptionPane.showMessageDialog(null, "Incorrect username or password.");
 		}
-        else
+		
+		for (int x = 0; x < sameUsername.size(); x++) {
+			//Now do the same with the password, searching the subset sameUsername
+			if (sameUsername.get(x).password().equals(password)) {
+				//Set the type as the users role
+				type = sameUsername.get(x).role();
+			}
+		}
+		
+		//If the type has changed, that means it is equal to a users role, so tell them they logged in
+		if (type != "")
+			JOptionPane.showMessageDialog(null, "You have sucessfully logged in!");
+		else
 			JOptionPane.showMessageDialog(null, "Incorrect username or password.");
-        
-        if (uNList.contains(username) == false || pWList.contains(password) == false) {
-            String userType = "null";
-            return userType;
-        }
-        else {
-            String userType = type.get(uNList.indexOf(username));
-            return userType;
-        }
-    }
-
-    public void addToFile(String username, String password) throws IOException{
-        try {
-            BufferedWriter write = new BufferedWriter(new FileWriter("Resources/login.txt", true));
-            write.append(username+" "+password+" student\n");
-            write.close();
-        }
-        catch (FileNotFoundException e){
-            JOptionPane.showMessageDialog(null, "Account file not found.");
-        }
-    }
+		return type;
+	}
 }

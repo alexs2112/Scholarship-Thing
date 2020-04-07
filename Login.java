@@ -8,46 +8,35 @@ import java.io.IOException;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
 
-public class Login {
-
+public class Login implements java.io.Serializable {
+	private static final long serialVersionUID = 1060623638149583738L;
 	private JFrame frmLogin;
 	private JTextField textField;
 	private JPasswordField passwordField;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Login window = new Login();
-					window.frmLogin.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	public JFrame frmLogin() { return frmLogin; }
+	private Data data;
+	public Data data() { return data; }
+	
 
 	/**
 	 * Create the application.
 	 */
-	public Login() {
+	public Login(Data data) {
+		this.data = data;
 		initialize();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	public void initialize() {
 		frmLogin = new JFrame();
 		frmLogin.setResizable(false);
 		frmLogin.setTitle("LOGIN");
 		frmLogin.setBounds(100, 100, 450, 300);
 		frmLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmLogin.getContentPane().setLayout(null);
-
+		
 		textField = new JTextField();
 		textField.setBounds(204, 83, 130, 26);
 		frmLogin.getContentPane().add(textField);
@@ -60,37 +49,35 @@ public class Login {
 		JButton btnNewButton = new JButton("Login");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+			LoginCheck loginCheck = new LoginCheck(data);
+			String userLogin = textField.getText();
+			char[] c = passwordField.getPassword();
+			String userPassword = new String(c);
+			//Applies the login check to see if this user exists, returns the users type
+			String cond = loginCheck.login(userLogin, userPassword);
+			System.out.println(cond);
 
-			try{
-				LoginCheck loginCheck = new LoginCheck();
-				String userLogin = textField.getText();
-				char[] c = passwordField.getPassword();
-				String userPassword = new String(c);
-				String cond = loginCheck.login(userLogin, userPassword);
-				System.out.println(cond);
+			//Uses the users type to call the next screen
+			if (cond.equals("sc")) {
+			frmLogin.dispose();
+			ScholarCoordLogin schoCoor = new ScholarCoordLogin(data);
+			schoCoor.setVisible(true);
 
-				if (cond.equals("sc")) {
-				frmLogin.dispose();
-				ScholarCoordLogin schoCoor = new ScholarCoordLogin();
-				schoCoor.setVisible(true);
+			} else if (cond.equals("prof")) {
+			frmLogin.dispose();
+			ProfessorLogin profLog = new ProfessorLogin(data);
+			profLog.setVisible(true);
 
-			}	else if (cond.equals("prof")) {
-				frmLogin.dispose();
-				ProfessorLogin profLog = new ProfessorLogin();
-				profLog.setVisible(true);
+			} else if (cond.equals("admin")) {
+			frmLogin.dispose();
+			AdminLogin adminLog = new AdminLogin(data);
+			adminLog.setVisible(true);
 
-			}	else if (cond.equals("admin")) {
-				frmLogin.dispose();
-				AdminLogin adminLog = new AdminLogin();
-				adminLog.setVisible(true);
-
-			} else if (cond.equals("student")){
-				frmLogin.dispose();
-				ApplicantLogin appLog = new ApplicantLogin();
-				appLog.setVisible(true);
-			}
-		} catch (IOException g) {
-			g.printStackTrace();
+			} else if (cond.equals("student")) {
+			frmLogin.dispose();
+			ApplicantLogin appLog = new ApplicantLogin(data);
+			appLog.setVisible(true);
 			}
 		}
 	});
@@ -110,7 +97,7 @@ public class Login {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmLogin.dispose();
-				Register regPage = new Register();
+				Register regPage = new Register(data);
 				regPage.setVisible(true);
 
 			}

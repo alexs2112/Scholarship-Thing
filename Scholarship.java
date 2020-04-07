@@ -1,24 +1,23 @@
 import java.util.ArrayList;
 
-public class Scholarship {
+public class Scholarship implements java.io.Serializable {
+	private static final long serialVersionUID = 1060623638149583738L;
+	private String name; //Name of the Scholarship
+	private String donor; //Name of the donor
+	private Integer value; //Dollar value of the scholarship
+	private Boolean annual; //boolean value that evaluates to true if  the scholarship is for the full academic year
+	private Float requirement; //minimum GPA required to be eligible for the scholarship
+	private Integer totalAmount; //Number of awards that will be given out
+	private ArrayList<Applicant> applicants; //the current list of students who have applied for the award
 
-	public String name; //Name of the Scholarship
-	public String donor; //Name of the donor
-	public Integer value; //Dollar value of the scholarship
-	public Boolean annual; //boolean value that evaluates to true if  the scholarship is for the full academic year
-	public Float requirement; //minimum GPA required to be eligible for the scholarship
-	public Integer totalAmount; //Number of awards that will be given out
-	public ArrayList<Applicant> applicants; //the current list of students who have applied for the award
-
-	public Scholarship(String scholName, String donorName, Integer dolVal, Boolean ann, Float req, Integer totAmount, ArrayList<Applicant> applicantList) {
+	public Scholarship(String scholName, String donorName, Integer dolVal, Boolean ann, Float req, Integer totAmount) {
 		this.name = scholName;
 		this.donor = donorName;
 		this.value = dolVal;
 		this.annual = ann;
 		this.requirement = req;
 		this.totalAmount = totAmount;
-		this.applicants = applicantList;
-		// TODO Auto-generated constructor stub
+		this.applicants = new ArrayList<Applicant>();
 	}
 
 

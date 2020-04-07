@@ -12,29 +12,15 @@ import javax.swing.JTextArea;
 import javax.swing.JToolBar;
 
 public class AdminLogin extends JFrame {
-
+	private static final long serialVersionUID = 1060623638149583738L;
 	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ScholarCoordLogin frame = new ScholarCoordLogin();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private Data data;
 
 	/**
 	 * Create the frame.
 	 */
-	public AdminLogin() {
+	public AdminLogin(Data data) {
+		this.data = data;
 		setTitle("Administrator");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 400, 200);
@@ -43,7 +29,7 @@ public class AdminLogin extends JFrame {
 		JButton btnNewButton = new JButton("Create New Award");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				NewAward addAward = new NewAward();
+				NewAward addAward = new NewAward(data);
 				addAward.setVisible(true);
 			}
 		});
@@ -53,7 +39,7 @@ public class AdminLogin extends JFrame {
 		JButton btnNewButton_1 = new JButton("Edit/Delete Existing Award");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ExistingAward editAward = new ExistingAward();
+				ExistingAward editAward = new ExistingAward(data);
 				editAward.setVisible(true);
 			}
 		});
@@ -64,7 +50,7 @@ public class AdminLogin extends JFrame {
 		JButton btnNewButton_2 = new JButton("Add Another User");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				NewUser newUser = new NewUser();
+				NewUser newUser = new NewUser(data);
 				newUser.setVisible(true);
 			}
 		});

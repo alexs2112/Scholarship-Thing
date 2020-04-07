@@ -16,50 +16,30 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class ExistingAward extends JFrame {
-
+	private static final long serialVersionUID = 1060623638149583738L;
 	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ExistingAward frame = new ExistingAward();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private Data data;
 
 	/**
 	 * Create the frame.
 	 */
-	public ExistingAward() {
+	public ExistingAward(Data data) {
+		this.data = data;
 		setBounds(100, 100, 300, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		ArrayList<String> scholarships = new ArrayList<String>();
+		//An arraylist of all the scholarships and their associated data
+		ArrayList<Scholarship> scholarships = data.awards();
+		ArrayList<String> listOfNames = new ArrayList<String>();
+		
+		for (Scholarship award : scholarships) {
+			listOfNames.add(award.getScholName());
+		}
 
-		try {
-			Scanner sc = new Scanner (new File("Resources\\scholarshipDatabase.txt")).useDelimiter(",");
-
-				while (sc.hasNextLine()) {
-					scholarships.add(sc.next());
-					sc.nextLine();
-
-				} } catch (IOException exc) {
-					exc.printStackTrace();
-				}
-
-
-		JList list = new JList(scholarships.toArray());
+		JList list = new JList(listOfNames.toArray());
 		list.setBounds(20, 29, 258, 383);
 		contentPane.add(list);
 
@@ -67,17 +47,18 @@ public class ExistingAward extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String selected = list.getSelectedValue().toString();
-				EditAward editThisAward = new EditAward();
+				EditAward editThisAward = new EditAward(data);
 				editThisAward.setVisible(true);
 			}
 		});
 		btnNewButton.setBounds(20, 424, 93, 29);
 		contentPane.add(btnNewButton);
 
-		JButton btnNewButton_1 = new JButton("Close");
+		JButton btnNewButton_1 = new JButton("Save and Close");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
+				data.saveData();
 			}
 		});
 		btnNewButton_1.setBounds(190, 424, 93, 29);
