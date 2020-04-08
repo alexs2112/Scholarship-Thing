@@ -155,25 +155,56 @@ public class ApplicantLogin extends JFrame {
 		for (int i = 0; i < awards.size(); i++) {
 			names[i] = awards.get(i).getScholName();
 		}
-		JComboBox<String> awardBox = new JComboBox<String>();
-		awardBox.setModel(new DefaultComboBoxModel<String>(names));
+		int column1 = 280;
+		int row1 = 320;
+		int row2 = 340;
+		int row3 = 360;
+		int row4 = 380;
+		int row5 = 400;
+		int row6 = 420;
+
+		JLabel lblName = new JLabel();
+		lblName.setBounds(column1, row1, 300, 20);
+		lblName.setFont(new Font("Tahoma", Font.BOLD, 14));
+		contentPane.add(lblName);
+		
+		JLabel lblDonor = new JLabel();
+		lblDonor.setBounds(column1, row2, 300, 20);
+		lblDonor.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		contentPane.add(lblDonor);
+		
+		JLabel lblValue = new JLabel();
+		lblValue.setBounds(column1, row3, 300, 20);
+		lblValue.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		contentPane.add(lblValue);
+		
+		JLabel lblReq = new JLabel();
+		lblReq.setBounds(column1, row4, 300, 20);
+		lblReq.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		contentPane.add(lblReq);
+		
+		JLabel lblAmount = new JLabel();
+		lblAmount.setBounds(column1, row5, 300, 20);
+		lblAmount.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		contentPane.add(lblAmount);
+
+		JLabel lblApplied = new JLabel();
+		lblApplied.setBounds(column1, row6, 300, 20);
+		lblApplied.setFont(new Font("Tahoma", Font.BOLD, 14));
+		contentPane.add(lblApplied);
+
+		JComboBox awardBox = new JComboBox();
+		awardBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Updates existing JLabels for award info
+				updateFields(awards.get(awardBox.getSelectedIndex()), contentPane, student, lblName, lblDonor, lblValue, lblReq, lblAmount, lblApplied);
+			}
+		});
+		awardBox.setModel(new DefaultComboBoxModel(names));
 		awardBox.setBounds(column1Start + 10, 300, 220, 24);
 		awardBox.setSelectedIndex(index);
 		contentPane.add(awardBox);
-		updateFields(awards.get(awardBox.getSelectedIndex()), contentPane, student);
-		
-		//Update the displayed information for the selected award
-		JButton btnUpdate = new JButton("Update Scholarship");
-		btnUpdate.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				updateFields(awards.get(awardBox.getSelectedIndex()), contentPane, student);
-				dispose();
-				ApplicantLogin appLog = new ApplicantLogin(data, student, awardBox.getSelectedIndex());
-				appLog.setVisible(true);
-			}
-		});
-		btnUpdate.setBounds(column1Start + 20, 380, 130, 22);
-		contentPane.add(btnUpdate);
+		updateFields(awards.get(awardBox.getSelectedIndex()), contentPane, student, lblName, lblDonor, lblValue, lblReq, lblAmount, lblApplied);
 		
 		JLabel lblNewLabel_5 = new JLabel("3. Upload Transcript(s)");
 		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 16));
@@ -221,7 +252,8 @@ public class ApplicantLogin extends JFrame {
 		contentPane.add(btnNewButton_2);
 	}
 	
-	public void updateFields(Scholarship award, JPanel contentPane, Applicant student) {
+	//Updates JLabels for award info
+	public void updateFields(Scholarship award, JPanel contentPane, Applicant student, JLabel lblName, JLabel lblDonor, JLabel lblValue, JLabel lblReq, JLabel lblAmount, JLabel lblApplied) {
 		int column1 = 280;
 		int row1 = 320;
 		int row2 = 340;
@@ -236,36 +268,18 @@ public class ApplicantLogin extends JFrame {
 		String req = "GPA Requirement: " + (df2.format(award.getReq()));
 		String amount = "Amount of Awards: " + Integer.toString(award.getTotalAmount());
 		String applied = "You have already applied for this award";
-		JLabel lblName = new JLabel(name);
-		lblName.setBounds(column1, row1, 300, 20);
-		lblName.setFont(new Font("Tahoma", Font.BOLD, 14));
-		contentPane.add(lblName);
 		
-		JLabel lblDonor = new JLabel(donor);
-		lblDonor.setBounds(column1, row2, 300, 20);
-		lblDonor.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		contentPane.add(lblDonor);
-		
-		JLabel lblValue = new JLabel(value);
-		lblValue.setBounds(column1, row3, 300, 20);
-		lblValue.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		contentPane.add(lblValue);
-		
-		JLabel lblReq = new JLabel(req);
-		lblReq.setBounds(column1, row4, 300, 20);
-		lblReq.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		contentPane.add(lblReq);
-		
-		JLabel lblAmount = new JLabel(amount);
-		lblAmount.setBounds(column1, row5, 300, 20);
-		lblAmount.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		contentPane.add(lblAmount);
+		lblName.setText(name);
+		lblDonor.setText(donor);
+		lblValue.setText(value);
+		lblReq.setText(req);
+		lblAmount.setText(amount);
 		
 		if (award.getApplicants().contains(student)) {
-			JLabel lblApplied = new JLabel(applied);
-			lblApplied.setBounds(column1, row6, 300, 20);
-			lblApplied.setFont(new Font("Tahoma", Font.BOLD, 14));
-			contentPane.add(lblApplied);
+			lblApplied.setText(applied);
+		}
+		else {
+			lblApplied.setText("");
 		}
 	}
 }
