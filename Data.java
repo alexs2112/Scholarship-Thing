@@ -36,7 +36,7 @@ public class Data implements Serializable {
 	public Data loadData() {
 		//Load an already initialized Data from the file data.ser, if that file does not exist, return a newly
 		//initialized object
-		String filename = "resources/data.ser";
+		String filename = "data.ser";
 		Data load;
 		try
 	    {    
@@ -68,7 +68,7 @@ public class Data implements Serializable {
 	public void saveData() {
 		//Save execution state to the data.ser file, to be loaded in the future
 		try {
-			FileOutputStream file = new FileOutputStream("resources/data.ser");
+			FileOutputStream file = new FileOutputStream("data.ser");
 			ObjectOutputStream out = new ObjectOutputStream(file);
 			out.writeObject(this);
 			out.close();

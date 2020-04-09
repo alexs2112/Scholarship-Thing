@@ -54,6 +54,17 @@ public class AdminLogin extends JFrame {
 		});
 		btnNewButton_2.setBounds(17, 87, 300, 29);
 		getContentPane().add(btnNewButton_2);
+		
+		JButton btnNewButton_3 = new JButton("Logout");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				Login window = new Login(data);
+				window.frmLogin().setVisible(true);
+			}
+		});
+		btnNewButton_3.setBounds(277, 143, 117, 29);
+		getContentPane().add(btnNewButton_3);
 	}
 
 }

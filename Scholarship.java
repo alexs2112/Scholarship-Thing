@@ -83,3 +83,4 @@ public class Scholarship implements java.io.Serializable {
 	}
 
 }
+

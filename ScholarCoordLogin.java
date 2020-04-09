@@ -42,5 +42,16 @@ public class ScholarCoordLogin extends JFrame {
 		});
 		btnNewButton_1.setBounds(17, 53, 224, 29);
 		getContentPane().add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("Logout");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				Login window = new Login(data);
+				window.frmLogin().setVisible(true);
+			}
+		});
+		btnNewButton_2.setBounds(177, 143, 117, 29);
+		getContentPane().add(btnNewButton_2);
 	}
 }

@@ -5,6 +5,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class ProfessorLogin extends JFrame {
 	private static final long serialVersionUID = 1060623638149583738L;
@@ -23,6 +25,17 @@ public class ProfessorLogin extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		JButton btnNewButton = new JButton("Logout");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				Login window = new Login(data);
+				window.frmLogin().setVisible(true);
+			}
+		});
+		btnNewButton.setBounds(1233, 678, 117, 29);
+		contentPane.add(btnNewButton);
 	}
 
 }
