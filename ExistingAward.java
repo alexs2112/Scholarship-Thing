@@ -18,13 +18,11 @@ import java.awt.event.ActionEvent;
 public class ExistingAward extends JFrame {
 	private static final long serialVersionUID = 1060623638149583738L;
 	private JPanel contentPane;
-	private Data data;
 
 	/**
 	 * Create the frame.
 	 */
 	public ExistingAward(Data data) {
-		this.data = data;
 		setBounds(100, 100, 300, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -47,7 +45,7 @@ public class ExistingAward extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String selected = list.getSelectedValue().toString();
-				EditAward editThisAward = new EditAward(data);
+				EditAward editThisAward = new EditAward(data, scholarships.get(list.getSelectedIndex()));
 				editThisAward.setVisible(true);
 			}
 		});

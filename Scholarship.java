@@ -19,6 +19,14 @@ public class Scholarship implements java.io.Serializable {
 		this.totalAmount = totAmount;
 		this.applicants = new ArrayList<Applicant>();
 	}
+	public void update(String scholName, String donorName, Integer dolVal, Boolean ann, double req, Integer totAmount) {
+		this.name = scholName;
+		this.donor = donorName;
+		this.value = dolVal;
+		this.annual = ann;
+		this.requirement = req;
+		this.totalAmount = totAmount;
+	}
 
 
 	public void setScholName(String scholName) {
@@ -73,11 +81,12 @@ public class Scholarship implements java.io.Serializable {
 		this.applicants = applicantList;
 	}
 
-	public ArrayList getApplicants() {
+	public ArrayList<Applicant> getApplicants() {
 		return applicants;
 	}
 	public void addApplicant(Applicant applicant) { applicants.add(applicant); }
-
+	public void clearApplicants() { applicants.clear(); }
+	
 	public Integer getNumberApplicants() {
 		return (this.applicants).size();
 	}

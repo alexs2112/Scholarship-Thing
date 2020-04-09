@@ -1,6 +1,9 @@
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Font;
+
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
@@ -20,8 +23,13 @@ public class ScholarCoordLogin extends JFrame {
 	public ScholarCoordLogin(Data data, User user) {
 		setTitle("Scholarship Coordinator");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 300, 200);
+		setBounds(100, 100, 360, 240);
 		getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Welcome " + user.name());
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel.setBounds(17, 20, 483, 30);
+		getContentPane().add(lblNewLabel);
 
 		JButton btnNewButton = new JButton("Create New Award");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -30,7 +38,7 @@ public class ScholarCoordLogin extends JFrame {
 				addAward.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(17, 19, 178, 29);
+		btnNewButton.setBounds(17, 50, 225, 30);
 		getContentPane().add(btnNewButton);
 
 		JButton btnNewButton_1 = new JButton("Edit/Delete Existing Award");
@@ -40,7 +48,7 @@ public class ScholarCoordLogin extends JFrame {
 				editAward.setVisible(true);
 			}
 		});
-		btnNewButton_1.setBounds(17, 53, 224, 29);
+		btnNewButton_1.setBounds(17, 90, 225, 30);
 		getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Logout");
@@ -51,7 +59,7 @@ public class ScholarCoordLogin extends JFrame {
 				window.frmLogin().setVisible(true);
 			}
 		});
-		btnNewButton_2.setBounds(177, 143, 117, 29);
+		btnNewButton_2.setBounds(177, 143, 117, 30);
 		getContentPane().add(btnNewButton_2);
 	}
 }

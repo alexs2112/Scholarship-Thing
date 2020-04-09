@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
@@ -23,13 +24,13 @@ public class EditAward extends JFrame {
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private JTextField textField_4;
-	private Data data;
+	private Scholarship award;
 
 	/**
 	 * Create the frame.
 	 */
-	public EditAward(Data data) {
-		this.data = data;
+	public EditAward(Data data, Scholarship award) {
+		this.award = award;
 		setBounds(100, 100, 400, 400);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -38,26 +39,32 @@ public class EditAward extends JFrame {
 
 		textField = new JTextField();
 		textField.setBounds(156, 18, 130, 26);
+		textField.setText(award.getScholName());
 		contentPane.add(textField);
 		textField.setColumns(10);
 
 		textField_1 = new JTextField();
 		textField_1.setBounds(156, 49, 130, 26);
+		textField_1.setText(award.getDonorName());
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 
 		textField_2 = new JTextField();
 		textField_2.setBounds(156, 77, 130, 26);
+		textField_2.setText(award.getScholValue().toString());
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
 
+		final DecimalFormat df2= new DecimalFormat("#.##");
 		textField_3 = new JTextField();
 		textField_3.setBounds(156, 139, 130, 26);
+		textField_3.setText((df2.format(award.getReq())));
 		contentPane.add(textField_3);
 		textField_3.setColumns(10);
 
 		textField_4 = new JTextField();
 		textField_4.setBounds(156, 171, 130, 26);
+		textField_4.setText(award.getTotalAmount().toString());
 		contentPane.add(textField_4);
 		textField_4.setColumns(10);
 
@@ -110,11 +117,11 @@ public class EditAward extends JFrame {
 					int awardsAvail = Integer.parseInt(avail);
 					boolean fullTerm = term.equals("Annual");
 
-					Scholarship newSchol = new Scholarship(scholName, donName, valueOfAward, fullTerm, minGPA, awardsAvail);
-					data.addAward(newSchol);
-
-				dispose();
-			}
+					award.update(scholName, donName, valueOfAward, fullTerm, minGPA, awardsAvail);
+					data.saveData();
+					
+					dispose();
+				}
 			}
 		});
 		btnNewButton.setBounds(169, 221, 117, 29);

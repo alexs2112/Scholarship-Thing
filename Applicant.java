@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Applicant extends User{
+public class Applicant extends User implements Comparable {
 	private static final long serialVersionUID = 1060623638149583738L;
 	private String studentType;
 	private String faculty;
@@ -10,6 +10,11 @@ public class Applicant extends User{
 	private String id;
 	//private ArrayList<Professor> recommendations;
 	private ArrayList<Scholarship> applications;
+	
+	//The awards the applicant has received
+	private ArrayList<Scholarship> awards;
+	public ArrayList<Scholarship> awards() { return awards; }
+	public void addAward(Scholarship award) { awards.add(award); }
 
 	public Applicant(String name, String id, String studenttype, String fac, String dep, double gpa, String username, String password, String role) {
 		super(name, role, username, password);
@@ -80,5 +85,12 @@ public class Applicant extends User{
 	public ArrayList<Scholarship> applications() { return applications; }
 	public void addApplication(Scholarship x) { applications.add(x); }
 
-	
+	@Override
+	public int compareTo(Object user) {
+		//A method to use collections.sort() on applicants
+        double compare = ((Applicant)user).getGPA();
+        //Done in descending order
+        return (int)(compare - this.getGPA());
+    }
+
 }
