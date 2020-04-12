@@ -1,6 +1,9 @@
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Font;
+
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
@@ -13,16 +16,20 @@ import javax.swing.JToolBar;
 
 public class AdminLogin extends JFrame {
 	private static final long serialVersionUID = 1060623638149583738L;
-	private JPanel contentPane;
 
 	/**
 	 * Create the frame.
 	 */
-	public AdminLogin(Data data, User admin) {
+	public AdminLogin(Data data, User user) {
 		setTitle("Administrator");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 400, 200);
+		setBounds(100, 100, 360, 240);
 		getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Welcome " + user.name());
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel.setBounds(17, 15, 483, 30);
+		getContentPane().add(lblNewLabel);
 
 		JButton btnNewButton = new JButton("Create New Award");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -31,7 +38,7 @@ public class AdminLogin extends JFrame {
 				addAward.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(17, 19, 300, 29);
+		btnNewButton.setBounds(17, 40, 225, 30);
 		getContentPane().add(btnNewButton);
 
 		JButton btnNewButton_1 = new JButton("Edit/Delete Existing Award");
@@ -41,30 +48,31 @@ public class AdminLogin extends JFrame {
 				editAward.setVisible(true);
 			}
 		});
-		btnNewButton_1.setBounds(17, 53, 300, 29);
+		btnNewButton_1.setBounds(17, 70, 225, 30);
 		getContentPane().add(btnNewButton_1);
 		
-		
-		JButton btnNewButton_2 = new JButton("Add Another User");
-		btnNewButton_2.addActionListener(new ActionListener() {
+		JButton btnNewButton_3 = new JButton("Add Another User");
+		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				NewUser newUser = new NewUser(data);
 				newUser.setVisible(true);
 			}
 		});
-		btnNewButton_2.setBounds(17, 87, 300, 29);
-		getContentPane().add(btnNewButton_2);
+		btnNewButton_3.setBounds(17, 100, 225, 30);
+		getContentPane().add(btnNewButton_3);
 		
-		JButton btnNewButton_3 = new JButton("Logout");
-		btnNewButton_3.addActionListener(new ActionListener() {
+		JButton btnNewButton_2 = new JButton("Logout");
+		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				Login window = new Login(data);
 				window.frmLogin().setVisible(true);
 			}
 		});
-		btnNewButton_3.setBounds(277, 143, 117, 29);
-		getContentPane().add(btnNewButton_3);
+		btnNewButton_2.setBounds(177, 143, 117, 30);
+		getContentPane().add(btnNewButton_2);
 	}
-
 }
+
+
+
