@@ -3,15 +3,19 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
+import javax.imageio.ImageIO;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -35,6 +39,9 @@ public class Register extends JFrame {
 	private JTextField textField_6;
 	private Data data;
 	public Data data() { return data; }
+	private final JFileChooser openFileChooser;
+	private BufferedImage originalBI;
+	String filename = null;
 	
 	/**
 	 * Checks is a string is numerical
@@ -53,7 +60,9 @@ public class Register extends JFrame {
 	 * Create the frame.
 	 */
 	public Register(Data data) {
+		this.openFileChooser = new JFileChooser();
 		this.data = data;
+	
 		
 		setTitle("University of Calgary Scholarship Application System | New Student Registration");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -167,7 +176,23 @@ public class Register extends JFrame {
 		lblNewLabel_10.setBounds(452, 260, 140, 16);
 		contentPane.add(lblNewLabel_10);
 		
+		JLabel messageLabel = new JLabel("");
+		messageLabel.setBounds(319, 429, 445, 16);
+		contentPane.add(messageLabel);
+		
 		JButton btnNewButton = new JButton("Upload");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				JFileChooser chooser = new JFileChooser();
+				chooser.addChoosableFileFilter(new FileNameExtensionFilter("Images", "jpg", "png"));
+				chooser.showOpenDialog(null);
+				File f = chooser.getSelectedFile();
+				filename = f.getAbsolutePath();
+				messageLabel.setText(filename);
+				
+			}
+		});
 		btnNewButton.setBounds(148, 424, 153, 29);
 		contentPane.add(btnNewButton);
 		
@@ -257,6 +282,8 @@ public class Register extends JFrame {
 		lblNewLabel_12.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
 		lblNewLabel_12.setBounds(0, 0, 519, 36);
 		contentPane.add(lblNewLabel_12);
+		
+		
 		}
 	
 	
