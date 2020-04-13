@@ -13,6 +13,7 @@ import javax.swing.JTextPane;
 import javax.swing.JEditorPane;
 import javax.swing.JTextArea;
 import javax.swing.JToolBar;
+import java.awt.Color;
 
 public class AdminLogin extends JFrame {
 	private static final long serialVersionUID = 1060623638149583738L;
@@ -21,14 +22,15 @@ public class AdminLogin extends JFrame {
 	 * Create the frame.
 	 */
 	public AdminLogin(Data data, User user) {
-		setTitle("Administrator");
+		getContentPane().setBackground(Color.ORANGE);
+		setTitle("University of Calgary Scholarship Application System | Administrator Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 360, 240);
+		setBounds(100, 100, 805, 500);
 		getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Welcome " + user.name());
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblNewLabel.setBounds(17, 15, 483, 30);
+		lblNewLabel.setBounds(10, 54, 483, 30);
 		getContentPane().add(lblNewLabel);
 
 		JButton btnNewButton = new JButton("Create New Award");
@@ -38,7 +40,7 @@ public class AdminLogin extends JFrame {
 				addAward.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(17, 40, 225, 30);
+		btnNewButton.setBounds(245, 188, 225, 30);
 		getContentPane().add(btnNewButton);
 
 		JButton btnNewButton_1 = new JButton("Edit/Delete Existing Award");
@@ -48,7 +50,7 @@ public class AdminLogin extends JFrame {
 				editAward.setVisible(true);
 			}
 		});
-		btnNewButton_1.setBounds(17, 70, 225, 30);
+		btnNewButton_1.setBounds(245, 234, 225, 30);
 		getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_3 = new JButton("Add Another User");
@@ -58,7 +60,7 @@ public class AdminLogin extends JFrame {
 				newUser.setVisible(true);
 			}
 		});
-		btnNewButton_3.setBounds(17, 100, 225, 30);
+		btnNewButton_3.setBounds(245, 280, 225, 30);
 		getContentPane().add(btnNewButton_3);
 		
 		JButton btnNewButton_2 = new JButton("Logout");
@@ -69,8 +71,13 @@ public class AdminLogin extends JFrame {
 				window.frmLogin().setVisible(true);
 			}
 		});
-		btnNewButton_2.setBounds(177, 143, 117, 30);
+		btnNewButton_2.setBounds(296, 343, 117, 30);
 		getContentPane().add(btnNewButton_2);
+		
+		JLabel lblNewLabel_1 = new JLabel("Welcome to the University of Calgary Scholarship Application System");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
+		lblNewLabel_1.setBounds(0, 0, 636, 38);
+		getContentPane().add(lblNewLabel_1);
 	}
 }
 

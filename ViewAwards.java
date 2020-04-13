@@ -12,6 +12,9 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import java.awt.Font;
+import java.awt.Color;
 
 public class ViewAwards extends JFrame {
 
@@ -21,8 +24,9 @@ public class ViewAwards extends JFrame {
 	 * Create the frame.
 	 */
 	public ViewAwards(Data data, User applicant) {
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 743, 445);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.ORANGE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -37,7 +41,7 @@ public class ViewAwards extends JFrame {
 		}
 		
 		JComboBox awardBox = new JComboBox();
-		awardBox.setBounds(58, 69, 302, 27);
+		awardBox.setBounds(220, 175, 302, 27);
 		contentPane.add(awardBox);
 		awardBox.setModel(new DefaultComboBoxModel(names));
 		
@@ -51,7 +55,7 @@ public class ViewAwards extends JFrame {
 			}
 		});
 				
-		btnNewButton.setBounds(91, 108, 117, 29);
+		btnNewButton.setBounds(246, 253, 117, 29);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Back");
@@ -61,8 +65,13 @@ public class ViewAwards extends JFrame {
 			}
 		});
 		
-		btnNewButton_1.setBounds(220, 108, 117, 29);
+		btnNewButton_1.setBounds(379, 253, 117, 29);
 		contentPane.add(btnNewButton_1);
+		
+		JLabel lblNewLabel = new JLabel("University of Calgary Scholarship Application System");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
+		lblNewLabel.setBounds(0, 0, 496, 42);
+		contentPane.add(lblNewLabel);
 	
 		
 	}

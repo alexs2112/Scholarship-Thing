@@ -7,6 +7,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
+import javax.swing.JLabel;
+import java.awt.Font;
 
 
 public class ApplicantLogin extends JFrame {
@@ -19,9 +22,12 @@ public class ApplicantLogin extends JFrame {
 	 * Create the frame.
 	 */
 	public ApplicantLogin(Data data, User applicant, int index) {
+		setTitle("University of Calgary Scholarship Application System | Applicant Login");
+		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 770, 445);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.ORANGE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -33,7 +39,7 @@ public class ApplicantLogin extends JFrame {
 				viewAw.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(6, 16, 191, 29);
+		btnNewButton.setBounds(235, 156, 234, 29);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Apply for Awards");
@@ -44,7 +50,7 @@ public class ApplicantLogin extends JFrame {
 				
 			}
 		});
-		btnNewButton_1.setBounds(6, 57, 191, 29);
+		btnNewButton_1.setBounds(235, 200, 234, 29);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Accept/Decline Awards");
@@ -54,7 +60,7 @@ public class ApplicantLogin extends JFrame {
 				accAw.setVisible(true);
 			}
 		});
-		btnNewButton_2.setBounds(6, 97, 191, 29);
+		btnNewButton_2.setBounds(235, 243, 234, 29);
 		contentPane.add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("Logout");
@@ -65,7 +71,12 @@ public class ApplicantLogin extends JFrame {
 				window.frmLogin().setVisible(true);
 			}
 		});
-		btnNewButton_3.setBounds(327, 243, 117, 29);
+		btnNewButton_3.setBounds(298, 328, 117, 29);
 		contentPane.add(btnNewButton_3);
+		
+		JLabel lblNewLabel = new JLabel("University of Calgary Scholarship Application System");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
+		lblNewLabel.setBounds(0, 0, 574, 35);
+		contentPane.add(lblNewLabel);
 	}
 }

@@ -7,6 +7,12 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Image;
+
+//import javax.imageio.ImageIO;
+//import javax.swing.ImageIcon;
 
 public class Login implements java.io.Serializable {
 	private static final long serialVersionUID = 1060623638149583738L;
@@ -31,19 +37,22 @@ public class Login implements java.io.Serializable {
 	 */
 	public void initialize() {
 		frmLogin = new JFrame();
+		frmLogin.getContentPane().setForeground(new Color(0, 0, 0));
+		frmLogin.getContentPane().setFont(new Font("Franklin Gothic Medium", Font.BOLD | Font.ITALIC, 45));
+		frmLogin.getContentPane().setBackground(new Color(255, 200, 0));
 		frmLogin.setResizable(false);
-		frmLogin.setTitle("LOGIN");
-		frmLogin.setBounds(100, 100, 450, 300);
+		frmLogin.setTitle("University of Calgary Scholarship Application System | Login");
+		frmLogin.setBounds(100, 100, 750, 500);
 		frmLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmLogin.getContentPane().setLayout(null);
 		
 		textField = new JTextField();
-		textField.setBounds(204, 83, 130, 26);
+		textField.setBounds(330, 193, 130, 26);
 		frmLogin.getContentPane().add(textField);
 		textField.setColumns(10);
 
 		passwordField = new JPasswordField();
-		passwordField.setBounds(204, 121, 130, 26);
+		passwordField.setBounds(330, 225, 130, 26);
 		frmLogin.getContentPane().add(passwordField);
 
 		JButton btnNewButton = new JButton("Login");
@@ -87,15 +96,15 @@ public class Login implements java.io.Serializable {
 		}
 	});
 
-		btnNewButton.setBounds(97, 182, 117, 29);
+		btnNewButton.setBounds(258, 327, 117, 29);
 		frmLogin.getContentPane().add(btnNewButton);
 
-		JLabel lblNewLabel = new JLabel("User");
-		lblNewLabel.setBounds(111, 88, 61, 16);
+		JLabel lblNewLabel = new JLabel("Username:");
+		lblNewLabel.setBounds(221, 198, 85, 16);
 		frmLogin.getContentPane().add(lblNewLabel);
 
-		JLabel lblNewLabel_1 = new JLabel("Password");
-		lblNewLabel_1.setBounds(99, 126, 61, 16);
+		JLabel lblNewLabel_1 = new JLabel("Password:");
+		lblNewLabel_1.setBounds(221, 230, 85, 16);
 		frmLogin.getContentPane().add(lblNewLabel_1);
 
 		JButton btnNewButton_1 = new JButton("Register");
@@ -107,7 +116,21 @@ public class Login implements java.io.Serializable {
 
 			}
 		});
-		btnNewButton_1.setBounds(241, 182, 117, 29);
+		btnNewButton_1.setBounds(415, 327, 117, 29);
 		frmLogin.getContentPane().add(btnNewButton_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("Welcome to the University of Calgary Scholarship Application System");
+		lblNewLabel_2.setFont(new Font("Franklin Gothic Medium", Font.BOLD | Font.ITALIC, 19));
+		lblNewLabel_2.setBounds(65, 29, 750, 30);
+		frmLogin.getContentPane().add(lblNewLabel_2);
+		
+		//ImageIcon logo = new ImageIcon("UofClogo.png");
+		//Image image1 = logo.getImage();
+		//Image newimage = image1.getScaledInstance(70, 70, Image.SCALE_SMOOTH);
+		//logo = new ImageIcon(newimage);
+		
+		Image logo = new Image("UofClogo.png");
+		
+		
 	}
 }

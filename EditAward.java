@@ -15,6 +15,8 @@ import java.io.FileWriter;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
+import java.awt.Color;
 
 public class EditAward extends JFrame {
 	private static final long serialVersionUID = 1060623638149583738L;
@@ -30,71 +32,73 @@ public class EditAward extends JFrame {
 	 * Create the frame.
 	 */
 	public EditAward(Data data, Scholarship award) {
+		setTitle("University of Calgary Scholarship Application System | Edit An Award");
 		this.award = award;
-		setBounds(100, 100, 400, 400);
+		setBounds(100, 100, 800, 499);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.ORANGE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		textField = new JTextField();
-		textField.setBounds(156, 18, 130, 26);
+		textField.setBounds(186, 66, 277, 26);
 		textField.setText(award.getScholName());
 		contentPane.add(textField);
 		textField.setColumns(10);
 
 		textField_1 = new JTextField();
-		textField_1.setBounds(156, 49, 130, 26);
+		textField_1.setBounds(186, 108, 277, 26);
 		textField_1.setText(award.getDonorName());
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 
 		textField_2 = new JTextField();
-		textField_2.setBounds(156, 77, 130, 26);
+		textField_2.setBounds(186, 150, 178, 26);
 		textField_2.setText(award.getScholValue().toString());
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
 
 		final DecimalFormat df2= new DecimalFormat("#.##");
 		textField_3 = new JTextField();
-		textField_3.setBounds(156, 139, 130, 26);
+		textField_3.setBounds(186, 235, 74, 26);
 		textField_3.setText((df2.format(award.getReq())));
 		contentPane.add(textField_3);
 		textField_3.setColumns(10);
 
 		textField_4 = new JTextField();
-		textField_4.setBounds(156, 171, 130, 26);
+		textField_4.setBounds(186, 280, 178, 26);
 		textField_4.setText(award.getTotalAmount().toString());
 		contentPane.add(textField_4);
 		textField_4.setColumns(10);
 
 		String[] termBox = {"Annual", "Fall", "Winter"};
 		JComboBox comboBox = new JComboBox(termBox);
-		comboBox.setBounds(156, 106, 130, 27);
+		comboBox.setBounds(186, 192, 178, 27);
 		contentPane.add(comboBox);
 
-		JLabel lblNewLabel = new JLabel("Scholarship Name");
-		lblNewLabel.setBounds(29, 26, 115, 16);
+		JLabel lblNewLabel = new JLabel("Scholarship Name:");
+		lblNewLabel.setBounds(29, 71, 145, 16);
 		contentPane.add(lblNewLabel);
 
-		JLabel lblNewLabel_1 = new JLabel("Donor Name");
-		lblNewLabel_1.setBounds(29, 54, 115, 16);
+		JLabel lblNewLabel_1 = new JLabel("Name of Donor:");
+		lblNewLabel_1.setBounds(29, 113, 115, 16);
 		contentPane.add(lblNewLabel_1);
 
-		JLabel lblNewLabel_2 = new JLabel("Value of Award");
-		lblNewLabel_2.setBounds(29, 82, 115, 16);
+		JLabel lblNewLabel_2 = new JLabel("Value of Award:");
+		lblNewLabel_2.setBounds(29, 155, 115, 16);
 		contentPane.add(lblNewLabel_2);
 
-		JLabel lblNewLabel_3 = new JLabel("Term");
-		lblNewLabel_3.setBounds(29, 110, 115, 16);
+		JLabel lblNewLabel_3 = new JLabel("Term:");
+		lblNewLabel_3.setBounds(29, 197, 115, 16);
 		contentPane.add(lblNewLabel_3);
 
-		JLabel lblNewLabel_4 = new JLabel("GPA Requirement");
-		lblNewLabel_4.setBounds(29, 144, 115, 16);
+		JLabel lblNewLabel_4 = new JLabel("GPA Requirement:");
+		lblNewLabel_4.setBounds(29, 240, 142, 16);
 		contentPane.add(lblNewLabel_4);
 
-		JLabel lblNewLabel_5 = new JLabel("Awards Available");
-		lblNewLabel_5.setBounds(29, 176, 115, 16);
+		JLabel lblNewLabel_5 = new JLabel("Awards Available:");
+		lblNewLabel_5.setBounds(29, 285, 142, 16);
 		contentPane.add(lblNewLabel_5);
 
 		JButton btnNewButton = new JButton("Save");
@@ -124,7 +128,12 @@ public class EditAward extends JFrame {
 				}
 			}
 		});
-		btnNewButton.setBounds(169, 221, 117, 29);
+		btnNewButton.setBounds(185, 352, 117, 29);
 		contentPane.add(btnNewButton);
+		
+		JLabel lblNewLabel_6 = new JLabel("University of Calgary Scholarship Application System");
+		lblNewLabel_6.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
+		lblNewLabel_6.setBounds(0, 0, 574, 35);
+		contentPane.add(lblNewLabel_6);
 	}
 }

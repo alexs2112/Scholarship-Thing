@@ -13,6 +13,7 @@ import javax.swing.JTextPane;
 import javax.swing.JEditorPane;
 import javax.swing.JTextArea;
 import javax.swing.JToolBar;
+import java.awt.Color;
 
 public class ScholarCoordLogin extends JFrame {
 	private static final long serialVersionUID = 1060623638149583738L;
@@ -21,14 +22,15 @@ public class ScholarCoordLogin extends JFrame {
 	 * Create the frame.
 	 */
 	public ScholarCoordLogin(Data data, User user) {
-		setTitle("Scholarship Coordinator");
+		getContentPane().setBackground(Color.ORANGE);
+		setTitle("University of Calgary Scholarship Application System | Scholarship Coordinator Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 360, 240);
+		setBounds(100, 100, 760, 445);
 		getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Welcome " + user.name());
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblNewLabel.setBounds(17, 20, 483, 30);
+		lblNewLabel.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		lblNewLabel.setBounds(10, 60, 483, 30);
 		getContentPane().add(lblNewLabel);
 
 		JButton btnNewButton = new JButton("Create New Award");
@@ -38,7 +40,7 @@ public class ScholarCoordLogin extends JFrame {
 				addAward.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(17, 50, 225, 30);
+		btnNewButton.setBounds(249, 129, 225, 30);
 		getContentPane().add(btnNewButton);
 
 		JButton btnNewButton_1 = new JButton("Edit/Delete Existing Award");
@@ -48,7 +50,7 @@ public class ScholarCoordLogin extends JFrame {
 				editAward.setVisible(true);
 			}
 		});
-		btnNewButton_1.setBounds(17, 90, 225, 30);
+		btnNewButton_1.setBounds(249, 175, 225, 30);
 		getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Logout");
@@ -59,7 +61,12 @@ public class ScholarCoordLogin extends JFrame {
 				window.frmLogin().setVisible(true);
 			}
 		});
-		btnNewButton_2.setBounds(177, 143, 117, 30);
+		btnNewButton_2.setBounds(301, 275, 117, 30);
 		getContentPane().add(btnNewButton_2);
+		
+		JLabel lblNewLabel_1 = new JLabel("University of Calgary Scholarship Application System");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
+		lblNewLabel_1.setBounds(0, 0, 493, 36);
+		getContentPane().add(lblNewLabel_1);
 	}
 }

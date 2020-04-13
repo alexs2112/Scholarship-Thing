@@ -13,6 +13,8 @@ import javax.swing.JComboBox;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
+import java.awt.Font;
 
 public class NewUser extends JFrame {
 	private static final long serialVersionUID = 1060623638149583738L;
@@ -21,52 +23,56 @@ public class NewUser extends JFrame {
 	private JLabel lblNewLabel_1;
 	private JTextField textField_1;
 	private JTextField textField_2;
-	private JLabel label;
+	private JLabel lblPassword;
 	private JComboBox comboBox;
 	private JButton btnNewButton;
+	private JLabel lblNewLabel_2;
+	private JLabel lblNewLabel_3;
 	//private Data data;
 
 	/**
 	 * Create the frame.
 	 */
 	public NewUser(Data data) {
+		setTitle("University of Calgary Scholarship Application System | New User");
 		//this.data = data;
-		setBounds(100, 100, 400, 400);
+		setBounds(100, 100, 750, 500);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.ORANGE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		textField = new JTextField();
-		textField.setBounds(156, 21, 130, 26);
+		textField.setBounds(296, 83, 130, 26);
 		contentPane.add(textField);
 		textField.setColumns(10);
 
-		JLabel lblNewLabel = new JLabel("Name");
-		lblNewLabel.setBounds(29, 26, 115, 16);
+		JLabel lblNewLabel = new JLabel("Name:");
+		lblNewLabel.setBounds(156, 88, 115, 16);
 		contentPane.add(lblNewLabel);
 
-		lblNewLabel_1 = new JLabel("Username");
-		lblNewLabel_1.setBounds(29, 54, 115, 16);
+		lblNewLabel_1 = new JLabel("Username:");
+		lblNewLabel_1.setBounds(156, 135, 115, 16);
 		contentPane.add(lblNewLabel_1);
 		
-		label = new JLabel("Password");
-		label.setBounds(29, 82, 115, 16);
-		contentPane.add(label);
+		lblPassword = new JLabel("Password:");
+		lblPassword.setBounds(156, 182, 115, 16);
+		contentPane.add(lblPassword);
 
 		textField_1 = new JTextField();
-		textField_1.setBounds(156, 49, 130, 26);
+		textField_1.setBounds(296, 130, 130, 26);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 
 		textField_2 = new JTextField();
-		textField_2.setBounds(156, 77, 130, 26);
+		textField_2.setBounds(296, 177, 130, 26);
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
 
 		String[] roleBox = {"Administrator", "Coordinator", "Professor"};
 		comboBox = new JComboBox(roleBox);
-		comboBox.setBounds(156, 108, 130, 27);
+		comboBox.setBounds(296, 219, 130, 27);
 		contentPane.add(comboBox);
 
 		btnNewButton = new JButton("Save");
@@ -96,8 +102,17 @@ public class NewUser extends JFrame {
 			}
 				}
 		});
-		btnNewButton.setBounds(166, 219, 117, 29);
+		btnNewButton.setBounds(296, 319, 117, 29);
 		contentPane.add(btnNewButton);
+		
+		lblNewLabel_2 = new JLabel("University of Calgary Scholarship Application System");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
+		lblNewLabel_2.setBounds(0, 0, 477, 20);
+		contentPane.add(lblNewLabel_2);
+		
+		lblNewLabel_3 = new JLabel("Role:");
+		lblNewLabel_3.setBounds(156, 226, 92, 20);
+		contentPane.add(lblNewLabel_3);
 	}
 
 }

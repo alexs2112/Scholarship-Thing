@@ -7,6 +7,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
+import javax.swing.JLabel;
+import java.awt.Font;
 
 public class ProfessorLogin extends JFrame {
 	private static final long serialVersionUID = 1060623638149583738L;
@@ -18,10 +21,11 @@ public class ProfessorLogin extends JFrame {
 	 */
 	public ProfessorLogin(Data data, User prof) {
 		this.data = data;
-		setTitle("Professor");
+		setTitle("University of Calgary Scholarship Application System | Professor Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1356, 750);
+		setBounds(100, 100, 770, 500);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.ORANGE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -34,8 +38,12 @@ public class ProfessorLogin extends JFrame {
 				window.frmLogin().setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(1233, 678, 117, 29);
+		btnNewButton.setBounds(327, 294, 117, 29);
 		contentPane.add(btnNewButton);
+		
+		JLabel lblNewLabel_1 = new JLabel("Welcome to the University of Calgary Scholarship Application System");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
+		lblNewLabel_1.setBounds(0, 0, 636, 38);
+		contentPane.add(lblNewLabel_1);
 	}
-
 }
