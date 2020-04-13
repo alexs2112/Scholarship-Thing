@@ -72,6 +72,9 @@ public class ExistingAward extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				scholarships.remove(list.getSelectedIndex());
 				data.saveData();
+				dispose();
+				ExistingAward exAw = new ExistingAward(data);
+				exAw.setVisible(true);
 			}
 		});
 		btnNewButton_2.setBounds(225, 336, 108, 29);

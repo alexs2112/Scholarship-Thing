@@ -41,7 +41,7 @@ public class Register extends JFrame {
 	public Data data() { return data; }
 	private final JFileChooser openFileChooser;
 	private BufferedImage originalBI;
-	String filename = null;
+	private String filename = null;
 	
 	/**
 	 * Checks is a string is numerical
@@ -220,7 +220,7 @@ public class Register extends JFrame {
 					read.close();
 				}
 				catch(FileNotFoundException fnfe){
-					JOptionPane.showMessageDialog(null, "Account file not found.");
+					JOptionPane.showMessageDialog(null, "Account created.");
 				}
 				catch(IOException e3){
 					e3.printStackTrace();
@@ -252,6 +252,7 @@ public class Register extends JFrame {
 					String name = studentFirstName + " " + studentLastName;
 					Applicant newStudent = new Applicant(name, studentID, studentType, studentFaculty, studentDepartment, studentGpa, username, password, "student");
 					newStudent.setEmail(textField_5.getText());
+					
 					//Creates the student, adds it to Data user arraylist
 					data.addUser(newStudent);
 					data.saveData();

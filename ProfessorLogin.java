@@ -45,5 +45,25 @@ public class ProfessorLogin extends JFrame {
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
 		lblNewLabel_1.setBounds(81, 0, 636, 38);
 		contentPane.add(lblNewLabel_1);
+		
+		JButton btnNewButton_1 = new JButton("Nominate Student for Award");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				NominateStudent nomStud = new NominateStudent(data);
+				nomStud.setVisible(true);
+			}
+		});
+		btnNewButton_1.setBounds(270, 68, 207, 29);
+		contentPane.add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("Submit Reference Letter");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SubmitReference subRef = new SubmitReference(data);
+				subRef.setVisible(true);
+			}
+		});
+		btnNewButton_2.setBounds(270, 110, 207, 29);
+		contentPane.add(btnNewButton_2);
 	}
 }
