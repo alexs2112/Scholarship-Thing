@@ -253,8 +253,17 @@ public class ApplyForAward extends JFrame {
 		
 		JLabel lblNewLabel_2 = new JLabel("University of Calgary Scholarship Application System");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
-		lblNewLabel_2.setBounds(0, 0, 501, 35);
+		lblNewLabel_2.setBounds(184, 6, 501, 35);
 		contentPane.add(lblNewLabel_2);
+		
+		JButton btnNewButton_3 = new JButton("Cancel");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnNewButton_3.setBounds(136, 655, 117, 29);
+		contentPane.add(btnNewButton_3);
 	}
 	
 	//Updates JLabels for award info

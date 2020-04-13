@@ -133,7 +133,16 @@ public class EditAward extends JFrame {
 		
 		JLabel lblNewLabel_6 = new JLabel("University of Calgary Scholarship Application System");
 		lblNewLabel_6.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
-		lblNewLabel_6.setBounds(0, 0, 574, 35);
+		lblNewLabel_6.setBounds(155, 0, 574, 35);
 		contentPane.add(lblNewLabel_6);
+		
+		JButton btnNewButton_1 = new JButton("Cancel");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnNewButton_1.setBounds(314, 352, 117, 29);
+		contentPane.add(btnNewButton_1);
 	}
 }

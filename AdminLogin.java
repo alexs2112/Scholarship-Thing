@@ -76,10 +76,8 @@ public class AdminLogin extends JFrame {
 		
 		JLabel lblNewLabel_1 = new JLabel("Welcome to the University of Calgary Scholarship Application System");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
-		lblNewLabel_1.setBounds(0, 0, 636, 38);
+		lblNewLabel_1.setBounds(105, 4, 636, 38);
 		getContentPane().add(lblNewLabel_1);
 	}
 }
-
-
 

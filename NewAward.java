@@ -34,6 +34,7 @@ public class NewAward extends JFrame {
 	private ArrayList<Scholarship> allScholarships = new ArrayList<Scholarship>();
 	private Data data;
 	private JLabel lblNewLabel_2;
+	private JButton btnNewButton_1;
 
 	public ArrayList<Scholarship> getAllSchol() {
 		return allScholarships;
@@ -139,8 +140,17 @@ public class NewAward extends JFrame {
 		
 		lblNewLabel_2 = new JLabel("University of Calgary Scholarship Application System ");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
-		lblNewLabel_2.setBounds(0, 0, 487, 34);
+		lblNewLabel_2.setBounds(131, 0, 487, 34);
 		contentPane.add(lblNewLabel_2);
+		
+		btnNewButton_1 = new JButton("Cancel");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnNewButton_1.setBounds(149, 399, 117, 29);
+		contentPane.add(btnNewButton_1);
 	}
 
 }
