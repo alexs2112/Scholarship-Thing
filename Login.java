@@ -129,7 +129,7 @@ public class Login implements java.io.Serializable {
 		//Image newimage = image1.getScaledInstance(70, 70, Image.SCALE_SMOOTH);
 		//logo = new ImageIcon(newimage);
 		
-		Image logo = new Image("UofClogo.png");
+		//Image logo = new Image("UofClogo.png");
 		
 		
 	}
