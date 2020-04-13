@@ -68,5 +68,15 @@ public class ScholarCoordLogin extends JFrame {
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
 		lblNewLabel_1.setBounds(0, 0, 493, 36);
 		getContentPane().add(lblNewLabel_1);
+		
+		JButton btnNewButton_3 = new JButton("Award Scholarships");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				GiveAward giveAw = new GiveAward(data);
+				giveAw.setVisible(true);
+			}
+		});
+		btnNewButton_3.setBounds(249, 216, 225, 29);
+		getContentPane().add(btnNewButton_3);
 	}
 }

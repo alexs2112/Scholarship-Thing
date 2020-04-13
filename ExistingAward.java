@@ -77,29 +77,9 @@ public class ExistingAward extends JFrame {
 		btnNewButton_2.setBounds(225, 336, 108, 29);
 		contentPane.add(btnNewButton_2);
 		
-		JButton btnNewButton_3 = new JButton("Award Selection");
-		//Awards the scholarship that is selected
-		btnNewButton_3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				function.awardScholarship(scholarships.get(list.getSelectedIndex()));
-			}
-		});
-		btnNewButton_3.setBounds(15, 386, 147, 29);
-		contentPane.add(btnNewButton_3);
-		
-		JButton btnNewButton_4 = new JButton("Award All");
-		//Awards all available scholarships
-		btnNewButton_4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				function.awardAllScholarships();
-			}
-		});
-		btnNewButton_4.setBounds(177, 386, 156, 29);
-		contentPane.add(btnNewButton_4);
-		
 		JLabel lblNewLabel = new JLabel("University of Calgary Scholarship Application System");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
-		lblNewLabel.setBounds(0, 8, 489, 29);
+		lblNewLabel.setBounds(138, 6, 489, 29);
 		contentPane.add(lblNewLabel);
 	}
 }

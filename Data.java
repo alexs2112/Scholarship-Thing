@@ -24,6 +24,7 @@ public class Data implements Serializable {
 		awards.add(new Scholarship("TestScholarship1", "Donor One", 600, true, 3.4, 400));
 		awards.add(new Scholarship("TestScholarship2", "Donor Two", 800, true, 3.6, 300));
 		awards.add(new Scholarship("TestScholarship3", "Donor Three", 1000, true, 3.8, 200));
+		saveData();
 	}
 
 	public void addUser(User user) {
