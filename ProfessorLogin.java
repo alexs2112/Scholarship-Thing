@@ -19,7 +19,7 @@ public class ProfessorLogin extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ProfessorLogin(Data data, User prof) {
+	public ProfessorLogin(Data data, User user) {
 		this.data = data;
 		setTitle("University of Calgary Scholarship Application System | Professor Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -49,7 +49,7 @@ public class ProfessorLogin extends JFrame {
 		JButton btnNewButton_1 = new JButton("Nominate Student for Award");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				NominateStudent nomStud = new NominateStudent(data);
+				NominateStudent nomStud = new NominateStudent(data, user);
 				nomStud.setVisible(true);
 			}
 		});
