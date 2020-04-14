@@ -51,7 +51,7 @@ public class SubmitReference extends JFrame {
 			}
 		
 		JList studList = new JList(studentNames.toArray());
-		studList.setBounds(38, 41, 318, 279);
+		studList.setBounds(240, 41, 318, 306);
 		contentPane.add(studList);
 		
 		JLabel messageLabel = new JLabel("");
@@ -73,7 +73,7 @@ public class SubmitReference extends JFrame {
 			}
 		});
 		
-		btnNewButton.setBounds(38, 354, 153, 29);
+		btnNewButton.setBounds(240, 362, 153, 29);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Submit");

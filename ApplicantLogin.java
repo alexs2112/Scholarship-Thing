@@ -39,7 +39,7 @@ public class ApplicantLogin extends JFrame {
 				viewAw.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(235, 156, 234, 29);
+		btnNewButton.setBounds(146, 105, 234, 29);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Apply for Awards");
@@ -50,7 +50,7 @@ public class ApplicantLogin extends JFrame {
 				
 			}
 		});
-		btnNewButton_1.setBounds(235, 200, 234, 29);
+		btnNewButton_1.setBounds(146, 162, 234, 29);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Accept/Decline Awards");
@@ -60,7 +60,7 @@ public class ApplicantLogin extends JFrame {
 				accAw.setVisible(true);
 			}
 		});
-		btnNewButton_2.setBounds(235, 243, 234, 29);
+		btnNewButton_2.setBounds(392, 105, 234, 29);
 		contentPane.add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("Logout");
@@ -71,7 +71,7 @@ public class ApplicantLogin extends JFrame {
 				window.frmLogin().setVisible(true);
 			}
 		});
-		btnNewButton_3.setBounds(298, 328, 117, 29);
+		btnNewButton_3.setBounds(334, 220, 117, 29);
 		contentPane.add(btnNewButton_3);
 		
 		JLabel lblNewLabel = new JLabel("University of Calgary Scholarship Application System");
@@ -86,7 +86,7 @@ public class ApplicantLogin extends JFrame {
 				myAw.setVisible(true);
 			}
 		});
-		btnNewButton_4.setBounds(235, 284, 234, 29);
+		btnNewButton_4.setBounds(392, 162, 234, 29);
 		contentPane.add(btnNewButton_4);
 	}
 }

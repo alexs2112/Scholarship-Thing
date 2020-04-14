@@ -62,11 +62,11 @@ public class NominateStudent extends JFrame {
 		}	
 		
 		JList scholList = new JList(listOfNames.toArray());
-		scholList.setBounds(414, 41, 318, 279);
+		scholList.setBounds(414, 41, 318, 360);
 		contentPane.add(scholList);
 		
 		JList studList = new JList(studentNames.toArray());
-		studList.setBounds(38, 41, 318, 279);
+		studList.setBounds(38, 41, 318, 360);
 		contentPane.add(studList);
 		
 		JButton btnNewButton = new JButton("Submit");
@@ -84,7 +84,7 @@ public class NominateStudent extends JFrame {
 				
 			}
 		});
-		btnNewButton.setBounds(615, 359, 117, 29);
+		btnNewButton.setBounds(615, 431, 117, 29);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("Please select a student: ");
@@ -101,7 +101,7 @@ public class NominateStudent extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton_1.setBounds(486, 359, 117, 29);
+		btnNewButton_1.setBounds(486, 431, 117, 29);
 		contentPane.add(btnNewButton_1);
 		
 		

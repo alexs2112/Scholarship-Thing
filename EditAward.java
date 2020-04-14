@@ -103,7 +103,7 @@ public class EditAward extends JFrame {
 		contentPane.add(lblDepartment);
 		
 		JLabel lblType = new JLabel("Student Type:");
-		lblType.setBounds(400, 155, 80, 16);
+		lblType.setBounds(400, 155, 101, 16);
 		contentPane.add(lblType);
 		
 		JTextField textDepartment = new JTextField();
@@ -154,7 +154,7 @@ public class EditAward extends JFrame {
 				}
 			}
 		});
-		btnNewButton.setBounds(185, 352, 117, 29);
+		btnNewButton.setBounds(434, 280, 117, 29);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel_6 = new JLabel("University of Calgary Scholarship Application System");
@@ -168,7 +168,7 @@ public class EditAward extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton_1.setBounds(314, 352, 117, 29);
+		btnNewButton_1.setBounds(563, 280, 117, 29);
 		contentPane.add(btnNewButton_1);
 	}
 }

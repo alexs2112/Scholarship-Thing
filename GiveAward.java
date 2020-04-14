@@ -41,7 +41,7 @@ public class GiveAward extends JFrame {
 		}
 
 		JList list = new JList(listOfNames.toArray());
-		list.setBounds(15, 79, 318, 279);
+		list.setBounds(405, 79, 318, 279);
 		contentPane.add(list);
 		
 	
@@ -55,7 +55,7 @@ public class GiveAward extends JFrame {
 				data.saveData();
 			}
 		});
-		btnNewButton_3.setBounds(15, 386, 147, 29);
+		btnNewButton_3.setBounds(44, 386, 147, 29);
 		contentPane.add(btnNewButton_3);
 		
 		JButton btnNewButton_4 = new JButton("Award All");
@@ -67,7 +67,7 @@ public class GiveAward extends JFrame {
 				data.saveData();
 			}
 		});
-		btnNewButton_4.setBounds(177, 386, 156, 29);
+		btnNewButton_4.setBounds(203, 386, 156, 29);
 		contentPane.add(btnNewButton_4);
 		
 		JButton btnExitButton = new JButton("Exit");
@@ -87,7 +87,7 @@ public class GiveAward extends JFrame {
 		
 		DefaultListModel listModel = new DefaultListModel();
 		JList list_1 = new JList(listModel);
-		list_1.setBounds(388, 79, 279, 279);
+		list_1.setBounds(41, 79, 318, 279);
 		contentPane.add(list_1);
 	
 		
@@ -107,7 +107,7 @@ public class GiveAward extends JFrame {
 				
 			}
 		});
-		btnNewButton.setBounds(388, 386, 279, 29);
+		btnNewButton.setBounds(405, 386, 318, 29);
 		contentPane.add(btnNewButton);
 	}
 }

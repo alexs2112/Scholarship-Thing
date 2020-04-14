@@ -103,7 +103,7 @@ public class NewUser extends JFrame {
 			}
 				}
 		});
-		btnNewButton.setBounds(409, 318, 117, 29);
+		btnNewButton.setBounds(381, 318, 117, 29);
 		contentPane.add(btnNewButton);
 		
 		lblNewLabel_2 = new JLabel("University of Calgary Scholarship Application System");

@@ -30,7 +30,7 @@ public class AdminLogin extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("Welcome " + user.name());
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblNewLabel.setBounds(10, 54, 483, 30);
+		lblNewLabel.setBounds(29, 54, 483, 30);
 		getContentPane().add(lblNewLabel);
 
 		JButton btnNewButton = new JButton("Create New Award");
@@ -40,7 +40,7 @@ public class AdminLogin extends JFrame {
 				addAward.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(245, 142, 225, 30);
+		btnNewButton.setBounds(160, 146, 225, 30);
 		getContentPane().add(btnNewButton);
 
 		JButton btnNewButton_1 = new JButton("Edit/Delete Existing Award");
@@ -50,7 +50,7 @@ public class AdminLogin extends JFrame {
 				editAward.setVisible(true);
 			}
 		});
-		btnNewButton_1.setBounds(245, 188, 225, 30);
+		btnNewButton_1.setBounds(160, 188, 225, 30);
 		getContentPane().add(btnNewButton_1);
 		
 		JButton btnAward = new JButton("Award Scholarships");
@@ -60,7 +60,7 @@ public class AdminLogin extends JFrame {
 				giveAw.setVisible(true);
 			}
 		});
-		btnAward.setBounds(245, 234, 225, 30);
+		btnAward.setBounds(397, 146, 225, 30);
 		getContentPane().add(btnAward);
 		
 		JButton btnNewButton_3 = new JButton("Add Another User");
@@ -70,7 +70,7 @@ public class AdminLogin extends JFrame {
 				newUser.setVisible(true);
 			}
 		});
-		btnNewButton_3.setBounds(245, 280, 225, 30);
+		btnNewButton_3.setBounds(397, 188, 225, 30);
 		getContentPane().add(btnNewButton_3);
 		
 		JButton btnNewButton_2 = new JButton("Logout");
@@ -81,7 +81,7 @@ public class AdminLogin extends JFrame {
 				window.frmLogin().setVisible(true);
 			}
 		});
-		btnNewButton_2.setBounds(296, 343, 117, 30);
+		btnNewButton_2.setBounds(339, 241, 117, 30);
 		getContentPane().add(btnNewButton_2);
 		
 		JLabel lblNewLabel_1 = new JLabel("Welcome to the University of Calgary Scholarship Application System");

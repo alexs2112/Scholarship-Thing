@@ -121,7 +121,7 @@ public class Login implements java.io.Serializable {
 		
 		JLabel lblNewLabel_2 = new JLabel("Welcome to the University of Calgary Scholarship Application System");
 		lblNewLabel_2.setFont(new Font("Franklin Gothic Medium", Font.BOLD | Font.ITALIC, 19));
-		lblNewLabel_2.setBounds(65, 29, 750, 30);
+		lblNewLabel_2.setBounds(70, 29, 629, 30);
 		frmLogin.getContentPane().add(lblNewLabel_2);
 		
 		//ImageIcon logo = new ImageIcon("UofClogo.png");

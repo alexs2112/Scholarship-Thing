@@ -53,7 +53,7 @@ public class NewAward extends JFrame {
 		String[] facultyList = {"None", "Arts", "Law", "Nursing", "Kinesiology", "Science", "Social Work", "Veterinary Medicine", "Medicine", "Business", "Engineering", "Education", "Open Studies"};
 		JComboBox facultyBox = new JComboBox(facultyList);
 		facultyBox.setModel(new DefaultComboBoxModel(facultyList));
-		facultyBox.setBounds(490, 70, 150, 27);
+		facultyBox.setBounds(490, 70, 195, 27);
 		contentPane.add(facultyBox);
 
 		JLabel lblNewLabel_1 = new JLabel("Name of Donor:");
@@ -83,18 +83,18 @@ public class NewAward extends JFrame {
 		lblValueOfAward.setBounds(29, 159, 115, 16);
 		contentPane.add(lblValueOfAward);
 		
-		JLabel lblStudentType = new JLabel("Type of Students:");
+		JLabel lblStudentType = new JLabel("Type of Student:");
 		lblStudentType.setBounds(380, 159, 110, 16);
 		contentPane.add(lblStudentType);
 		
 		String[] studentType = { "None", "Undergraduate", "Graduate", "Post-Graduate" };
 		JComboBox studentBox = new JComboBox(studentType);
-		studentBox.setBounds(490, 159, 153, 27);
+		studentBox.setBounds(490, 155, 195, 27);
 		contentPane.add(studentBox);
 
 		String[] termBox = {"Annual", "Fall", "Winter"};
 		JComboBox comboBox = new JComboBox(termBox);
-		comboBox.setBounds(155, 196, 130, 27);
+		comboBox.setBounds(155, 196, 195, 27);
 		contentPane.add(comboBox);
 
 		JLabel lblTerm = new JLabel("Term:");
@@ -150,7 +150,7 @@ public class NewAward extends JFrame {
 				}
 			}
 		});
-		btnNewButton.setBounds(15, 399, 117, 29);
+		btnNewButton.setBounds(439, 285, 117, 29);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel_2 = new JLabel("University of Calgary Scholarship Application System ");
@@ -164,7 +164,7 @@ public class NewAward extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton_1.setBounds(149, 399, 117, 29);
+		btnNewButton_1.setBounds(568, 285, 117, 29);
 		contentPane.add(btnNewButton_1);
 	}
 

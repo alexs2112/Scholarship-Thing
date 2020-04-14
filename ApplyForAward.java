@@ -130,7 +130,7 @@ public class ApplyForAward extends JFrame {
 				data.saveData();
 			}
 		});
-		btnNewButton.setBounds(670, 261, 130, 22);
+		btnNewButton.setBounds(670, 219, 130, 22);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel_4 = new JLabel("2. Choose Scholarship:");
@@ -208,7 +208,7 @@ public class ApplyForAward extends JFrame {
 		contentPane.add(lblNewLabel_5);
 		
 		JButton btnNewButton_1 = new JButton("Upload files");
-		btnNewButton_1.setBounds(38, 536, 97, 25);
+		btnNewButton_1.setBounds(38, 536, 135, 25);
 		contentPane.add(btnNewButton_1);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

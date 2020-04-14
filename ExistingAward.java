@@ -42,7 +42,7 @@ public class ExistingAward extends JFrame {
 		}
 
 		JList list = new JList(listOfNames.toArray());
-		list.setBounds(15, 41, 318, 279);
+		list.setBounds(215, 78, 318, 279);
 		contentPane.add(list);
 
 		JButton btnNewButton = new JButton("Edit");
@@ -53,7 +53,7 @@ public class ExistingAward extends JFrame {
 				editThisAward.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(15, 336, 108, 29);
+		btnNewButton.setBounds(215, 369, 108, 29);
 		contentPane.add(btnNewButton);
 
 		JButton btnNewButton_1 = new JButton("Exit");
@@ -63,7 +63,7 @@ public class ExistingAward extends JFrame {
 				data.saveData();
 			}
 		});
-		btnNewButton_1.setBounds(127, 336, 93, 29);
+		btnNewButton_1.setBounds(330, 369, 93, 29);
 		contentPane.add(btnNewButton_1);
 
 		JButton btnNewButton_2 = new JButton("Delete");
@@ -76,7 +76,7 @@ public class ExistingAward extends JFrame {
 				exAw.setVisible(true);
 			}
 		});
-		btnNewButton_2.setBounds(225, 336, 108, 29);
+		btnNewButton_2.setBounds(425, 369, 108, 29);
 		contentPane.add(btnNewButton_2);
 		
 		JLabel lblNewLabel = new JLabel("University of Calgary Scholarship Application System");

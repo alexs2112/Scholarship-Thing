@@ -30,7 +30,7 @@ public class ScholarCoordLogin extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("Welcome " + user.name());
 		lblNewLabel.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		lblNewLabel.setBounds(10, 60, 483, 30);
+		lblNewLabel.setBounds(22, 60, 483, 30);
 		getContentPane().add(lblNewLabel);
 
 		JButton btnNewButton = new JButton("Create New Award");
@@ -40,7 +40,7 @@ public class ScholarCoordLogin extends JFrame {
 				addAward.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(249, 129, 225, 30);
+		btnNewButton.setBounds(267, 125, 225, 30);
 		getContentPane().add(btnNewButton);
 
 		JButton btnNewButton_1 = new JButton("Edit/Delete Existing Award");
@@ -50,7 +50,7 @@ public class ScholarCoordLogin extends JFrame {
 				editAward.setVisible(true);
 			}
 		});
-		btnNewButton_1.setBounds(249, 175, 225, 30);
+		btnNewButton_1.setBounds(267, 167, 225, 30);
 		getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Logout");
@@ -61,12 +61,12 @@ public class ScholarCoordLogin extends JFrame {
 				window.frmLogin().setVisible(true);
 			}
 		});
-		btnNewButton_2.setBounds(301, 275, 117, 30);
+		btnNewButton_2.setBounds(327, 261, 117, 30);
 		getContentPane().add(btnNewButton_2);
 		
 		JLabel lblNewLabel_1 = new JLabel("University of Calgary Scholarship Application System");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
-		lblNewLabel_1.setBounds(0, 0, 493, 36);
+		lblNewLabel_1.setBounds(142, 6, 493, 36);
 		getContentPane().add(lblNewLabel_1);
 		
 		JButton btnNewButton_3 = new JButton("Award Scholarships");
@@ -76,7 +76,7 @@ public class ScholarCoordLogin extends JFrame {
 				giveAw.setVisible(true);
 			}
 		});
-		btnNewButton_3.setBounds(249, 216, 225, 29);
+		btnNewButton_3.setBounds(267, 210, 225, 29);
 		getContentPane().add(btnNewButton_3);
 	}
 }

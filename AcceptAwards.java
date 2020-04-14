@@ -47,7 +47,7 @@ public class AcceptAwards extends JFrame {
 		}
 		
 		JList scholList = new JList(listOfNames.toArray());
-		scholList.setBounds(181, 40, 318, 279);
+		scholList.setBounds(182, 55, 318, 279);
 		contentPane.add(scholList);
 		
 		JButton btnNewButton = new JButton("Accept Award");

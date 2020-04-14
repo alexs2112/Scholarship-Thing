@@ -72,7 +72,7 @@ public class ViewAwards extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("University of Calgary Scholarship Application System");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
-		lblNewLabel.setBounds(0, 0, 496, 42);
+		lblNewLabel.setBounds(122, 6, 496, 42);
 		contentPane.add(lblNewLabel);
 	
 		
