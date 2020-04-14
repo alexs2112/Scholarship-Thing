@@ -55,7 +55,7 @@ public class SubmitReference extends JFrame {
 		contentPane.add(studList);
 		
 		JLabel messageLabel = new JLabel("");
-		messageLabel.setBounds(203, 359, 445, 16);
+		messageLabel.setBounds(408, 359, 347, 16);
 		contentPane.add(messageLabel);
 		
 		JButton btnNewButton = new JButton("Choose File");
@@ -73,7 +73,7 @@ public class SubmitReference extends JFrame {
 			}
 		});
 		
-		btnNewButton.setBounds(240, 362, 153, 29);
+		btnNewButton.setBounds(243, 359, 153, 29);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Submit");
