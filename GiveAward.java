@@ -49,6 +49,7 @@ public class GiveAward extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				function.awardScholarship(scholarships.get(list.getSelectedIndex()));
 				JOptionPane.showMessageDialog(null, scholarships.get(list.getSelectedIndex()).getScholName() + " has been awarded");
+				data.saveData();
 			}
 		});
 		btnNewButton_3.setBounds(15, 386, 147, 29);

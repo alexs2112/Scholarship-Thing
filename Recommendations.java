@@ -2,16 +2,16 @@
 public class Recommendations {
 
 	
-	private User prof;
+	private Professor prof;
 	private Scholarship schol;
 
-	public Recommendations(User profes, Scholarship scholar) {
-		this.prof = profes;
+	public Recommendations(Professor profs, Scholarship scholar) {
+		this.prof = profs;
 		this.schol = scholar;
 		
 	}
 	
-	public User getNominator() {
+	public Professor getNominator() {
 		return prof;
 	}
 

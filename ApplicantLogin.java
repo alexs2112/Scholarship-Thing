@@ -76,7 +76,7 @@ public class ApplicantLogin extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("University of Calgary Scholarship Application System");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
-		lblNewLabel.setBounds(150, 6, 574, 35);
+		lblNewLabel.setBounds(146, 6, 574, 35);
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton_4 = new JButton("My Awards");

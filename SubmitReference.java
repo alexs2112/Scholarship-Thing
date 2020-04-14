@@ -84,6 +84,7 @@ public class SubmitReference extends JFrame {
 				users.remove(appli);
 				appli.addStudentFile(reference);
 				users.add(appli);
+				data.saveData();
 				dispose();
 				
 				

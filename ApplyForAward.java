@@ -184,7 +184,7 @@ public class ApplyForAward extends JFrame {
 		contentPane.add(lblAmount);
 
 		JLabel lblApplied = new JLabel();
-		lblApplied.setBounds(column1, row6, 300, 20);
+		lblApplied.setBounds(309, 489, 300, 20);
 		lblApplied.setFont(new Font("Tahoma", Font.BOLD, 14));
 		contentPane.add(lblApplied);
 

@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class AwardScholarships {
+	private static final long serialVersionUID = 1060623638149583738L;
+
 	private Data data;
 
 	public AwardScholarships(Data data) {
@@ -37,7 +39,7 @@ public class AwardScholarships {
 			for (int x = 0; x < award.getTotalAmount(); x++)
 				candidates.get(x).addAward(award);
 		}
-		
+		data.saveData();
 		//Then clear the applicants arraylist for this award
 		award.clearApplicants();	
 	}

@@ -15,6 +15,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class AcceptAwards extends JFrame {
+	private static final long serialVersionUID = 1060623638149583738L;
+
 
 	private JPanel contentPane;
 
@@ -54,7 +56,6 @@ public class AcceptAwards extends JFrame {
 				ArrayList<Scholarship> toRemove = new ArrayList<Scholarship>();
 				
 				if ( (scholarships.get(scholList.getSelectedIndex()).getAnnual()).equals("Annual") ) {
-					System.out.println("Annual");
 					for (Scholarship award : scholarships) {
 						if (scholarships.get(scholList.getSelectedIndex()) != award) {
 							toRemove.add(award);
@@ -62,7 +63,6 @@ public class AcceptAwards extends JFrame {
 						}
 					}
 				} else if ((scholarships.get(scholList.getSelectedIndex()).getAnnual()).equals("Fall")){
-					System.out.println("Fall");
 					for (Scholarship award : scholarships) {
 						if ( ((scholarships.get(scholList.getSelectedIndex()) != award) && ((award.getAnnual()).equals("Fall")) || (award.getAnnual()).equals("Annual"))  ) {
 							toRemove.add(award);
@@ -72,7 +72,6 @@ public class AcceptAwards extends JFrame {
 					}
 					
 				} else if ((scholarships.get(scholList.getSelectedIndex()).getAnnual()).equals("Winter")) {
-					System.out.println("Winter");
 					for (Scholarship award : scholarships) {
 						if ( ((scholarships.get(scholList.getSelectedIndex()) != award) && ((award.getAnnual()).equals("Winter")) || (award.getAnnual()).equals("Annual"))  ) {
 							toRemove.add(award);
@@ -87,6 +86,8 @@ public class AcceptAwards extends JFrame {
 				}
 				
 				student.awards().removeAll(toRemove);
+				student.acceptedAwards().addAll(student.awards());
+				data.saveData();
 				dispose();
 				AcceptAwards accAw = new AcceptAwards(data, applicant, index);
 				accAw.setVisible(true);
@@ -100,6 +101,7 @@ public class AcceptAwards extends JFrame {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				student.awards().remove(scholarships.get(scholList.getSelectedIndex()));
+				data.saveData();
 				dispose();
 				AcceptAwards accAw = new AcceptAwards(data, applicant, index);
 				accAw.setVisible(true);
