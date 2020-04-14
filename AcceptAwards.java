@@ -100,12 +100,14 @@ public class AcceptAwards extends JFrame {
 					//add the awards the applicant has accepted to their "accepted" list, and remove any from that list that conflict with one another
 					//save data and refresh page to display awards that are left
 					student.awards().removeAll(toRemove);
-					student.acceptedAwards().addAll(student.awards());
+					for (Scholarship award : student.awards()) {
+						if (!student.acceptedAwards().contains(award)) {
+							student.acceptedAwards().add(award);
+						}
+					}
 					student.acceptedAwards().removeAll(toRemove);
 					data.saveData();
 					dispose();
-					AcceptAwards accAw = new AcceptAwards(data, applicant, index);
-					accAw.setVisible(true);
 				}
 			}
 		});
@@ -117,15 +119,18 @@ public class AcceptAwards extends JFrame {
 		JButton btnNewButton_1 = new JButton("Decline Award");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				ArrayList<Scholarship> toRemove = new ArrayList<Scholarship>();
+
 				
 				if (scholarships.size() >= 1) {
 					//If the applicant declines an award, get the selected scholarship and remove
 					//it from the applicants list of awards, save data and refresh page
+					toRemove.add(scholarships.get(scholList.getSelectedIndex()));
+					student.acceptedAwards().removeAll(toRemove);
 					student.awards().remove(scholarships.get(scholList.getSelectedIndex()));
+
 					data.saveData();
 					dispose();
-					AcceptAwards accAw = new AcceptAwards(data, applicant, index);
-					accAw.setVisible(true);
 				}	
 			}
 		});
@@ -139,7 +144,7 @@ public class AcceptAwards extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if (scholarships.size() >= 1) {
 			
-					JOptionPane.showMessageDialog(null,  "Award Name: " + scholarships.get(scholList.getSelectedIndex()).getScholName() + "\nDonor Name: " + scholarships.get(scholList.getSelectedIndex()).getDonorName() + "\nAward Amount: $" + scholarships.get(scholList.getSelectedIndex()).getScholValue() + "\nTerm: " + scholarships.get(scholList.getSelectedIndex()).getAnnual());
+					JOptionPane.showMessageDialog(null,  "Award Name: " + scholarships.get(scholList.getSelectedIndex()).getScholName() + "\nDonor NameL " + scholarships.get(scholList.getSelectedIndex()).getDonorName() + "\nAward Amount: $" + scholarships.get(scholList.getSelectedIndex()).getScholValue() + "\nTerm: " + scholarships.get(scholList.getSelectedIndex()).getAnnual());
 				}
 			}
 		});
