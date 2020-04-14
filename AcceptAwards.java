@@ -139,7 +139,7 @@ public class AcceptAwards extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if (scholarships.size() >= 1) {
 			
-					JOptionPane.showMessageDialog(null,  "Award Name: " + scholarships.get(scholList.getSelectedIndex()).getScholName() + "\nDonor NameL " + scholarships.get(scholList.getSelectedIndex()).getDonorName() + "\nAward Amount: $" + scholarships.get(scholList.getSelectedIndex()).getScholValue() + "\nTerm: " + scholarships.get(scholList.getSelectedIndex()).getAnnual());
+					JOptionPane.showMessageDialog(null,  "Award Name: " + scholarships.get(scholList.getSelectedIndex()).getScholName() + "\nDonor Name: " + scholarships.get(scholList.getSelectedIndex()).getDonorName() + "\nAward Amount: $" + scholarships.get(scholList.getSelectedIndex()).getScholValue() + "\nTerm: " + scholarships.get(scholList.getSelectedIndex()).getAnnual());
 				}
 			}
 		});
