@@ -3,14 +3,17 @@ import javax.swing.JFrame;
 import java.text.DecimalFormat;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import javax.swing.JTextField;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -18,6 +21,8 @@ import java.awt.Color;
 
 public class ApplyForAward extends JFrame {
 	private static final long serialVersionUID = 1060623638149583738L;
+	private String filename = null;
+	private File transcript;
 	
 	/**
 	 * Create the frame.
@@ -207,11 +212,23 @@ public class ApplyForAward extends JFrame {
 		lblNewLabel_5.setBounds(28, 498, 250, 22);
 		contentPane.add(lblNewLabel_5);
 		
+		JLabel messageLabel = new JLabel("");
+		messageLabel.setBounds(205, 539, 576, 16);
+		contentPane.add(messageLabel);
+		
 		JButton btnNewButton_1 = new JButton("Upload files");
 		btnNewButton_1.setBounds(38, 536, 135, 25);
 		contentPane.add(btnNewButton_1);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				JFileChooser chooser = new JFileChooser();
+				chooser.addChoosableFileFilter(new FileNameExtensionFilter("Images", "jpg", "png"));
+				chooser.showOpenDialog(null);
+				File f = chooser.getSelectedFile();
+				filename = f.getAbsolutePath();
+				messageLabel.setText(filename);
+				transcript = chooser.getSelectedFile();
 				
 			}
 		});
@@ -235,6 +252,7 @@ public class ApplyForAward extends JFrame {
 					JOptionPane.showMessageDialog(null, "Submission Successful");
 					awards.get(awardBox.getSelectedIndex()).addApplicant(student);
 					student.addApplication(awards.get(awardBox.getSelectedIndex()));
+					student.addStudentFile(transcript);
 					data.saveData();
 					dispose();
 					
@@ -259,6 +277,8 @@ public class ApplyForAward extends JFrame {
 		});
 		btnNewButton_3.setBounds(136, 655, 117, 29);
 		contentPane.add(btnNewButton_3);
+		
+		
 	}
 	
 	//Updates JLabels for award info
