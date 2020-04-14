@@ -9,17 +9,21 @@ public class Applicant extends User implements Comparable {
 	private double GPA;
 	private Integer level;
 	private String id;
-	private ArrayList<Professor> recommendations;
+	private ArrayList<Recommendations> recommendations;
 	private ArrayList<Scholarship> applications;
 	private ArrayList<File> studentFiles;
 	
 	//The awards the applicant has received
 	private ArrayList<Scholarship> awards;
-	public ArrayList<Scholarship> awards() { return awards; }
-	public void addAward(Scholarship award) { awards.add(award); }
+	public ArrayList<Scholarship> awards() { 
+		return awards; 
+		
+		}
 	
-	public ArrayList<Professor> recommendations() { return recommendations; }
-	public void addRecommendation(Professor x) { recommendations.add(x); }
+	public void addAward(Scholarship award) { 
+		awards.add(award);
+		
+		}
 	
 
 	public Applicant(String name, String id, String studenttype, String fac, String dep, double gpa, String username, String password, String role) {
@@ -31,7 +35,7 @@ public class Applicant extends User implements Comparable {
 		this.GPA = gpa;
 		this.applications = new ArrayList<Scholarship>();
 		this.studentFiles = new ArrayList<File>();
-		this.recommendations = new ArrayList<Professor>();
+		this.recommendations = new ArrayList<Recommendations>();
 	}
 	
 	public void update(String firstName, String lastName, String id, String type, String faculty, 
@@ -83,28 +87,60 @@ public class Applicant extends User implements Comparable {
 	
 	public void setEmail(String email) {
 		this.email = email;
+		
 	}
-	public String getEmail() { return email; }
+	
+	public String getEmail() { 
+		return email; 
+		
+		}
 	
 	public Integer getLevel() {
 		return level;
+		
 	}
-	public String id() { return id; }
-	public ArrayList<Scholarship> applications() { return applications; }
-	public void addApplication(Scholarship x) { applications.add(x); }
+	
+	public String id() {
+		return id; 
+		
+		}
+	
+	public ArrayList<Scholarship> applications() { 
+		return applications; 
+		
+		}
+	
+	public void addApplication(Scholarship x) { 
+		applications.add(x); 
+		
+		}
+	
 	public void addStudentFile(File file) {
+		
 		studentFiles.add(file);
 	}
 
+	public void addProfRec(Recommendations recom) {
+		recommendations.add(recom);
+		
+	}
+	
+	public ArrayList<Recommendations> getRecs() { 
+		return recommendations; 
+		
+		}	
+	
+	
+	
 	@Override
 	public int compareTo(Object user) {
 		//A method to use collections.sort() on applicants
-        double compare = ((Applicant)user).getGPA();
-        //Done in descending order, each professor that recommends this student adds a virtual
-        //4 to this students GPA, after sorting students that are eligible for the award.
-        //So first every applicant that surpasses the GPA requirement gets added to a list, then
-        //it sorts the arraylist by this logic here, before awarding the top x students
-        return (int)(compare - this.getGPA() - (this.recommendations.size() * 4));
+		double compare = ((Applicant)user).getGPA();
+		//Done in descending order, each professor that recommends this student adds a virtual
+		//4 to this students GPA, after sorting students that are eligible for the award
+		//So first every applicant that surpasses the GPA req gets added to a list, then
+		//it sorts the arraylist by this logic here, before awarding the top x students
+		return (int)(compare - this.getGPA() - (this.recomendations.size() * 4));
     }
 
 }
