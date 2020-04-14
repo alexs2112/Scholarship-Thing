@@ -13,8 +13,6 @@ import javax.swing.JComboBox;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.Color;
-import java.awt.Font;
 
 public class NewAward extends JFrame {
 	private static final long serialVersionUID = 1060623638149583738L;
@@ -23,18 +21,15 @@ public class NewAward extends JFrame {
 	private JLabel lblNewLabel_1;
 	private JTextField textField_1;
 	private JTextField textField_2;
-	private JLabel lblValueOfAward;
+	private JLabel label;
 	private JComboBox comboBox;
-	private JLabel lblTerm;
-	private JLabel lblGpaRequirement;
+	private JLabel label_1;
+	private JLabel label_2;
 	private JTextField textField_3;
 	private JTextField textField_4;
-	private JLabel lblAwardsAvailable;
+	private JLabel label_3;
 	private JButton btnNewButton;
 	private ArrayList<Scholarship> allScholarships = new ArrayList<Scholarship>();
-	private Data data;
-	private JLabel lblNewLabel_2;
-	private JButton btnNewButton_1;
 
 	public ArrayList<Scholarship> getAllSchol() {
 		return allScholarships;
@@ -44,68 +39,65 @@ public class NewAward extends JFrame {
 	 * Create the frame.
 	 */
 	public NewAward(Data data) {
-		setTitle("University of Calgary Scholarship Application System | New Award");
-		this.data = data;
-		setBounds(100, 100, 744, 500);
+		setBounds(100, 100, 400, 400);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.ORANGE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		textField = new JTextField();
-		textField.setBounds(183, 70, 205, 26);
+		textField.setBounds(156, 21, 130, 26);
 		contentPane.add(textField);
 		textField.setColumns(10);
 
-		JLabel lblNewLabel = new JLabel("Scholarship Name:");
-		lblNewLabel.setBounds(29, 70, 139, 16);
+		JLabel lblNewLabel = new JLabel("Scholarship Name");
+		lblNewLabel.setBounds(29, 26, 115, 16);
 		contentPane.add(lblNewLabel);
 
-		lblNewLabel_1 = new JLabel("Name of Donor:");
-		lblNewLabel_1.setBounds(29, 117, 115, 16);
+		lblNewLabel_1 = new JLabel("Donor Name");
+		lblNewLabel_1.setBounds(29, 54, 115, 16);
 		contentPane.add(lblNewLabel_1);
 
 		textField_1 = new JTextField();
-		textField_1.setBounds(183, 112, 205, 26);
+		textField_1.setBounds(156, 49, 130, 26);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 
 		textField_2 = new JTextField();
-		textField_2.setBounds(183, 154, 130, 26);
+		textField_2.setBounds(156, 77, 130, 26);
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
 
-		lblValueOfAward = new JLabel("Value of Award:");
-		lblValueOfAward.setBounds(29, 159, 115, 16);
-		contentPane.add(lblValueOfAward);
+		label = new JLabel("Value of Award");
+		label.setBounds(29, 82, 115, 16);
+		contentPane.add(label);
 
 		String[] termBox = {"Annual", "Fall", "Winter"};
 		comboBox = new JComboBox(termBox);
-		comboBox.setBounds(183, 196, 130, 27);
+		comboBox.setBounds(156, 108, 130, 27);
 		contentPane.add(comboBox);
 
-		lblTerm = new JLabel("Term:");
-		lblTerm.setBounds(29, 201, 115, 16);
-		contentPane.add(lblTerm);
+		label_1 = new JLabel("Term");
+		label_1.setBounds(29, 110, 115, 16);
+		contentPane.add(label_1);
 
-		lblGpaRequirement = new JLabel("GPA Requirement:");
-		lblGpaRequirement.setBounds(29, 244, 139, 16);
-		contentPane.add(lblGpaRequirement);
+		label_2 = new JLabel("GPA Requirement");
+		label_2.setBounds(29, 144, 115, 16);
+		contentPane.add(label_2);
 
 		textField_3 = new JTextField();
 		textField_3.setColumns(10);
-		textField_3.setBounds(183, 239, 130, 26);
+		textField_3.setBounds(156, 139, 130, 26);
 		contentPane.add(textField_3);
 
 		textField_4 = new JTextField();
 		textField_4.setColumns(10);
-		textField_4.setBounds(183, 285, 205, 26);
+		textField_4.setBounds(156, 171, 130, 26);
 		contentPane.add(textField_4);
 
-		lblAwardsAvailable = new JLabel("Awards Available:");
-		lblAwardsAvailable.setBounds(29, 290, 139, 16);
-		contentPane.add(lblAwardsAvailable);
+		label_3 = new JLabel("Awards Available");
+		label_3.setBounds(29, 176, 115, 16);
+		contentPane.add(label_3);
 
 		btnNewButton = new JButton("Save");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -135,22 +127,8 @@ public class NewAward extends JFrame {
 				}
 			}
 		});
-		btnNewButton.setBounds(15, 399, 117, 29);
+		btnNewButton.setBounds(166, 219, 117, 29);
 		contentPane.add(btnNewButton);
-		
-		lblNewLabel_2 = new JLabel("University of Calgary Scholarship Application System ");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
-		lblNewLabel_2.setBounds(131, 0, 487, 34);
-		contentPane.add(lblNewLabel_2);
-		
-		btnNewButton_1 = new JButton("Cancel");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-			}
-		});
-		btnNewButton_1.setBounds(149, 399, 117, 29);
-		contentPane.add(btnNewButton_1);
 	}
 
 }
