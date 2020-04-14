@@ -9,6 +9,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 
 public class MyAwards extends JFrame {
+	private static final long serialVersionUID = 1060623638149583738L;
+
 
 	private JPanel contentPane;
 

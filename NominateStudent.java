@@ -31,7 +31,6 @@ public class NominateStudent extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		Professor prof = (Professor)user;
 		
 		
 		//An arraylist of all the scholarships and their associated data
@@ -75,7 +74,7 @@ public class NominateStudent extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String selectedStudent = studList.getSelectedValue().toString();
 				String selectedSchol = scholList.getSelectedValue().toString();
-				Recommendations recom = new Recommendations(prof, scholarships.get(scholList.getSelectedIndex()));
+				Recommendations recom = new Recommendations(user, scholarships.get(scholList.getSelectedIndex()));
 				Applicant appli = allApplicants.get(studList.getSelectedIndex());
 				users.remove(appli);
 				appli.addProfRec(recom);

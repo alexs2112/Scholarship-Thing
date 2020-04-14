@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class AwardScholarships {
+public class AwardScholarships implements Serializable {
 	private static final long serialVersionUID = 1060623638149583738L;
 
 	private Data data;

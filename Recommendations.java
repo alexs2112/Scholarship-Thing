@@ -1,17 +1,20 @@
+import java.io.Serializable;
 
-public class Recommendations {
+public class Recommendations implements Serializable {
+	private static final long serialVersionUID = 1060623638149583738L;
+
 
 	
-	private Professor prof;
+	private User prof;
 	private Scholarship schol;
 
-	public Recommendations(Professor profs, Scholarship scholar) {
+	public Recommendations(User profs, Scholarship scholar) {
 		this.prof = profs;
 		this.schol = scholar;
 		
 	}
 	
-	public Professor getNominator() {
+	public User getNominator() {
 		return prof;
 	}
 
