@@ -47,7 +47,7 @@ public class AcceptAwards extends JFrame {
 		}
 		
 		JList scholList = new JList(listOfNames.toArray());
-		scholList.setBounds(55, 40, 318, 279);
+		scholList.setBounds(181, 40, 318, 279);
 		contentPane.add(scholList);
 		
 		JButton btnNewButton = new JButton("Accept Award");
@@ -95,7 +95,7 @@ public class AcceptAwards extends JFrame {
 
 			}
 		});
-		btnNewButton.setBounds(55, 358, 117, 29);
+		btnNewButton.setBounds(158, 358, 117, 29);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Decline Award");
@@ -109,7 +109,7 @@ public class AcceptAwards extends JFrame {
 				
 			}
 		});
-		btnNewButton_1.setBounds(223, 358, 117, 29);
+		btnNewButton_1.setBounds(269, 358, 117, 29);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("View Award Info");
@@ -118,8 +118,17 @@ public class AcceptAwards extends JFrame {
 				JOptionPane.showMessageDialog(null,  "Award Name: " + scholarships.get(scholList.getSelectedIndex()).getScholName() + "\nDonor NameL " + scholarships.get(scholList.getSelectedIndex()).getDonorName() + "\nAward Amount: $" + scholarships.get(scholList.getSelectedIndex()).getScholValue() + "\nTerm: " + scholarships.get(scholList.getSelectedIndex()).getAnnual());
 			}
 		});
-		btnNewButton_2.setBounds(119, 399, 150, 29);
+		btnNewButton_2.setBounds(379, 358, 150, 29);
 		contentPane.add(btnNewButton_2);
+		
+		JButton btnNewButton_3 = new JButton("Cancel");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnNewButton_3.setBounds(553, 399, 117, 29);
+		contentPane.add(btnNewButton_3);
 		
 		
 				

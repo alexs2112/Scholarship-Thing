@@ -7,6 +7,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MyAwards extends JFrame {
 	private static final long serialVersionUID = 1060623638149583738L;
@@ -92,6 +95,15 @@ public class MyAwards extends JFrame {
 		JLabel lblNewLabel_3 = new JLabel("Winter Award");
 		lblNewLabel_3.setBounds(525, 59, 89, 16);
 		contentPane.add(lblNewLabel_3);
+		
+		JButton btnNewButton = new JButton("Cancel");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnNewButton.setBounds(627, 423, 117, 29);
+		contentPane.add(btnNewButton);
 		
 		
 		

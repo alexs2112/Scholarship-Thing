@@ -28,6 +28,7 @@ public class NewUser extends JFrame {
 	private JButton btnNewButton;
 	private JLabel lblNewLabel_2;
 	private JLabel lblNewLabel_3;
+	private JButton btnNewButton_1;
 	//private Data data;
 
 	/**
@@ -102,17 +103,26 @@ public class NewUser extends JFrame {
 			}
 				}
 		});
-		btnNewButton.setBounds(296, 319, 117, 29);
+		btnNewButton.setBounds(409, 318, 117, 29);
 		contentPane.add(btnNewButton);
 		
 		lblNewLabel_2 = new JLabel("University of Calgary Scholarship Application System");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
-		lblNewLabel_2.setBounds(0, 0, 477, 20);
+		lblNewLabel_2.setBounds(113, 6, 477, 20);
 		contentPane.add(lblNewLabel_2);
 		
 		lblNewLabel_3 = new JLabel("Role:");
 		lblNewLabel_3.setBounds(156, 226, 92, 20);
 		contentPane.add(lblNewLabel_3);
+		
+		btnNewButton_1 = new JButton("Cancel");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnNewButton_1.setBounds(212, 318, 117, 29);
+		contentPane.add(btnNewButton_1);
 	}
 
 }

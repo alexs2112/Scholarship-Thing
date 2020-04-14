@@ -95,6 +95,15 @@ public class NominateStudent extends JFrame {
 		lblNewLabel_1.setBounds(414, 13, 318, 16);
 		contentPane.add(lblNewLabel_1);
 		
+		JButton btnNewButton_1 = new JButton("Cancel");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnNewButton_1.setBounds(486, 359, 117, 29);
+		contentPane.add(btnNewButton_1);
+		
 		
 	}
 
