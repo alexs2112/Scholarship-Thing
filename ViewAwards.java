@@ -26,6 +26,8 @@ public class ViewAwards extends JFrame {
 	 * Create the frame.
 	 */
 	public ViewAwards(Data data, User applicant) {
+		
+		//design elements
 		setBounds(100, 100, 743, 445);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.ORANGE);
@@ -36,20 +38,25 @@ public class ViewAwards extends JFrame {
 		//Get a list of all available awards
 		ArrayList<Scholarship> awards = data.awards();
 	
-		
+		//List of all the names of all the scholarships available
 		String[] names = new String[awards.size()];
 		for (int i = 0; i < awards.size(); i++) {
 			names[i] = awards.get(i).getScholName();
 		}
 		
+		//drop down menu of scholarships available
 		JComboBox awardBox = new JComboBox();
 		awardBox.setBounds(220, 175, 302, 27);
 		contentPane.add(awardBox);
 		awardBox.setModel(new DefaultComboBoxModel(names));
 		
+		//action handler for get info
 		JButton btnNewButton = new JButton("Get Info");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				//gets the information on the selected scholarship
+				//displays that information to an option pane with all relevant information about the scholarship
 				Scholarship award =  awards.get(awardBox.getSelectedIndex());
 				final DecimalFormat df2= new DecimalFormat("#.##");
 				JOptionPane.showMessageDialog(null, "Award Name: " + award.getScholName() + "\nDonor Name: " + award.getDonorName() + "\nValue: $" + Integer.toString(award.getScholValue()) + 
@@ -60,6 +67,7 @@ public class ViewAwards extends JFrame {
 		btnNewButton.setBounds(246, 253, 117, 29);
 		contentPane.add(btnNewButton);
 		
+		//brings user back to the previos page
 		JButton btnNewButton_1 = new JButton("Back");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -70,6 +78,7 @@ public class ViewAwards extends JFrame {
 		btnNewButton_1.setBounds(379, 253, 117, 29);
 		contentPane.add(btnNewButton_1);
 		
+		//design elements
 		JLabel lblNewLabel = new JLabel("University of Calgary Scholarship Application System");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
 		lblNewLabel.setBounds(122, 6, 496, 42);

@@ -3,35 +3,36 @@ import java.io.*;
 
 public class Applicant extends User implements Comparable {
 	private static final long serialVersionUID = 1060623638149583738L;
-	private String studentType;
-	private String faculty;
-	private String department;
-	private double GPA;
-	private Integer level;
-	private String id;
-	private ArrayList<Recommendations> recommendations;
-	private ArrayList<Scholarship> applications;
-	private ArrayList<File> studentFiles;
-	private ArrayList<Scholarship> awards;
-	private ArrayList<Scholarship> accepted;
+	private String studentType; //Student Type: Undergrad, Graduate, PostGrad
+	private String faculty; //The faculty the applicant belongs to
+	private String department; //The department the applicant belongs to
+	private double GPA; //The applicants GPA
+	private Integer level; //the access permission of the applicant
+	private String id; //the applicants student id
+	private ArrayList<Recommendations> recommendations; //a list of recommendations the student has (the professor who recommended them and the award they've been recommended for)
+	private ArrayList<Scholarship> applications; //a list of scholarships the applicant has applied for
+	private ArrayList<File> studentFiles; //a list of Files that have been saved to the applicant (Transcripts, references, etc)
+	private ArrayList<Scholarship> awards; //a list of scholarships that the student has been awarded 
+	private ArrayList<Scholarship> accepted;//a list of scholarships that the student has accepted to receive
 
-	
-	//The awards the applicant has been approved for
+	//returns the ArrayList of Scholarships the student has been selected to receive (before the accept or decline)
 	public ArrayList<Scholarship> awards() { 
 		return awards; 
 		
 		}
-	
+	//retuns the ArrayList of Scholarships the student has accepted and will receive
 	public ArrayList<Scholarship> acceptedAwards() {
 		return accepted;
 	}
 	
+	//adds an award to the students ArrayList of awarded Scholarships
 	public void addAward(Scholarship award) { 
 		awards.add(award);
 		
 		}
 	
 
+	//Constructor for Applicant
 	public Applicant(String name, String id, String studenttype, String fac, String dep, double gpa, String username, String password, String role) {
 		super(name, role, username, password);
 		this.id = id;
@@ -46,6 +47,7 @@ public class Applicant extends User implements Comparable {
 		this.accepted = new ArrayList<Scholarship>();
 	}
 	
+	//Updates the applicants information
 	public void update(String firstName, String lastName, String id, String type, String faculty, 
 			String department, double gpa, String email) {
 		this.name = firstName + " " + lastName;
@@ -57,6 +59,7 @@ public class Applicant extends User implements Comparable {
 		this.email = email;
 	}
 	
+	//Getters and Setters for Applicant
 	public void setStudentType(String studenttype) {
 		this.studentType = studenttype;
 	}

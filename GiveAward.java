@@ -33,20 +33,25 @@ public class GiveAward extends JFrame {
 		
 		//An arraylist of all the scholarships and their associated data
 		ArrayList<Scholarship> scholarships = data.awards();
+		
+		//An arraylist containing only the names of all the scholarhsips in the system
 		ArrayList<String> listOfNames = new ArrayList<String>();
-		AwardScholarships function = new AwardScholarships(data);
 		
 		for (Scholarship award : scholarships) {
 			listOfNames.add(award.getScholName());
 		}
 
+		AwardScholarships function = new AwardScholarships(data);
+
+		//Displays list of scholarships in a JList for selection
 		JList list = new JList(listOfNames.toArray());
-		list.setBounds(405, 79, 318, 279);
+		list.setBounds(44, 95, 318, 279);
 		contentPane.add(list);
 		
 	
 		
 		JButton btnNewButton_3 = new JButton("Award Selection");
+		
 		//Awards the scholarship that is selected
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -59,6 +64,7 @@ public class GiveAward extends JFrame {
 		contentPane.add(btnNewButton_3);
 		
 		JButton btnNewButton_4 = new JButton("Award All");
+		
 		//Awards all available scholarships
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -71,13 +77,14 @@ public class GiveAward extends JFrame {
 		contentPane.add(btnNewButton_4);
 		
 		JButton btnExitButton = new JButton("Exit");
-		//Awards all available scholarships
+		
+		//Brings user to previous window
 		btnExitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 			}
 		});
-		btnExitButton.setBounds(619, 443, 147, 29);
+		btnExitButton.setBounds(602, 416, 147, 29);
 		contentPane.add(btnExitButton);
 		
 		JLabel label = new JLabel("University of Calgary Scholarship Application System");
@@ -87,10 +94,10 @@ public class GiveAward extends JFrame {
 		
 		DefaultListModel listModel = new DefaultListModel();
 		JList list_1 = new JList(listModel);
-		list_1.setBounds(41, 79, 318, 279);
+		list_1.setBounds(405, 95, 318, 279);
 		contentPane.add(list_1);
 	
-		
+		//Displays a list of all of the Applicants who have applied for the selected Scholarship
 		JButton btnNewButton = new JButton("View Applicants");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

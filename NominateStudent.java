@@ -23,6 +23,8 @@ public class NominateStudent extends JFrame {
 	 * Create the frame.
 	 */
 	public NominateStudent(Data data, User user) {
+		
+		//design elements
 		setTitle("University of Calgary Scholarship Application System | Nominate a Student");
 		setBounds(100, 100, 772, 500);
 		contentPane = new JPanel();
@@ -35,6 +37,8 @@ public class NominateStudent extends JFrame {
 		
 		//An arraylist of all the scholarships and their associated data
 		ArrayList<Scholarship> scholarships = data.awards();
+		
+		//An arrayList of the names of all the scholarships in the database
 		ArrayList<String> listOfNames = new ArrayList<String>();
 		AwardScholarships function = new AwardScholarships(data);
 		for (Scholarship award : scholarships) {
@@ -43,7 +47,6 @@ public class NominateStudent extends JFrame {
 		
 		//An arraylist of all the students in the system and their associated data
 		ArrayList<User> users = data.users();
-		
 		ArrayList<Applicant> allApplicants = new ArrayList<Applicant>();
 		for (User user1 : users) {
 			if (user1.role().contentEquals("student")) {
@@ -51,27 +54,36 @@ public class NominateStudent extends JFrame {
 			}
 		}
 		
+		//An arrayList of the names of all the students in the database
 		ArrayList<String> studentNames = new ArrayList<String>();
 		for (Applicant applicant : allApplicants) {
 			studentNames.add(applicant.firstName() + " " + applicant.lastName());
 		}
 		
+		//An arrayList of the student IDs of all the students in the database
 		ArrayList<String> studentNumbers = new ArrayList<String>();
 		for (Applicant applicant : allApplicants) {
 			studentNumbers.add(applicant.id());
 		}	
 		
+		//display the names of all scholarships in a JList
 		JList scholList = new JList(listOfNames.toArray());
 		scholList.setBounds(414, 41, 318, 360);
 		contentPane.add(scholList);
 		
+		//display the names of all the students in the system in a JList
 		JList studList = new JList(studentNames.toArray());
 		studList.setBounds(38, 41, 318, 360);
 		contentPane.add(studList);
 		
+		//action handler for submit button
 		JButton btnNewButton = new JButton("Submit");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				//create new recommendation for selected student, of selected scholarship and current user
+				//save that recommendation to the applicants account
+				//save and close
 				String selectedStudent = studList.getSelectedValue().toString();
 				String selectedSchol = scholList.getSelectedValue().toString();
 				Recommendations recom = new Recommendations(user, scholarships.get(scholList.getSelectedIndex()));
@@ -95,6 +107,7 @@ public class NominateStudent extends JFrame {
 		lblNewLabel_1.setBounds(414, 13, 318, 16);
 		contentPane.add(lblNewLabel_1);
 		
+		//brings user to the previous window
 		JButton btnNewButton_1 = new JButton("Cancel");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

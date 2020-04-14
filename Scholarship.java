@@ -9,10 +9,11 @@ public class Scholarship implements java.io.Serializable {
 	private double requirement; //minimum GPA required to be eligible for the scholarship
 	private Integer totalAmount; //Number of awards that will be given out
 	private ArrayList<Applicant> applicants; //the current list of students who have applied for the award
-	private String faculty;		//
+	private String faculty;		//faculty scholarship belonds to 
 	private String department;	// 3 Strings for faculty/department/type specific scholarships
-	private String studentType;	//
+	private String studentType;	//undergrad, grad, postgrad
 
+	//constructor for scholarship
 	public Scholarship(String scholName, String donorName, Integer dolVal, String sem, double req, Integer totAmount, String faculty, String department, String type) {
 		this.name = scholName;
 		this.donor = donorName;
@@ -25,6 +26,8 @@ public class Scholarship implements java.io.Serializable {
 		this.department = department;
 		this.studentType = type;
 	}
+	
+	//method to update scholarship information
 	public void update(String scholName, String donorName, Integer dolVal, String sem, double req, Integer totAmount, String faculty, String department, String type) {
 		this.name = scholName;
 		this.donor = donorName;
@@ -38,6 +41,7 @@ public class Scholarship implements java.io.Serializable {
 	}
 
 
+	//getters and setters
 	public void setScholName(String scholName) {
 		this.name = scholName;
 	}
@@ -93,15 +97,32 @@ public class Scholarship implements java.io.Serializable {
 	public ArrayList<Applicant> getApplicants() {
 		return applicants;
 	}
-	public void addApplicant(Applicant applicant) { applicants.add(applicant); }
-	public void clearApplicants() { applicants.clear(); }
+	public void addApplicant(Applicant applicant) { 
+		applicants.add(applicant); 
+		
+		}
+	
+	public void clearApplicants() { 
+		applicants.clear();
+		
+		}
 	
 	public Integer getNumberApplicants() {
 		return (this.applicants).size();
+		
 	}
 
-	public String department() { return department; }
-	public String faculty() { return faculty; }
-	public String studentType() { return studentType; }
+	public String department() { 
+		return department; 
+		
+		}
+	public String faculty() { 
+		return faculty; 
+		
+		}
+	public String studentType() { 
+		return studentType; 
+		
+		}
 }
 

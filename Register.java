@@ -64,7 +64,7 @@ public class Register extends JFrame {
 		this.openFileChooser = new JFileChooser();
 		this.data = data;
 	
-		
+		//design elements
 		setTitle("University of Calgary Scholarship Application System | New Student Registration");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1052, 754);
@@ -83,6 +83,7 @@ public class Register extends JFrame {
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
+		//first name
 		JLabel lblNewLabel = new JLabel("First Name:");
 		lblNewLabel.setBounds(40, 131, 85, 16);
 		contentPane.add(lblNewLabel);
@@ -92,10 +93,12 @@ public class Register extends JFrame {
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
+		//last name
 		JLabel lblNewLabel_1 = new JLabel("Last Name:");
 		lblNewLabel_1.setBounds(40, 173, 85, 16);
 		contentPane.add(lblNewLabel_1);
 		
+		//applicant type
 		String[] applicantType = { "Undergraduate", "Graduate", "Post-Graduate" };
 		JComboBox comboBox = new JComboBox(applicantType);
 		comboBox.setToolTipText("");
@@ -106,16 +109,19 @@ public class Register extends JFrame {
 		lblNewLabel_2.setBounds(38, 216, 109, 16);
 		contentPane.add(lblNewLabel_2);
 		
+		//list of faculties
 		String[] facultyList = {"Arts", "Law", "Nursing", "Kinesiology", "Science", "Social Work", "Veterinary Medicine", "Medicine", "Business", "Engineering", "Education", "Open Studies"};
 		JComboBox comboBox_1 = new JComboBox(facultyList);
 		comboBox_1.setModel(new DefaultComboBoxModel(facultyList));
 		comboBox_1.setBounds(148, 255, 153, 27);
 		contentPane.add(comboBox_1);
 		
+		//faculty
 		JLabel lblNewLabel_3 = new JLabel("Faculty:");
 		lblNewLabel_3.setBounds(40, 260, 85, 16);
 		contentPane.add(lblNewLabel_3);
 		
+		//department
 		JLabel lblNewLabel_4 = new JLabel("Department:");
 		lblNewLabel_4.setBounds(40, 303, 93, 16);
 		contentPane.add(lblNewLabel_4);
@@ -130,6 +136,7 @@ public class Register extends JFrame {
 		contentPane.add(textField_3);
 		textField_3.setColumns(10);
 		
+		//student ID
 		JLabel lblNewLabel_5 = new JLabel("Student ID:");
 		lblNewLabel_5.setBounds(40, 345, 85, 16);
 		contentPane.add(lblNewLabel_5);
@@ -139,6 +146,7 @@ public class Register extends JFrame {
 		contentPane.add(textField_4);
 		textField_4.setColumns(10);
 		
+		//Student GPA
 		JLabel lblNewLabel_6 = new JLabel("Current GPA:");
 		lblNewLabel_6.setBounds(38, 386, 95, 16);
 		contentPane.add(lblNewLabel_6);
@@ -148,10 +156,12 @@ public class Register extends JFrame {
 		contentPane.add(textField_5);
 		textField_5.setColumns(10);
 		
+		//password field 1
 		passwordField = new JPasswordField();
 		passwordField.setBounds(634, 211, 130, 26);
 		contentPane.add(passwordField);
 		
+		//password field 2
 		passwordField_1 = new JPasswordField();
 		passwordField_1.setBounds(634, 255, 130, 26);
 		contentPane.add(passwordField_1);
@@ -161,10 +171,12 @@ public class Register extends JFrame {
 		contentPane.add(textField_6);
 		textField_6.setColumns(10);
 		
+		//student email
 		JLabel lblNewLabel_7 = new JLabel("E-mail Address:");
 		lblNewLabel_7.setBounds(452, 131, 140, 16);
 		contentPane.add(lblNewLabel_7);
 		
+		//student username
 		JLabel lblNewLabel_8 = new JLabel("Username:");
 		lblNewLabel_8.setBounds(452, 173, 109, 16);
 		contentPane.add(lblNewLabel_8);
@@ -181,10 +193,13 @@ public class Register extends JFrame {
 		messageLabel.setBounds(319, 429, 445, 16);
 		contentPane.add(messageLabel);
 		
+		//upload files action handler
 		JButton btnNewButton = new JButton("Upload");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				//opens filechooser, search by image
+				//gets selected file and saves it to students account
 				JFileChooser chooser = new JFileChooser();
 				chooser.addChoosableFileFilter(new FileNameExtensionFilter("Images", "jpg", "png"));
 				chooser.showOpenDialog(null);
@@ -202,10 +217,12 @@ public class Register extends JFrame {
 		lblNewLabel_11.setBounds(40, 430, 119, 16);
 		contentPane.add(lblNewLabel_11);
 		
+		//action handler for submit button
 		JButton btnNewButton_1 = new JButton("Submit");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				
+				//ensure account does not already exist
 				char[] pass = passwordField.getPassword();
 				char[] pass1 = passwordField_1.getPassword();
 				String password = String.valueOf(pass);
@@ -228,19 +245,23 @@ public class Register extends JFrame {
 					e3.printStackTrace();
 				}
 
+				//if any fields are empty, prompts user to fill all of them out
 				if (textField.getText().contentEquals("") || textField_1.getText().equals("") || textField_2.getText().equals("") || textField_3.getText().equals("")){
 					JOptionPane.showMessageDialog(null, "Please ensure all fields are complete");
 				
-					
+				//if passwords do not match
 				} else if (!Arrays.equals(pass, pass1)) {
 					JOptionPane.showMessageDialog(null, "Passwords do not match!");
 
+				//if gpa is not a number
 				} else if(isNum(gpa) == false) {
-					JOptionPane.showMessageDialog(null, "Please enter an integer value for GPA.");
+					JOptionPane.showMessageDialog(null, "GPA must be a number between 0.0 adn 4.0.");
 
+				//if username is already taken
 				} else if(uNList.contains(textField_6.getText()) == true){
 					JOptionPane.showMessageDialog(null, "Username already exists.");
 
+				//otherwise create account with information provided
 				} else {
 					String studentFirstName = textField.getText();
 					String studentLastName = textField_1.getText();
@@ -250,18 +271,18 @@ public class Register extends JFrame {
 					Float studentGpa = Float.parseFloat(gpa);
 					String username = textField_6.getText();
 					String studentID = textField_3.getText();
-					
 					String name = studentFirstName + " " + studentLastName;
 					Applicant newStudent = new Applicant(name, studentID, studentType, studentFaculty, studentDepartment, studentGpa, username, password, "student");
 					newStudent.setEmail(textField_5.getText());
 					newStudent.addStudentFile(transcript);
 					
 					//Creates the student, adds it to Data user arraylist
+					//saves data and closes
 					data.addUser(newStudent);
-					data.saveData();
-					
-					//Clear the Screen
+					data.saveData();					
 					dispose();
+					
+					//logs student in as an applicant
 					ApplicantLogin appLog = new ApplicantLogin(data, newStudent, 0);
 					appLog.setVisible(true);
 				
@@ -271,6 +292,7 @@ public class Register extends JFrame {
 		btnNewButton_1.setBounds(462, 526, 117, 29);
 		contentPane.add(btnNewButton_1);
 		
+		//brings user back to previous screen
 		JButton btnNewButton_2 = new JButton("Back");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

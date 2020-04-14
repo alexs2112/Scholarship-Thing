@@ -5,15 +5,17 @@ public class Recommendations implements Serializable {
 
 
 	
-	private User prof;
-	private Scholarship schol;
+	private User prof; //the user who has recommended the student
+	private Scholarship schol; //the scholarship the student has been recommended for
 
+	//constructor for recommendation
 	public Recommendations(User profs, Scholarship scholar) {
 		this.prof = profs;
 		this.schol = scholar;
 		
 	}
 	
+	//getters
 	public User getNominator() {
 		return prof;
 	}

@@ -29,6 +29,8 @@ public class SubmitReference extends JFrame {
 	 * Create the frame.
 	 */
 	public SubmitReference(Data data) {
+		
+		//design elements
 		setTitle("University of Calgary Scholarship Application System | Submit References");
 		setBounds(100, 100, 772, 500);
 		contentPane = new JPanel();
@@ -45,11 +47,14 @@ public class SubmitReference extends JFrame {
 					allApplicants.add((Applicant)user);
 				}
 			}
+		
+		//An arrayList of the names of all students in the database
 		ArrayList<String> studentNames = new ArrayList<String>();
 			for (Applicant applicant : allApplicants) {
 				studentNames.add(applicant.firstName() + " " + applicant.lastName());
 			}
 		
+		//display list of all applicant names to a JList
 		JList studList = new JList(studentNames.toArray());
 		studList.setBounds(240, 41, 318, 306);
 		contentPane.add(studList);
@@ -58,10 +63,12 @@ public class SubmitReference extends JFrame {
 		messageLabel.setBounds(408, 359, 347, 16);
 		contentPane.add(messageLabel);
 		
+		//action handler for choose file
 		JButton btnNewButton = new JButton("Choose File");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				//allows user to select a file and saves that file to the selected applicants account as a reference
 				JFileChooser chooser = new JFileChooser();
 				chooser.addChoosableFileFilter(new FileNameExtensionFilter("Images", "jpg", "png"));
 				chooser.showOpenDialog(null);
@@ -76,9 +83,13 @@ public class SubmitReference extends JFrame {
 		btnNewButton.setBounds(243, 359, 153, 29);
 		contentPane.add(btnNewButton);
 		
+		//action handler for submit
 		JButton btnNewButton_1 = new JButton("Submit");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				//save selected file from above to the students account as a file
+				//saves data and closes
 				String selectedStudent = studList.getSelectedValue().toString();
 				Applicant appli = allApplicants.get(studList.getSelectedIndex());
 				users.remove(appli);
@@ -93,6 +104,7 @@ public class SubmitReference extends JFrame {
 		btnNewButton_1.setBounds(638, 429, 117, 29);
 		contentPane.add(btnNewButton_1);
 		
+		//brings user back to previous window
 		JButton btnNewButton_2 = new JButton("Cancel");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

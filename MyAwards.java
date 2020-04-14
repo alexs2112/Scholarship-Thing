@@ -22,6 +22,8 @@ public class MyAwards extends JFrame {
 	 * Create the frame.
 	 */
 	public MyAwards(Data data, User applicant) {
+		
+		//Design Elements
 		setTitle("University of Calgary Scholarship Application System | My Awards");
 		setBounds(100, 100, 750, 480);
 		contentPane = new JPanel();
@@ -30,10 +32,17 @@ public class MyAwards extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		//convert User applciant to Applicant applicant
 		Applicant student = (Applicant)applicant;
+		
+		//Create an ArrayList scholarships that is a list of all the awards the student has accepted
 		ArrayList<Scholarship> scholarships = student.acceptedAwards();
+		
+		//if the arraylist is non empty
 		if (scholarships.size() >= 1) {
 			for (Scholarship award : scholarships ) {
+				
+				//if the award is an annual award, update the appropriate labels
 				if (award.getAnnual().equals("Annual")) {
 					JLabel lblNewLabel_4 = new JLabel("Award Name: " + award.getScholName());
 					lblNewLabel_4.setBounds(38, 107, 200, 16);
@@ -46,6 +55,8 @@ public class MyAwards extends JFrame {
 					JLabel lblNewLabel_6 = new JLabel("Award Amount: $" + award.getScholValue());
 					lblNewLabel_6.setBounds(38, 163, 200, 16);
 					contentPane.add(lblNewLabel_6);
+					
+				//if the award is a Fall award, update the appropriate labels
 				} else if (award.getAnnual().equals("Fall")) {
 					
 					JLabel lblNewLabel_7 = new JLabel("Award Name: " + award.getScholName());
@@ -60,6 +71,7 @@ public class MyAwards extends JFrame {
 					lblNewLabel_9.setBounds(294, 163, 200, 16);
 					contentPane.add(lblNewLabel_9);
 					
+				//if the award is a winter award, update the appropriate labels
 				} else if (award.getAnnual().equals("Winter")) {
 					
 	

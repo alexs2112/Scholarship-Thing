@@ -25,6 +25,8 @@ public class ExistingAward extends JFrame {
 	 * Create the frame.
 	 */
 	public ExistingAward(Data data) {
+		
+		//Design elements
 		setTitle("University of Calgary Scholarship Application System | Existing Award");
 		setBounds(100, 100, 772, 500);
 		contentPane = new JPanel();
@@ -35,16 +37,19 @@ public class ExistingAward extends JFrame {
 
 		//An arraylist of all the scholarships and their associated data
 		ArrayList<Scholarship> scholarships = data.awards();
-		ArrayList<String> listOfNames = new ArrayList<String>();
 		
+		//An arraylist of just the names of each scholarship
+		ArrayList<String> listOfNames = new ArrayList<String>();
 		for (Scholarship award : scholarships) {
 			listOfNames.add(award.getScholName());
 		}
 
+		//create JList that displayst the names of all scholarships
 		JList list = new JList(listOfNames.toArray());
 		list.setBounds(215, 78, 318, 279);
 		contentPane.add(list);
 
+		//gets info about selected scholarship from Jlist and brings user to the EditAward window where they can edit the selected award
 		JButton btnNewButton = new JButton("Edit");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -56,6 +61,7 @@ public class ExistingAward extends JFrame {
 		btnNewButton.setBounds(215, 369, 108, 29);
 		contentPane.add(btnNewButton);
 
+		//brings user back to previous window
 		JButton btnNewButton_1 = new JButton("Exit");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -66,6 +72,8 @@ public class ExistingAward extends JFrame {
 		btnNewButton_1.setBounds(330, 369, 93, 29);
 		contentPane.add(btnNewButton_1);
 
+		//gets scholarshhp from Jlist and deletes that Scholarship from the system
+		//saves the data and refreshes the window
 		JButton btnNewButton_2 = new JButton("Delete");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

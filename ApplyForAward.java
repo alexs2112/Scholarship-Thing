@@ -28,6 +28,8 @@ public class ApplyForAward extends JFrame {
 	 * Create the frame.
 	 */
 	public ApplyForAward(Data data, User applicant, int index) {
+		
+		//design elements
 		Applicant student = (Applicant)applicant;
 		setTitle("University of Calgary Scholarship Application System | Apply For An Award");
 		setBounds(100, 100, 853, 754);
@@ -103,6 +105,7 @@ public class ApplyForAward extends JFrame {
 		contentPane.add(lblDepartment);
 		contentPane.add(txtDepartment);	
 		
+		//GPA
 		final DecimalFormat df2= new DecimalFormat("#.##");
 		JLabel lblGPA = new JLabel("GPA:");
 		lblGPA.setBounds(25, 219, 80, 20);
@@ -112,6 +115,7 @@ public class ApplyForAward extends JFrame {
 		contentPane.add(lblGPA);
 		contentPane.add(txtGPA);
 		
+		//Email
 		JLabel lblEmailAddress = new JLabel("Email:");
 		lblEmailAddress.setBounds(297, 219, 80, 20);
 		JTextField txtEmailAddress = new JTextField();
@@ -120,6 +124,7 @@ public class ApplyForAward extends JFrame {
 		contentPane.add(lblEmailAddress);
 		contentPane.add(txtEmailAddress);
 		
+		//Action handler to update the applicants information if they have made any changes to the above text fields
 		JButton btnNewButton = new JButton("Update Info");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -128,7 +133,7 @@ public class ApplyForAward extends JFrame {
 				student.update(txtFirstName.getText(), txtLastName.getText(), txtStudentId.getText(),
 						typeBox.getSelectedItem().toString(), facultyBox.getSelectedItem().toString(), 
 						txtDepartment.getText(), Double.valueOf(txtGPA.getText()), txtEmailAddress.getText());
-				//Reset the screen
+				//Save the data and reset the screen
 				dispose();
 				ApplyForAward appLog = new ApplyForAward(data, student, index);
 				appLog.setVisible(true);

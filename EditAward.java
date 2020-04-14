@@ -26,6 +26,8 @@ public class EditAward extends JFrame {
 	 * Create the frame.
 	 */
 	public EditAward(Data data, Scholarship award) {
+		
+		//Design elements
 		setTitle("University of Calgary Scholarship Application System | Edit An Award");
 		setBounds(100, 100, 800, 499);
 		JPanel contentPane = new JPanel();
@@ -124,15 +126,20 @@ public class EditAward extends JFrame {
 		facultyBox.setSelectedItem(award.faculty());
 		contentPane.add(facultyBox);
 
+		//Action Handler for Save button
 		JButton btnNewButton = new JButton("Save");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//if any fields are left blank, displays window and prompts user to complete all fields
 				if (textField.getText().equals("") || textField_1.getText().equals("") || textField_2.getText().equals("") || textField_3.getText().equals("") || textField_4.getText().equals("")) {
 					JOptionPane.showMessageDialog(null, "Please ensure all fields are complete");
+					
+				//if the GPA requirements if below 0.0 or above 4.0, will not complete and prompts user to edit GPA	
 				} else if ( Float.parseFloat(textField_3.getText()) > 4.0 || Float.parseFloat(textField_3.getText()) < 0.0 )  {
 					JOptionPane.showMessageDialog(null, "Required GPA cannot be less than 0.0 or greater than 4.0");
-
-				}else {
+				
+				//otherwise, all information about the Scholarship is editted and updated
+				} else {
 					String scholName = textField.getText();
 					String donName = textField_1.getText();
 					String valAw = textField_2.getText();
@@ -147,9 +154,9 @@ public class EditAward extends JFrame {
 					String department = textDepartment.getText();
 					String type = studentBox.getSelectedItem().toString();
 
+					//update data, save and close
 					award.update(scholName, donName, valueOfAward, fullTerm, minGPA, awardsAvail, faculty, department, type);
 					data.saveData();
-					
 					dispose();
 				}
 			}
@@ -162,6 +169,7 @@ public class EditAward extends JFrame {
 		lblNewLabel_6.setBounds(155, 0, 574, 35);
 		contentPane.add(lblNewLabel_6);
 		
+		//closes window and brings user to previous page
 		JButton btnNewButton_1 = new JButton("Cancel");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

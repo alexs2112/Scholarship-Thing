@@ -36,6 +36,8 @@ public class Login implements java.io.Serializable {
 	 * Initialize the contents of the frame.
 	 */
 	public void initialize() {
+		
+		//Design Elements
 		frmLogin = new JFrame();
 		frmLogin.getContentPane().setForeground(new Color(0, 0, 0));
 		frmLogin.getContentPane().setFont(new Font("Franklin Gothic Medium", Font.BOLD | Font.ITALIC, 45));
@@ -55,6 +57,7 @@ public class Login implements java.io.Serializable {
 		passwordField.setBounds(330, 225, 130, 26);
 		frmLogin.getContentPane().add(passwordField);
 
+		//Logs in User if the username and passwords match an associated account in the system
 		JButton btnNewButton = new JButton("Login");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -72,21 +75,27 @@ public class Login implements java.io.Serializable {
 			if (user != null) {
 				System.out.println(user.name());
 				//Uses the users type to call the next screen
+				
+				//if the user is a scholarship coordinator
 				if (user.role().equals("sc")) {
 				frmLogin.dispose();
 				ScholarCoordLogin schoCoor = new ScholarCoordLogin(data, user);
 				schoCoor.setVisible(true);
 	
+				//if the user is a professor
 				} else if (user.role().equals("prof")) {
 				frmLogin.dispose();
 				ProfessorLogin profLog = new ProfessorLogin(data, user);
 				profLog.setVisible(true);
-	
+				
+				
+				//if the user is an admin
 				} else if (user.role().equals("admin")) {
 				frmLogin.dispose();
 				AdminLogin adminLog = new AdminLogin(data, user);
 				adminLog.setVisible(true);
 	
+				//if the user is a student
 				} else if (user.role().equals("student")) {
 				frmLogin.dispose();
 				ApplicantLogin appLog = new ApplicantLogin(data, user, 0);
@@ -107,6 +116,7 @@ public class Login implements java.io.Serializable {
 		lblNewLabel_1.setBounds(221, 230, 85, 16);
 		frmLogin.getContentPane().add(lblNewLabel_1);
 
+		//brings the user to the register page where they can register as a new user
 		JButton btnNewButton_1 = new JButton("Register");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -124,12 +134,6 @@ public class Login implements java.io.Serializable {
 		lblNewLabel_2.setBounds(70, 29, 629, 30);
 		frmLogin.getContentPane().add(lblNewLabel_2);
 		
-		//ImageIcon logo = new ImageIcon("UofClogo.png");
-		//Image image1 = logo.getImage();
-		//Image newimage = image1.getScaledInstance(70, 70, Image.SCALE_SMOOTH);
-		//logo = new ImageIcon(newimage);
-		
-		//Image logo = new Image("UofClogo.png");
 		
 		
 	}

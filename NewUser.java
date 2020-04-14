@@ -35,8 +35,9 @@ public class NewUser extends JFrame {
 	 * Create the frame.
 	 */
 	public NewUser(Data data) {
+		
+		//design elements
 		setTitle("University of Calgary Scholarship Application System | New User");
-		//this.data = data;
 		setBounds(100, 100, 750, 500);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.ORANGE);
@@ -49,14 +50,17 @@ public class NewUser extends JFrame {
 		contentPane.add(textField);
 		textField.setColumns(10);
 
+		//name of user
 		JLabel lblNewLabel = new JLabel("Name:");
 		lblNewLabel.setBounds(156, 88, 115, 16);
 		contentPane.add(lblNewLabel);
 
+		//account username
 		lblNewLabel_1 = new JLabel("Username:");
 		lblNewLabel_1.setBounds(156, 135, 115, 16);
 		contentPane.add(lblNewLabel_1);
 		
+		//account password
 		lblPassword = new JLabel("Password:");
 		lblPassword.setBounds(156, 182, 115, 16);
 		contentPane.add(lblPassword);
@@ -71,16 +75,22 @@ public class NewUser extends JFrame {
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
 
+		//type of user
 		String[] roleBox = {"Administrator", "Coordinator", "Professor"};
 		comboBox = new JComboBox(roleBox);
 		comboBox.setBounds(296, 219, 130, 27);
 		contentPane.add(comboBox);
 
+		//action handler for save button
 		btnNewButton = new JButton("Save");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				//if any textfields are left empty
 				if (textField.getText().equals("") || textField_1.getText().equals("") || textField_2.getText().equals("")) {
 					JOptionPane.showMessageDialog(null, "Please ensure all fields are complete");
+				
+				//otherwise, create new user with above details
 				}else {
 					String name = textField.getText();
 					String username = textField_1.getText();
@@ -96,10 +106,11 @@ public class NewUser extends JFrame {
 					else
 						convertedRole = "ERROR";
 					
+					//add new user to database, save and close
 					User newUser = new User(name, convertedRole, username, password);
 					data.addUser(newUser);
 					data.saveData();
-				dispose();
+					dispose();
 			}
 				}
 		});
@@ -115,6 +126,7 @@ public class NewUser extends JFrame {
 		lblNewLabel_3.setBounds(156, 226, 92, 20);
 		contentPane.add(lblNewLabel_3);
 		
+		//brings user to previous screen
 		btnNewButton_1 = new JButton("Cancel");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

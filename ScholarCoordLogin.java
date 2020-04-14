@@ -22,6 +22,8 @@ public class ScholarCoordLogin extends JFrame {
 	 * Create the frame.
 	 */
 	public ScholarCoordLogin(Data data, User user) {
+		
+		//deisgn elements
 		getContentPane().setBackground(Color.ORANGE);
 		setTitle("University of Calgary Scholarship Application System | Scholarship Coordinator Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -33,6 +35,7 @@ public class ScholarCoordLogin extends JFrame {
 		lblNewLabel.setBounds(22, 60, 483, 30);
 		getContentPane().add(lblNewLabel);
 
+		//brings user to new window where they can create a new scholarship
 		JButton btnNewButton = new JButton("Create New Award");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -43,6 +46,7 @@ public class ScholarCoordLogin extends JFrame {
 		btnNewButton.setBounds(267, 125, 225, 30);
 		getContentPane().add(btnNewButton);
 
+		//brings user to a new window where they can edit or delete existing awards
 		JButton btnNewButton_1 = new JButton("Edit/Delete Existing Award");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -53,6 +57,7 @@ public class ScholarCoordLogin extends JFrame {
 		btnNewButton_1.setBounds(267, 167, 225, 30);
 		getContentPane().add(btnNewButton_1);
 		
+		//logs user out of the system and returns to login page
 		JButton btnNewButton_2 = new JButton("Logout");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -64,11 +69,13 @@ public class ScholarCoordLogin extends JFrame {
 		btnNewButton_2.setBounds(327, 261, 117, 30);
 		getContentPane().add(btnNewButton_2);
 		
+		//deisgn elements
 		JLabel lblNewLabel_1 = new JLabel("University of Calgary Scholarship Application System");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
 		lblNewLabel_1.setBounds(142, 6, 493, 36);
 		getContentPane().add(lblNewLabel_1);
 		
+		//brings user to new window where they can award scholarships to students
 		JButton btnNewButton_3 = new JButton("Award Scholarships");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

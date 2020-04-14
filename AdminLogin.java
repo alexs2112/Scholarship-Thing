@@ -22,6 +22,8 @@ public class AdminLogin extends JFrame {
 	 * Create the frame.
 	 */
 	public AdminLogin(Data data, User user) {
+		
+		//Design Elements
 		getContentPane().setBackground(Color.ORANGE);
 		setTitle("University of Calgary Scholarship Application System | Administrator Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -33,6 +35,7 @@ public class AdminLogin extends JFrame {
 		lblNewLabel.setBounds(29, 54, 483, 30);
 		getContentPane().add(lblNewLabel);
 
+		//Brings admin to a new window where they can create new scholarships
 		JButton btnNewButton = new JButton("Create New Award");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -40,9 +43,11 @@ public class AdminLogin extends JFrame {
 				addAward.setVisible(true);
 			}
 		});
+		
 		btnNewButton.setBounds(160, 146, 225, 30);
 		getContentPane().add(btnNewButton);
 
+		//Brings Admin to a bnew window where they can edit or delete existing awards
 		JButton btnNewButton_1 = new JButton("Edit/Delete Existing Award");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -53,6 +58,7 @@ public class AdminLogin extends JFrame {
 		btnNewButton_1.setBounds(160, 188, 225, 30);
 		getContentPane().add(btnNewButton_1);
 		
+		//Brings Admin to a new window where they can award Scholarships to applicants
 		JButton btnAward = new JButton("Award Scholarships");
 		btnAward.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -63,6 +69,7 @@ public class AdminLogin extends JFrame {
 		btnAward.setBounds(397, 146, 225, 30);
 		getContentPane().add(btnAward);
 		
+		//Brings admin to a new window where they can add new users to the system
 		JButton btnNewButton_3 = new JButton("Add Another User");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -73,6 +80,7 @@ public class AdminLogin extends JFrame {
 		btnNewButton_3.setBounds(397, 188, 225, 30);
 		getContentPane().add(btnNewButton_3);
 		
+		//Logs the admin out of the system and returns to Login page
 		JButton btnNewButton_2 = new JButton("Logout");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
