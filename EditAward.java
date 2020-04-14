@@ -142,7 +142,7 @@ public class EditAward extends JFrame {
 					float minGPA = Float.parseFloat(gpa);
 					String avail = textField_4.getText();
 					int awardsAvail = Integer.parseInt(avail);
-					boolean fullTerm = term.equals("Annual");
+					String fullTerm = comboBox.getSelectedItem().toString();
 					String faculty = facultyBox.getSelectedItem().toString();
 					String department = textDepartment.getText();
 					String type = studentBox.getSelectedItem().toString();

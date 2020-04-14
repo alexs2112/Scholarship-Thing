@@ -60,6 +60,7 @@ public class GiveAward extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				function.awardAllScholarships();
 				JOptionPane.showMessageDialog(null, "All scholarships have been awarded");
+				data.saveData();
 			}
 		});
 		btnNewButton_4.setBounds(177, 386, 147, 29);

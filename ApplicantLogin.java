@@ -78,5 +78,15 @@ public class ApplicantLogin extends JFrame {
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
 		lblNewLabel.setBounds(150, 6, 574, 35);
 		contentPane.add(lblNewLabel);
+		
+		JButton btnNewButton_4 = new JButton("My Awards");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MyAwards myAw = new MyAwards(data, applicant);
+				myAw.setVisible(true);
+			}
+		});
+		btnNewButton_4.setBounds(235, 284, 234, 29);
+		contentPane.add(btnNewButton_4);
 	}
 }

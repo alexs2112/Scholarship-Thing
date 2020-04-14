@@ -139,15 +139,18 @@ public class ApplyForAward extends JFrame {
 		contentPane.add(lblNewLabel_4);
 		
 		//Get a list of all available awards
-		ArrayList<Scholarship> awards = new ArrayList<Scholarship>();
-		for (Scholarship award : data.awards()) {
+		// ArrayList<Scholarship> awards = new ArrayList<Scholarship>();
+		//for (Scholarship award : data.awards()) {
 			//Check every award in data, if it is not exclusive and inaccessible to the student, let them view it
-			if (award.faculty().equals(student.getFaculty()) || award.faculty().equals("None") &&
-				award.studentType().equals(student.getStudentType()) || award.studentType().equals("None") &&
-				award.department().equals(student.getStudentType()) || award.studentType().equals("None"))
-				awards.add(award);
-		}
+		//	if ((award.faculty() == student.getFaculty() || award.faculty() == "None") &&
+		//		(award.studentType() == student.getStudentType() || award.studentType() == "None") &&
+		//		(award.department() == student.getStudentType() || award.studentType() == "None"))
+		//		awards.add(award);
+	//	}
 		
+		
+		
+		ArrayList<Scholarship> awards = data.awards();
 		String[] names = new String[awards.size()];
 		for (int i = 0; i < awards.size(); i++) {
 			names[i] = awards.get(i).getScholName();
@@ -192,6 +195,7 @@ public class ApplyForAward extends JFrame {
 				updateFields(awards.get(awardBox.getSelectedIndex()), contentPane, student, lblName, lblDonor, lblValue, lblReq, lblAmount, lblApplied);
 			}
 		});
+		
 		awardBox.setModel(new DefaultComboBoxModel(names));
 		awardBox.setBounds(38, 336, 220, 24);
 		awardBox.setSelectedIndex(index);
@@ -203,7 +207,7 @@ public class ApplyForAward extends JFrame {
 		lblNewLabel_5.setBounds(28, 498, 250, 22);
 		contentPane.add(lblNewLabel_5);
 		
-		JButton btnNewButton_1 = new JButton("Add(...)");
+		JButton btnNewButton_1 = new JButton("Upload files");
 		btnNewButton_1.setBounds(38, 536, 97, 25);
 		contentPane.add(btnNewButton_1);
 		btnNewButton_1.addActionListener(new ActionListener() {
