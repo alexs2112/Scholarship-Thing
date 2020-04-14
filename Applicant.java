@@ -140,7 +140,7 @@ public class Applicant extends User implements Comparable {
 		//4 to this students GPA, after sorting students that are eligible for the award
 		//So first every applicant that surpasses the GPA req gets added to a list, then
 		//it sorts the arraylist by this logic here, before awarding the top x students
-		return (int)(compare - this.getGPA() - (this.recomendations.size() * 4));
+		return (int)(compare - this.getGPA() - (this.recommendations.size() * 4));
     }
 
 }
