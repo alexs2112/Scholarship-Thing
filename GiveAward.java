@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
@@ -43,6 +44,8 @@ public class GiveAward extends JFrame {
 		list.setBounds(15, 79, 318, 279);
 		contentPane.add(list);
 		
+	
+		
 		JButton btnNewButton_3 = new JButton("Award Selection");
 		//Awards the scholarship that is selected
 		btnNewButton_3.addActionListener(new ActionListener() {
@@ -64,7 +67,7 @@ public class GiveAward extends JFrame {
 				data.saveData();
 			}
 		});
-		btnNewButton_4.setBounds(177, 386, 147, 29);
+		btnNewButton_4.setBounds(177, 386, 156, 29);
 		contentPane.add(btnNewButton_4);
 		
 		JButton btnExitButton = new JButton("Exit");
@@ -74,12 +77,37 @@ public class GiveAward extends JFrame {
 				dispose();
 			}
 		});
-		btnExitButton.setBounds(339, 386, 147, 29);
+		btnExitButton.setBounds(619, 443, 147, 29);
 		contentPane.add(btnExitButton);
 		
 		JLabel label = new JLabel("University of Calgary Scholarship Application System");
 		label.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
 		label.setBounds(136, 6, 489, 29);
 		contentPane.add(label);
+		
+		DefaultListModel listModel = new DefaultListModel();
+		JList list_1 = new JList(listModel);
+		list_1.setBounds(388, 79, 279, 279);
+		contentPane.add(list_1);
+	
+		
+		JButton btnNewButton = new JButton("View Applicants");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ArrayList<Applicant> applicants = new ArrayList<Applicant>();
+				ArrayList<String> applicantNames = new ArrayList<String>();
+				applicants.addAll( scholarships.get(list.getSelectedIndex()).getApplicants() );
+				for (Applicant applicant : applicants) {
+					applicantNames.add(applicant.name());
+				}
+				listModel.removeAllElements();
+				for (String names : applicantNames) {
+					listModel.addElement(names);
+				}
+				
+			}
+		});
+		btnNewButton.setBounds(388, 386, 279, 29);
+		contentPane.add(btnNewButton);
 	}
 }
