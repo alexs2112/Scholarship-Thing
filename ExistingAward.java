@@ -36,7 +36,6 @@ public class ExistingAward extends JFrame {
 		//An arraylist of all the scholarships and their associated data
 		ArrayList<Scholarship> scholarships = data.awards();
 		ArrayList<String> listOfNames = new ArrayList<String>();
-		AwardScholarships function = new AwardScholarships(data);
 		
 		for (Scholarship award : scholarships) {
 			listOfNames.add(award.getScholName());

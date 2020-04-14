@@ -108,7 +108,7 @@ public class Register extends JFrame {
 		
 		String[] facultyList = {"Arts", "Law", "Nursing", "Kinesiology", "Science", "Social Work", "Veterinary Medicine", "Medicine", "Business", "Engineering", "Education", "Open Studies"};
 		JComboBox comboBox_1 = new JComboBox(facultyList);
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Arts", "Law", "Nursing", "Kinesiology", "Science", "Social Work", "Veterinary Medicine", "Medicine", "Business", "Engineering", "Education"}));
+		comboBox_1.setModel(new DefaultComboBoxModel(facultyList));
 		comboBox_1.setBounds(148, 255, 153, 27);
 		contentPane.add(comboBox_1);
 		

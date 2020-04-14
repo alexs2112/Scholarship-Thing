@@ -21,9 +21,9 @@ public class Data implements Serializable {
 		users.add(new Professor("ProfTest", "professor", "professor"));
 		users.add(new Coordinator("SCTest", "coordinator", "coordinator"));
 		users.add(new Administrator("AdminTest", "administrator", "administrator"));
-		awards.add(new Scholarship("TestScholarship1", "Donor One", 600, true, 3.4, 400));
-		awards.add(new Scholarship("TestScholarship2", "Donor Two", 800, true, 3.6, 300));
-		awards.add(new Scholarship("TestScholarship3", "Donor Three", 1000, true, 3.8, 200));
+		awards.add(new Scholarship("TestScholarship1", "Donor One", 600, true, 3.4, 400, "None", "None", "None"));
+		awards.add(new Scholarship("TestScholarship2", "Donor Two", 800, true, 3.6, 300, "None", "None", "None"));
+		awards.add(new Scholarship("TestScholarship3", "Donor Three", 1000, true, 3.8, 200, "None", "None", "None"));
 	}
 
 	public void addUser(User user) {

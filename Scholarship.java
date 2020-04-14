@@ -9,8 +9,11 @@ public class Scholarship implements java.io.Serializable {
 	private double requirement; //minimum GPA required to be eligible for the scholarship
 	private Integer totalAmount; //Number of awards that will be given out
 	private ArrayList<Applicant> applicants; //the current list of students who have applied for the award
+	private String faculty;		//
+	private String department;	// 3 Strings for faculty/department/type specific scholarships
+	private String studentType;	//
 
-	public Scholarship(String scholName, String donorName, Integer dolVal, Boolean ann, double req, Integer totAmount) {
+	public Scholarship(String scholName, String donorName, Integer dolVal, Boolean ann, double req, Integer totAmount, String faculty, String department, String type) {
 		this.name = scholName;
 		this.donor = donorName;
 		this.value = dolVal;
@@ -18,14 +21,20 @@ public class Scholarship implements java.io.Serializable {
 		this.requirement = req;
 		this.totalAmount = totAmount;
 		this.applicants = new ArrayList<Applicant>();
+		this.faculty = faculty;
+		this.department = department;
+		this.studentType = type;
 	}
-	public void update(String scholName, String donorName, Integer dolVal, Boolean ann, double req, Integer totAmount) {
+	public void update(String scholName, String donorName, Integer dolVal, Boolean ann, double req, Integer totAmount, String faculty, String department, String type) {
 		this.name = scholName;
 		this.donor = donorName;
 		this.value = dolVal;
 		this.annual = ann;
 		this.requirement = req;
 		this.totalAmount = totAmount;
+		this.faculty = faculty;
+		this.department = department;
+		this.studentType = type;
 	}
 
 
@@ -91,5 +100,8 @@ public class Scholarship implements java.io.Serializable {
 		return (this.applicants).size();
 	}
 
+	public String department() { return department; }
+	public String faculty() { return faculty; }
+	public String studentType() { return studentType; }
 }
 
