@@ -40,7 +40,7 @@ public class AdminLogin extends JFrame {
 				addAward.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(245, 188, 225, 30);
+		btnNewButton.setBounds(245, 142, 225, 30);
 		getContentPane().add(btnNewButton);
 
 		JButton btnNewButton_1 = new JButton("Edit/Delete Existing Award");
@@ -50,8 +50,18 @@ public class AdminLogin extends JFrame {
 				editAward.setVisible(true);
 			}
 		});
-		btnNewButton_1.setBounds(245, 234, 225, 30);
+		btnNewButton_1.setBounds(245, 188, 225, 30);
 		getContentPane().add(btnNewButton_1);
+		
+		JButton btnAward = new JButton("Award Scholarships");
+		btnAward.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				GiveAward giveAw = new GiveAward(data);
+				giveAw.setVisible(true);
+			}
+		});
+		btnAward.setBounds(245, 234, 225, 30);
+		getContentPane().add(btnAward);
 		
 		JButton btnNewButton_3 = new JButton("Add Another User");
 		btnNewButton_3.addActionListener(new ActionListener() {
