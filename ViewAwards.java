@@ -55,12 +55,16 @@ public class ViewAwards extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				//gets the information on the selected scholarship
-				//displays that information to an option pane with all relevant information about the scholarship
-				Scholarship award =  awards.get(awardBox.getSelectedIndex());
-				final DecimalFormat df2= new DecimalFormat("#.##");
-				JOptionPane.showMessageDialog(null, "Award Name: " + award.getScholName() + "\nDonor Name: " + award.getDonorName() + "\nValue: $" + Integer.toString(award.getScholValue()) + 
-						"\nGPA Requirement: " + (df2.format(award.getReq())) + "\nAmount of Awards: " + Integer.toString(award.getTotalAmount()));
+				if (awards.size() >= 1) {
+
+				
+					//gets the information on the selected scholarship
+					//displays that information to an option pane with all relevant information about the scholarship
+					Scholarship award =  awards.get(awardBox.getSelectedIndex());
+					final DecimalFormat df2= new DecimalFormat("#.##");
+					JOptionPane.showMessageDialog(null, "Award Name: " + award.getScholName() + "\nDonor Name: " + award.getDonorName() + "\nValue: $" + Integer.toString(award.getScholValue()) + 
+							"\nGPA Requirement: " + (df2.format(award.getReq())) + "\nAmount of Awards: " + Integer.toString(award.getTotalAmount()));
+				}
 			}
 		});
 				

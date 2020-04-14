@@ -53,9 +53,17 @@ public class ExistingAward extends JFrame {
 		JButton btnNewButton = new JButton("Edit");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String selected = list.getSelectedValue().toString();
-				EditAward editThisAward = new EditAward(data, scholarships.get(list.getSelectedIndex()));
-				editThisAward.setVisible(true);
+				
+				if (listOfNames.size() >= 1) {
+					if (list.isSelectionEmpty()) {
+						return;
+					} else {
+
+						String selected = list.getSelectedValue().toString();
+						EditAward editThisAward = new EditAward(data, scholarships.get(list.getSelectedIndex()));
+						editThisAward.setVisible(true);
+					}
+				}
 			}
 		});
 		btnNewButton.setBounds(215, 369, 108, 29);
@@ -77,11 +85,19 @@ public class ExistingAward extends JFrame {
 		JButton btnNewButton_2 = new JButton("Delete");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				scholarships.remove(list.getSelectedIndex());
-				data.saveData();
-				dispose();
-				ExistingAward exAw = new ExistingAward(data);
-				exAw.setVisible(true);
+				
+				if (listOfNames.size() >= 1) {
+					if (list.isSelectionEmpty()) {
+						return;
+					} else {
+
+						scholarships.remove(list.getSelectedIndex());
+						data.saveData();
+						dispose();
+						ExistingAward exAw = new ExistingAward(data);
+						exAw.setVisible(true);
+					}
+				}
 			}
 		});
 		btnNewButton_2.setBounds(425, 369, 108, 29);

@@ -55,11 +55,20 @@ public class GiveAward extends JFrame {
 		//Awards the scholarship that is selected
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				function.awardScholarship(scholarships.get(list.getSelectedIndex()));
-				JOptionPane.showMessageDialog(null, scholarships.get(list.getSelectedIndex()).getScholName() + " has been awarded");
-				data.saveData();
+				
+				if (listOfNames.size() >= 1) {
+					if (list.isSelectionEmpty()) {
+						return;
+					} else {
+					
+						function.awardScholarship(scholarships.get(list.getSelectedIndex()));
+						JOptionPane.showMessageDialog(null, scholarships.get(list.getSelectedIndex()).getScholName() + " has been awarded");
+						data.saveData();
+				}
+			}
 			}
 		});
+		
 		btnNewButton_3.setBounds(44, 386, 147, 29);
 		contentPane.add(btnNewButton_3);
 		
@@ -68,9 +77,14 @@ public class GiveAward extends JFrame {
 		//Awards all available scholarships
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				function.awardAllScholarships();
-				JOptionPane.showMessageDialog(null, "All scholarships have been awarded");
-				data.saveData();
+				
+				if (listOfNames.size() >= 1) {
+
+					function.awardAllScholarships();
+					JOptionPane.showMessageDialog(null, "All scholarships have been awarded");
+					data.saveData();
+					
+				}
 			}
 		});
 		btnNewButton_4.setBounds(203, 386, 156, 29);
@@ -101,17 +115,24 @@ public class GiveAward extends JFrame {
 		JButton btnNewButton = new JButton("View Applicants");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ArrayList<Applicant> applicants = new ArrayList<Applicant>();
-				ArrayList<String> applicantNames = new ArrayList<String>();
-				applicants.addAll( scholarships.get(list.getSelectedIndex()).getApplicants() );
-				for (Applicant applicant : applicants) {
-					applicantNames.add(applicant.name());
-				}
-				listModel.removeAllElements();
-				for (String names : applicantNames) {
-					listModel.addElement(names);
-				}
 				
+				if (listOfNames.size() >= 1) {
+					if (list.isSelectionEmpty()) {
+						return;
+					} else {
+
+						ArrayList<Applicant> applicants = new ArrayList<Applicant>();
+						ArrayList<String> applicantNames = new ArrayList<String>();
+						applicants.addAll( scholarships.get(list.getSelectedIndex()).getApplicants() );
+						for (Applicant applicant : applicants) {
+							applicantNames.add(applicant.name());
+						}
+						listModel.removeAllElements();
+						for (String names : applicantNames) {
+							listModel.addElement(names);
+						}
+					}
+				}
 			}
 		});
 		btnNewButton.setBounds(405, 386, 318, 29);

@@ -197,19 +197,25 @@ public class ApplyForAward extends JFrame {
 		lblApplied.setFont(new Font("Tahoma", Font.BOLD, 14));
 		contentPane.add(lblApplied);
 
+		
 		JComboBox awardBox = new JComboBox();
 		awardBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Updates existing JLabels for award info
-				updateFields(awards.get(awardBox.getSelectedIndex()), contentPane, student, lblName, lblDonor, lblValue, lblReq, lblAmount, lblApplied);
+				if (awards.size() >= 1) {
+
+					updateFields(awards.get(awardBox.getSelectedIndex()), contentPane, student, lblName, lblDonor, lblValue, lblReq, lblAmount, lblApplied);
+				}
 			}
 		});
 		
 		awardBox.setModel(new DefaultComboBoxModel(names));
 		awardBox.setBounds(38, 336, 220, 24);
-		awardBox.setSelectedIndex(index);
 		contentPane.add(awardBox);
-		updateFields(awards.get(awardBox.getSelectedIndex()), contentPane, student, lblName, lblDonor, lblValue, lblReq, lblAmount, lblApplied);
+		if (awards.size() >= 1) {
+			awardBox.setSelectedIndex(index);
+			updateFields(awards.get(awardBox.getSelectedIndex()), contentPane, student, lblName, lblDonor, lblValue, lblReq, lblAmount, lblApplied);
+		}
 		
 		JLabel lblNewLabel_5 = new JLabel("3. Upload Transcript(s)");
 		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 16));

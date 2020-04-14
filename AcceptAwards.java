@@ -59,55 +59,57 @@ public class AcceptAwards extends JFrame {
 		JButton btnNewButton = new JButton("Accept Award");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(scholarships.size() >= 1) {
+					//create new ArrayList of Scholarships that must be removed from applicants awarded list
+					ArrayList<Scholarship> toRemove = new ArrayList<Scholarship>();
+					
+					//If the applicant accepts an annual award, remove all other annual awards they've been awarded, as well as all other term based awards
+					if ( (scholarships.get(scholList.getSelectedIndex()).getAnnual()).equals("Annual") ) {
+						for (Scholarship award : scholarships) {
+							if (scholarships.get(scholList.getSelectedIndex()) != award) {
+								toRemove.add(award);
+	
+							}
+						}
+					//if the applicant accepts a Fall term award, remove all annual awards they've been awarded as well as all other fall awards (only winter awards will be left)	
+					} else if ((scholarships.get(scholList.getSelectedIndex()).getAnnual()).equals("Fall")){
+						for (Scholarship award : scholarships) {
+							if ( ((scholarships.get(scholList.getSelectedIndex()) != award) && ((award.getAnnual()).equals("Fall")) || (award.getAnnual()).equals("Annual"))  ) {
+								toRemove.add(award);
+	
+							}
+							
+						}
+					//If the applicant accepts a Winter term award, remove all annual awards they've been awarded as well as all other winter awards (only fall awards will be left)
+					} else if ((scholarships.get(scholList.getSelectedIndex()).getAnnual()).equals("Winter")) {
+						for (Scholarship award : scholarships) {
+							if ( ((scholarships.get(scholList.getSelectedIndex()) != award) && ((award.getAnnual()).equals("Winter")) || (award.getAnnual()).equals("Annual"))  ) {
+								toRemove.add(award);
+	
+	
+							}
+							
+						}
+					//if none of these apply, close the window
+					} else  {
+						dispose();
+					}
 				
-				//create new ArrayList of Scholarships that must be removed from applicants awarded list
-				ArrayList<Scholarship> toRemove = new ArrayList<Scholarship>();
 				
-				//If the applicant accepts an annual award, remove all other annual awards they've been awarded, as well as all other term based awards
-				if ( (scholarships.get(scholList.getSelectedIndex()).getAnnual()).equals("Annual") ) {
-					for (Scholarship award : scholarships) {
-						if (scholarships.get(scholList.getSelectedIndex()) != award) {
-							toRemove.add(award);
-
-						}
-					}
-				//if the applicant accepts a Fall term award, remove all annual awards they've been awarded as well as all other fall awards (only winter awards will be left)	
-				} else if ((scholarships.get(scholList.getSelectedIndex()).getAnnual()).equals("Fall")){
-					for (Scholarship award : scholarships) {
-						if ( ((scholarships.get(scholList.getSelectedIndex()) != award) && ((award.getAnnual()).equals("Fall")) || (award.getAnnual()).equals("Annual"))  ) {
-							toRemove.add(award);
-
-						}
-						
-					}
-				//If the applicant accepts a Winter term award, remove all annual awards they've been awarded as well as all other winter awards (only fall awards will be left)
-				} else if ((scholarships.get(scholList.getSelectedIndex()).getAnnual()).equals("Winter")) {
-					for (Scholarship award : scholarships) {
-						if ( ((scholarships.get(scholList.getSelectedIndex()) != award) && ((award.getAnnual()).equals("Winter")) || (award.getAnnual()).equals("Annual"))  ) {
-							toRemove.add(award);
-
-
-						}
-						
-					}
-				//if none of these apply, close the window
-				} else  {
+					//remove all declined awards from the list of awards the student has been awarded, so only the awards they have accepted remain
+					//add the awards the applicant has accepted to their "accepted" list, and remove any from that list that conflict with one another
+					//save data and refresh page to display awards that are left
+					student.awards().removeAll(toRemove);
+					student.acceptedAwards().addAll(student.awards());
+					student.acceptedAwards().removeAll(toRemove);
+					data.saveData();
 					dispose();
+					AcceptAwards accAw = new AcceptAwards(data, applicant, index);
+					accAw.setVisible(true);
 				}
-				
-				//remove all declined awards from the list of awards the student has been awarded, so only the awards they have accepted remain
-				//add the awards the applicant has accepted to their "accepted" list, and remove any from that list that conflict with one another
-				//save data and refresh page to display awards that are left
-				student.awards().removeAll(toRemove);
-				student.acceptedAwards().addAll(student.awards());
-				student.acceptedAwards().removeAll(toRemove);
-				data.saveData();
-				dispose();
-				AcceptAwards accAw = new AcceptAwards(data, applicant, index);
-				accAw.setVisible(true);
-
 			}
 		});
+		
 		btnNewButton.setBounds(158, 358, 117, 29);
 		contentPane.add(btnNewButton);
 		
@@ -116,14 +118,15 @@ public class AcceptAwards extends JFrame {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				//If the applicant delcines an award, get the selected scholarship and remove
-				//it from the applicants list of awards, save data and refresh page
-				student.awards().remove(scholarships.get(scholList.getSelectedIndex()));
-				data.saveData();
-				dispose();
-				AcceptAwards accAw = new AcceptAwards(data, applicant, index);
-				accAw.setVisible(true);
-				
+				if (scholarships.size() >= 1) {
+					//If the applicant declines an award, get the selected scholarship and remove
+					//it from the applicants list of awards, save data and refresh page
+					student.awards().remove(scholarships.get(scholList.getSelectedIndex()));
+					data.saveData();
+					dispose();
+					AcceptAwards accAw = new AcceptAwards(data, applicant, index);
+					accAw.setVisible(true);
+				}	
 			}
 		});
 		btnNewButton_1.setBounds(269, 358, 117, 29);
@@ -134,7 +137,10 @@ public class AcceptAwards extends JFrame {
 		JButton btnNewButton_2 = new JButton("View Award Info");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null,  "Award Name: " + scholarships.get(scholList.getSelectedIndex()).getScholName() + "\nDonor NameL " + scholarships.get(scholList.getSelectedIndex()).getDonorName() + "\nAward Amount: $" + scholarships.get(scholList.getSelectedIndex()).getScholValue() + "\nTerm: " + scholarships.get(scholList.getSelectedIndex()).getAnnual());
+				if (scholarships.size() >= 1) {
+			
+					JOptionPane.showMessageDialog(null,  "Award Name: " + scholarships.get(scholList.getSelectedIndex()).getScholName() + "\nDonor NameL " + scholarships.get(scholList.getSelectedIndex()).getDonorName() + "\nAward Amount: $" + scholarships.get(scholList.getSelectedIndex()).getScholValue() + "\nTerm: " + scholarships.get(scholList.getSelectedIndex()).getAnnual());
+				}
 			}
 		});
 		btnNewButton_2.setBounds(379, 358, 150, 29);

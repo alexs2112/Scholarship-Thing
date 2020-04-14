@@ -80,20 +80,25 @@ public class NominateStudent extends JFrame {
 		JButton btnNewButton = new JButton("Submit");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if (studentNames.size() >= 1 && listOfNames.size() >= 1) {
+					if (scholList.isSelectionEmpty() || studList.isSelectionEmpty()) {
+						return;
+					} else {
 				
-				//create new recommendation for selected student, of selected scholarship and current user
-				//save that recommendation to the applicants account
-				//save and close
-				String selectedStudent = studList.getSelectedValue().toString();
-				String selectedSchol = scholList.getSelectedValue().toString();
-				Recommendations recom = new Recommendations(user, scholarships.get(scholList.getSelectedIndex()));
-				Applicant appli = allApplicants.get(studList.getSelectedIndex());
-				users.remove(appli);
-				appli.addProfRec(recom);
-				users.add(appli);
-				data.saveData();
-				dispose();
-				
+						//create new recommendation for selected student, of selected scholarship and current user
+						//save that recommendation to the applicants account
+						//save and close
+						String selectedStudent = studList.getSelectedValue().toString();
+						String selectedSchol = scholList.getSelectedValue().toString();
+						Recommendations recom = new Recommendations(user, scholarships.get(scholList.getSelectedIndex()));
+						Applicant appli = allApplicants.get(studList.getSelectedIndex());
+						users.remove(appli);
+						appli.addProfRec(recom);
+						users.add(appli);
+						data.saveData();
+						dispose();
+					}
+				}
 			}
 		});
 		btnNewButton.setBounds(615, 431, 117, 29);

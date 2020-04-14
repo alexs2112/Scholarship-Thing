@@ -88,17 +88,23 @@ public class SubmitReference extends JFrame {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				//save selected file from above to the students account as a file
-				//saves data and closes
-				String selectedStudent = studList.getSelectedValue().toString();
-				Applicant appli = allApplicants.get(studList.getSelectedIndex());
-				users.remove(appli);
-				appli.addStudentFile(reference);
-				users.add(appli);
-				data.saveData();
-				dispose();
+				if (studentNames.size() >= 1) {
 				
-				
+					//save selected file from above to the students account as a file
+					//saves data and closes
+					if (studList.isSelectionEmpty()) {
+						return;
+					} else {
+						String selectedStudent = studList.getSelectedValue().toString();
+						Applicant appli = allApplicants.get(studList.getSelectedIndex());
+						users.remove(appli);
+						appli.addStudentFile(reference);
+						users.add(appli);
+						data.saveData();
+						dispose();
+					}
+					
+				}
 			}
 		});
 		btnNewButton_1.setBounds(638, 429, 117, 29);
