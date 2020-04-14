@@ -12,9 +12,10 @@ public class Applicant extends User implements Comparable {
 	private ArrayList<Recommendations> recommendations;
 	private ArrayList<Scholarship> applications;
 	private ArrayList<File> studentFiles;
+	private ArrayList<Scholarship> awards;
+
 	
 	//The awards the applicant has received
-	private ArrayList<Scholarship> awards;
 	public ArrayList<Scholarship> awards() { 
 		return awards; 
 		
@@ -36,6 +37,7 @@ public class Applicant extends User implements Comparable {
 		this.applications = new ArrayList<Scholarship>();
 		this.studentFiles = new ArrayList<File>();
 		this.recommendations = new ArrayList<Recommendations>();
+		this.awards = new ArrayList<Scholarship>();
 	}
 	
 	public void update(String firstName, String lastName, String id, String type, String faculty, 
