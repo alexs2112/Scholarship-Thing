@@ -62,8 +62,18 @@ public class GiveAward extends JFrame {
 				JOptionPane.showMessageDialog(null, "All scholarships have been awarded");
 			}
 		});
-		btnNewButton_4.setBounds(177, 386, 156, 29);
+		btnNewButton_4.setBounds(177, 386, 147, 29);
 		contentPane.add(btnNewButton_4);
+		
+		JButton btnExitButton = new JButton("Exit");
+		//Awards all available scholarships
+		btnExitButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnExitButton.setBounds(339, 386, 147, 29);
+		contentPane.add(btnExitButton);
 		
 		JLabel label = new JLabel("University of Calgary Scholarship Application System");
 		label.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
