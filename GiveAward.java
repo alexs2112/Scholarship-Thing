@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
@@ -47,6 +48,7 @@ public class GiveAward extends JFrame {
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				function.awardScholarship(scholarships.get(list.getSelectedIndex()));
+				JOptionPane.showMessageDialog(null, scholarships.get(list.getSelectedIndex()).getScholName() + " has been awarded");
 			}
 		});
 		btnNewButton_3.setBounds(15, 386, 147, 29);
@@ -57,6 +59,7 @@ public class GiveAward extends JFrame {
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				function.awardAllScholarships();
+				JOptionPane.showMessageDialog(null, "All scholarships have been awarded");
 			}
 		});
 		btnNewButton_4.setBounds(177, 386, 156, 29);
