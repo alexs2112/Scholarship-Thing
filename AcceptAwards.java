@@ -88,6 +88,7 @@ public class AcceptAwards extends JFrame {
 				
 				student.awards().removeAll(toRemove);
 				student.acceptedAwards().addAll(student.awards());
+				student.acceptedAwards().removeAll(toRemove);
 				data.saveData();
 				dispose();
 				AcceptAwards accAw = new AcceptAwards(data, applicant, index);
