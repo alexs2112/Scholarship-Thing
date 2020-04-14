@@ -142,9 +142,9 @@ public class ApplyForAward extends JFrame {
 		ArrayList<Scholarship> awards = new ArrayList<Scholarship>();
 		for (Scholarship award : data.awards()) {
 			//Check every award in data, if it is not exclusive and inaccessible to the student, let them view it
-			if ((award.faculty() == student.getFaculty() || award.faculty() == "None") &&
-				(award.studentType() == student.getStudentType() || award.studentType() == "None") &&
-				(award.department() == student.getStudentType() || award.studentType() == "None"))
+			if (award.faculty().equals(student.getFaculty()) || award.faculty().equals("None") &&
+				award.studentType().equals(student.getStudentType()) || award.studentType().equals("None") &&
+				award.department().equals(student.getStudentType()) || award.studentType().equals("None"))
 				awards.add(award);
 		}
 		
