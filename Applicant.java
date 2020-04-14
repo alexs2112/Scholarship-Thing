@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.io.*;
 
 public class Applicant extends User implements Comparable {
 	private static final long serialVersionUID = 1060623638149583738L;
@@ -9,15 +8,13 @@ public class Applicant extends User implements Comparable {
 	private double GPA;
 	private Integer level;
 	private String id;
-	private ArrayList<Professor> recommendations;
+	//private ArrayList<Professor> recommendations;
 	private ArrayList<Scholarship> applications;
-	private ArrayList<File> studentFiles;
 	
 	//The awards the applicant has received
 	private ArrayList<Scholarship> awards;
 	public ArrayList<Scholarship> awards() { return awards; }
 	public void addAward(Scholarship award) { awards.add(award); }
-	
 
 	public Applicant(String name, String id, String studenttype, String fac, String dep, double gpa, String username, String password, String role) {
 		super(name, role, username, password);
@@ -27,7 +24,6 @@ public class Applicant extends User implements Comparable {
 		this.department = dep;
 		this.GPA = gpa;
 		this.applications = new ArrayList<Scholarship>();
-		this.studentFiles = new ArrayList<File>();
 	}
 	
 	public void update(String firstName, String lastName, String id, String type, String faculty, 
@@ -88,9 +84,6 @@ public class Applicant extends User implements Comparable {
 	public String id() { return id; }
 	public ArrayList<Scholarship> applications() { return applications; }
 	public void addApplication(Scholarship x) { applications.add(x); }
-	public void addStudentFile(File file) {
-		studentFiles.add(file);
-	}
 
 	@Override
 	public int compareTo(Object user) {
