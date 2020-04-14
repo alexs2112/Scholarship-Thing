@@ -7,6 +7,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 
 import java.awt.Font;
 import java.util.ArrayList;
@@ -114,12 +115,13 @@ public class AcceptAwards extends JFrame {
 		JButton btnNewButton_2 = new JButton("View Award Info");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				JOptionPane.showMessageDialog(null,  "Award Name: " + scholarships.get(scholList.getSelectedIndex()).getScholName() + "\nDonor NameL " + scholarships.get(scholList.getSelectedIndex()).getDonorName() + "\nAward Amount: $" + scholarships.get(scholList.getSelectedIndex()).getScholValue() + "\nTerm: " + scholarships.get(scholList.getSelectedIndex()).getAnnual());
 			}
 		});
 		btnNewButton_2.setBounds(119, 399, 150, 29);
 		contentPane.add(btnNewButton_2);
-
+		
+		
 				
 	}
 }
