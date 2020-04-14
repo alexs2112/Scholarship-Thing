@@ -67,7 +67,6 @@ public class Login implements java.io.Serializable {
 			//Applies the login check to see if this user exists, returns the user
 			User user = loginCheck.login(userLogin, userPassword);
 			if (user == null)
-				//initialize();
 				return;
 			
 			if (user != null) {

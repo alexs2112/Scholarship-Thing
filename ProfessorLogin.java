@@ -49,7 +49,7 @@ public class ProfessorLogin extends JFrame {
 		JButton btnNewButton_1 = new JButton("Nominate Student for Award");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				NominateStudent nomStud = new NominateStudent(data);
+				NominateStudent nomStud = new NominateStudent(data, prof);
 				nomStud.setVisible(true);
 			}
 		});

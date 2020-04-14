@@ -1,3 +1,4 @@
+  
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -21,7 +22,7 @@ public class NominateStudent extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public NominateStudent(Data data) {
+	public NominateStudent(Data data, User user) {
 		setTitle("University of Calgary Scholarship Application System | Nominate a Student");
 		setBounds(100, 100, 772, 500);
 		contentPane = new JPanel();
@@ -42,16 +43,23 @@ public class NominateStudent extends JFrame {
 		
 		//An arraylist of all the students in the system and their associated data
 		ArrayList<User> users = data.users();
+		
 		ArrayList<Applicant> allApplicants = new ArrayList<Applicant>();
-		for (User user : users) {
-			if (user.role().contentEquals("student")) {
-				allApplicants.add((Applicant)user);
+		for (User user1 : users) {
+			if (user1.role().contentEquals("student")) {
+				allApplicants.add((Applicant)user1);
 			}
 		}
+		
 		ArrayList<String> studentNames = new ArrayList<String>();
 		for (Applicant applicant : allApplicants) {
 			studentNames.add(applicant.firstName() + " " + applicant.lastName());
 		}
+		
+		ArrayList<String> studentNumbers = new ArrayList<String>();
+		for (Applicant applicant : allApplicants) {
+			studentNumbers.add(applicant.id());
+		}	
 		
 		JList scholList = new JList(listOfNames.toArray());
 		scholList.setBounds(414, 41, 318, 279);
@@ -64,7 +72,15 @@ public class NominateStudent extends JFrame {
 		JButton btnNewButton = new JButton("Submit");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String selectedStudent = studList.getSelectedValue().toString();
+				String selectedSchol = scholList.getSelectedValue().toString();
+				Recommendations recom = new Recommendations(user, scholarships.get(scholList.getSelectedIndex()));
+				Applicant appli = allApplicants.get(studList.getSelectedIndex());
+				users.remove(appli);
+				appli.addProfRec(recom);
+				users.add(appli);
 				dispose();
+				
 			}
 		});
 		btnNewButton.setBounds(615, 359, 117, 29);
@@ -82,3 +98,4 @@ public class NominateStudent extends JFrame {
 	}
 
 }
+;
