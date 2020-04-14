@@ -149,13 +149,16 @@ public class ApplyForAward extends JFrame {
 		contentPane.add(lblNewLabel_4);
 		
 		//Get a list of all available awards
-		 ArrayList<Scholarship> awards = new ArrayList<Scholarship>();
-		for (Scholarship award : data.awards()) {
+		ArrayList<Scholarship> awards = new ArrayList<Scholarship>();
+		for (Scholarship award : data.awards()) {			
 			//Check every award in data, if it is not exclusive and inaccessible to the student, let them view it
-			if ((award.faculty().equals(student.getFaculty()) || award.faculty().equals("None") &&
-				award.studentType().equals(student.getStudentType()) || award.studentType().equals("None") &&
-				award.department().equals(student.getStudentType()) || award.studentType().equals("None")))
+			if ( (award.faculty().equals(student.getFaculty()) || award.faculty().equals("None") ) &&
+				( award.studentType().equals(student.getStudentType()) || award.studentType().equals("None") ) &&
+				( award.department().equals(student.getDepartment()) || award.department().equals("None") ) ) {
+			
+				
 				awards.add(award);
+			}
 		}
 		
 		
